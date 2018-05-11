@@ -22,14 +22,18 @@ namespace Yggdrasil
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
-
+            Form3 mainPage = new Form3();
+            mainPage.Show();
+            this.Hide();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnSignIn_Click(object sender, EventArgs e)
         {
-
+            Form2 signInPage = new Form2(this);
+            signInPage.Show();
+            this.Hide();
         }
     }
 }

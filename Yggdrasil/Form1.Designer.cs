@@ -28,71 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblAccount = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnSignIn = new System.Windows.Forms.Button();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // lblWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(141, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(505, 60);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hello Yggdrasil!";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblWelcome.Location = new System.Drawing.Point(106, 31);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(404, 48);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Hello Yggdrasil!";
             // 
-            // label2
+            // lblAccount
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 173);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Account：";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblAccount.Location = new System.Drawing.Point(150, 170);
+            this.lblAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(91, 20);
+            this.lblAccount.TabIndex = 1;
+            this.lblAccount.Text = "Account   ：";
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 262);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "password：";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPassword.Location = new System.Drawing.Point(150, 202);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(90, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "password ：";
             // 
-            // button1
+            // btnLogIn
             // 
-            this.button1.Location = new System.Drawing.Point(280, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogIn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogIn.FlatAppearance.BorderSize = 0;
+            this.btnLogIn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLogIn.Location = new System.Drawing.Point(191, 270);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(72, 32);
+            this.btnLogIn.TabIndex = 3;
+            this.btnLogIn.Text = "Log in ";
+            this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
-            // button2
+            // btnSignIn
             // 
-            this.button2.Location = new System.Drawing.Point(431, 338);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSignIn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSignIn.FlatAppearance.BorderSize = 0;
+            this.btnSignIn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSignIn.Location = new System.Drawing.Point(309, 270);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(72, 32);
+            this.btnSignIn.TabIndex = 4;
+            this.btnSignIn.Text = "Sign in";
+            this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
+            // 
+            // txtAccount
+            // 
+            this.txtAccount.Location = new System.Drawing.Point(250, 168);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(147, 21);
+            this.txtAccount.TabIndex = 5;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(250, 200);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(147, 21);
+            this.txtPassword.TabIndex = 6;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 473);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(575, 378);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtAccount);
+            this.Controls.Add(this.btnSignIn);
+            this.Controls.Add(this.btnLogIn);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblAccount);
+            this.Controls.Add(this.lblWelcome);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Yggdrasil";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -103,11 +135,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblAccount;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Button btnLogIn;
+        private System.Windows.Forms.Button btnSignIn;
+        private System.Windows.Forms.TextBox txtAccount;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 
