@@ -19,10 +19,6 @@ namespace Yggdrasil
             this.lastForm = lastForm;
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
@@ -47,7 +43,7 @@ namespace Yggdrasil
             lastForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             lastForm.Show();
             this.Close();
