@@ -24,7 +24,7 @@ namespace Yggdrasil
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            Form3 mainPage = new Form3();
+            Main mainPage = new Main(this);
             mainPage.Show();
             this.Hide();
         }

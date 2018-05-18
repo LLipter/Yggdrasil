@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form3 : Form
+    public partial class Main : Form
     {
-        public Form3()
+        private Form lastForm;
+        public Main(Form lastForm)
         {
             InitializeComponent();
+            this.lastForm = lastForm;
         }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            lastForm.Close();
+        }
+
     }
 }
