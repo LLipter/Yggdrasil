@@ -52,6 +52,8 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\DatabaseUtility.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Signin.cs">
       <SubType>Form</SubType>
     </Compile>
