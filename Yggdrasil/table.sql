@@ -4,7 +4,7 @@ USE yggdrasil;
 
 CREATE TABLE user(
 	user_id INT auto_increment,
-	user_name VARCHAR(50) NOT NULL,
+	user_name VARCHAR(50) UNIQUE NOT NULL,
 	passwd VARCHAR(50) NOT NULL,
 	nick_name VARCHAR(50),
 	privilege INT DEFAULT 0, -- 0 means no privilege
@@ -28,10 +28,10 @@ INSERT INTO publisher(publisher_name) VALUES('武汉大学出版社');
 CREATE TABLE book(
 	book_id INT auto_increment,
 	book_name VARCHAR(100) NOT NULL,
-	detail_info VARCHAR(100),-- not description itself, but an url to description
-	image VARCHAR(100), -- location of its image
+	location VARCHAR(100), -- location
 	book_status INT DEFAULT 1, -- 1 means available, 0 means not
 	publisher_id INT,
+	chapter_no INT DEFAULT 0,
 	create_date DATETIME DEFAULT NOW(),
 	modify_date DATETIME DEFAULT NOW(),
 	PRIMARY KEY(book_id),
