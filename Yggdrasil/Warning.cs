@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form8 : Form
+    public partial class Warning : Form
     {
-        public Form8(string msg)
+        public Warning(string msg)
         {
             InitializeComponent();
             lblWarning.Text = msg;

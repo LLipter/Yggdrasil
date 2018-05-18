@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace Yggdrasil
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            Form2 signInPage = new Form2(this);
+            Signin signInPage = new Signin(this);
             signInPage.Show();
             this.Hide();
         }

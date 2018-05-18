@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil
 {
-    partial class Form2
+    partial class Signin
     {
         /// <summary>
         /// Required designer variable.

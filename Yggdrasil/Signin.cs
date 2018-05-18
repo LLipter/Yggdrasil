@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form2 : Form
+    public partial class Signin : Form
     {
         Form lastForm;
-        public Form2(Form lastForm)
+        public Signin(Form lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
@@ -35,7 +35,7 @@ namespace Yggdrasil
                 }
                 else
                 {
-                    Form8 warningPage = new Form8("The password and confirm password don't match!!");
+                    Warning warningPage = new Warning("The password and confirm password don't match!!");
                     warningPage.Show();
                 }
             }

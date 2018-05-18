@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil
 {
-    partial class Form8
+    partial class Warning
     {
         /// <summary>
         /// Required designer variable.
