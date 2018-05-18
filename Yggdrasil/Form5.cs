@@ -16,5 +16,34 @@ namespace Yggdrasil
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form6 form6 = new Form6();
+            form6.ShowDialog();
+            this.Visible = true;
+            
+        }
     }
 }

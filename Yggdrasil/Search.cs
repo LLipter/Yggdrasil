@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Warning : Form
+    public partial class Search : Form
     {
-        public Warning(string msg)
+        public Search()
         {
             InitializeComponent();
-            lblWarning.Text = msg;
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }
