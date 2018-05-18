@@ -14,11 +14,15 @@ namespace Yggdrasil
     {
 
         private Form lastForm;
-        public Main(Form lastForm)
+        int s = 0;
+        int privilege;
+        public Main(Form lastForm,int privilege)
         {
             InitializeComponent();
             this.lastForm = lastForm;
-            
+            this.privilege = privilege;
+            if (privilege<20) btnBookManagement.Hide();
+
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -28,32 +32,37 @@ namespace Yggdrasil
 
         private void timShow_Tick(object sender, EventArgs e)
         {
-            int s = 0;
             if (s < 4) {}
             else { s -= 4; }
-            btnShow.Image = imlRecommend.Images[s + 1];
+            piBShow.Image = imlRecommend.Images[s];
             s++;
-
         }
 
         private void btnShow1_Click(object sender, EventArgs e)
         {
-            btnShow.Image = imlRecommend.Images[0];
+            piBShow.Image = imlRecommend.Images[0];
         }
 
         private void btnShow2_Click(object sender, EventArgs e)
         {
-            btnShow.Image = imlRecommend.Images[1];
+            piBShow.Image = imlRecommend.Images[1];
         }
 
         private void btnShow3_Click(object sender, EventArgs e)
         {
-            btnShow.Image = imlRecommend.Images[2];
+            piBShow.Image = imlRecommend.Images[2];
         }
 
         private void btnShow4_Click(object sender, EventArgs e)
         {
-            btnShow.Image = imlRecommend.Images[4];
+            piBShow.Image = imlRecommend.Images[3];
+        }
+
+        private void btnBookManagement_Click(object sender, EventArgs e)
+        {
+            Manage managePage = new Manage();
+            managePage.Show();
         }
     }
+
 }

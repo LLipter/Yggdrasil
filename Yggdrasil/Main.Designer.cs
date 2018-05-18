@@ -34,7 +34,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDividingline = new System.Windows.Forms.Label();
-            this.btnShow = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -49,7 +48,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timShow = new System.Windows.Forms.Timer(this.components);
+            this.piBShow = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piBShow)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,19 +85,6 @@
             this.lblDividingline.Name = "lblDividingline";
             this.lblDividingline.Size = new System.Drawing.Size(644, 5);
             this.lblDividingline.TabIndex = 3;
-            // 
-            // btnShow
-            // 
-            this.btnShow.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnShow.FlatAppearance.BorderSize = 0;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.Image")));
-            this.btnShow.Location = new System.Drawing.Point(96, 69);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(520, 240);
-            this.btnShow.TabIndex = 4;
-            this.btnShow.Text = "button1";
-            this.btnShow.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -150,6 +138,7 @@
             this.btnBookManagement.TabIndex = 10;
             this.btnBookManagement.Text = "Book Management";
             this.btnBookManagement.UseVisualStyleBackColor = true;
+            this.btnBookManagement.Click += new System.EventHandler(this.btnBookManagement_Click);
             // 
             // imlRecommend
             // 
@@ -245,6 +234,17 @@
             this.timShow.Interval = 200;
             this.timShow.Tick += new System.EventHandler(this.timShow_Tick);
             // 
+            // piBShow
+            // 
+            this.piBShow.Image = ((System.Drawing.Image)(resources.GetObject("piBShow.Image")));
+            this.piBShow.ImageLocation = "";
+            this.piBShow.InitialImage = ((System.Drawing.Image)(resources.GetObject("piBShow.InitialImage")));
+            this.piBShow.Location = new System.Drawing.Point(96, 69);
+            this.piBShow.Name = "piBShow";
+            this.piBShow.Size = new System.Drawing.Size(520, 240);
+            this.piBShow.TabIndex = 19;
+            this.piBShow.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -260,16 +260,17 @@
             this.Controls.Add(this.btnShow1);
             this.Controls.Add(this.btnBookManagement);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.lblDividingline);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.piBShow);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "主界面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.piBShow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +282,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDividingline;
-        private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -296,5 +296,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timShow;
+        private System.Windows.Forms.PictureBox piBShow;
     }
 }
