@@ -35,8 +35,7 @@ namespace Yggdrasil
                 }
                 else
                 {
-                    Warning warningPage = new Warning("The password and confirm password don't match!");
-                    warningPage.Show();
+                    MessageBox.Show("The password and confirm password don't match!","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             
