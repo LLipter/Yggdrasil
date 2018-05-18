@@ -22,19 +22,6 @@ namespace Yggdrasil.Model
         public int Privilege { get { return privilege; } set { privilege = value; } }
         public DateTime Register_date { get { return register_date; } set { register_date = value; } }
 
-        public User()
-        {
-            // do nothring
-        }
 
-        public User(int user_id, String user_name, String passwd, String nick_name, int privilege, DateTime register_date)
-        {
-            this.User_id = user_id;
-            this.User_name = user_name;
-            this.Passwd = passwd;
-            this.Nick_name = nick_name;
-            this.Privilege = privilege;
-            this.Register_date = register_date;
-        }
     }
 }
