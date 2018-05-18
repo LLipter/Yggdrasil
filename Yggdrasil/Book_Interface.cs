@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form5 : Form
+    public partial class Book_Interface : Form
     {
-        public Form5()
+        public Book_Interface()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void BookNameLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -27,21 +27,21 @@ namespace Yggdrasil
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void SummaryBox_TextChanged(object sender, EventArgs e)
         {
           
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BeginReadButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Form6 form6 = new Form6();
-            form6.ShowDialog();
+            Read_Interface readInter = new Read_Interface();
+            readInter.ShowDialog();
             this.Visible = true;
             
         }
