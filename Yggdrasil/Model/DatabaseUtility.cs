@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 
-namespace Yggdrasil.Model
+/*namespace Yggdrasil.Model
 {
     class DatabaseUtility
     {
@@ -15,3 +15,4 @@ namespace Yggdrasil.Model
         }
     }
 }
+*/
