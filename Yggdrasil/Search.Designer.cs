@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil
 {
-    partial class Form4
+    partial class Search
     {
         /// <summary>
         /// Required designer variable.

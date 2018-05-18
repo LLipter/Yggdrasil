@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form4 : Form
+    public partial class Search : Form
     {
-        public Form4()
+        public Search()
         {
             InitializeComponent();
         }
