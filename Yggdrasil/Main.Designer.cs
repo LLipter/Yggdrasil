@@ -34,9 +34,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDividingline = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnBook1 = new System.Windows.Forms.Button();
+            this.btnBook2 = new System.Windows.Forms.Button();
+            this.btnBook3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBookManagement = new System.Windows.Forms.Button();
             this.imlRecommend = new System.Windows.Forms.ImageList(this.components);
@@ -49,6 +49,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.timShow = new System.Windows.Forms.Timer(this.components);
             this.piBShow = new System.Windows.Forms.PictureBox();
+            this.lblBook1 = new System.Windows.Forms.Label();
+            this.lblBook2 = new System.Windows.Forms.Label();
+            this.lblBook3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +80,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDividingline
             // 
@@ -86,45 +90,48 @@
             this.lblDividingline.Size = new System.Drawing.Size(644, 5);
             this.lblDividingline.TabIndex = 3;
             // 
-            // button3
+            // btnBook1
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(30, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 150);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBook1.Image = ((System.Drawing.Image)(resources.GetObject("btnBook1.Image")));
+            this.btnBook1.Location = new System.Drawing.Point(30, 42);
+            this.btnBook1.Name = "btnBook1";
+            this.btnBook1.Size = new System.Drawing.Size(150, 150);
+            this.btnBook1.TabIndex = 6;
+            this.btnBook1.UseVisualStyleBackColor = true;
+            this.btnBook1.Click += new System.EventHandler(this.btnBook1_Click);
             // 
-            // button4
+            // btnBook2
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(205, 42);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 150);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBook2.Image = ((System.Drawing.Image)(resources.GetObject("btnBook2.Image")));
+            this.btnBook2.Location = new System.Drawing.Point(205, 42);
+            this.btnBook2.Name = "btnBook2";
+            this.btnBook2.Size = new System.Drawing.Size(150, 150);
+            this.btnBook2.TabIndex = 7;
+            this.btnBook2.UseVisualStyleBackColor = true;
+            this.btnBook2.Click += new System.EventHandler(this.btnBook2_Click);
             // 
-            // button5
+            // btnBook3
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(372, 42);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(150, 150);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnBook3.Image = ((System.Drawing.Image)(resources.GetObject("btnBook3.Image")));
+            this.btnBook3.Location = new System.Drawing.Point(372, 42);
+            this.btnBook3.Name = "btnBook3";
+            this.btnBook3.Size = new System.Drawing.Size(150, 150);
+            this.btnBook3.TabIndex = 8;
+            this.btnBook3.UseVisualStyleBackColor = true;
+            this.btnBook3.Click += new System.EventHandler(this.btnBook3_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.lblBook3);
+            this.groupBox1.Controls.Add(this.lblBook2);
+            this.groupBox1.Controls.Add(this.lblBook1);
+            this.groupBox1.Controls.Add(this.btnBook1);
+            this.groupBox1.Controls.Add(this.btnBook3);
+            this.groupBox1.Controls.Add(this.btnBook2);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(66, 327);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 213);
+            this.groupBox1.Size = new System.Drawing.Size(547, 241);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recommend";
@@ -231,7 +238,8 @@
             // 
             // timShow
             // 
-            this.timShow.Interval = 200;
+            this.timShow.Enabled = true;
+            this.timShow.Interval = 3500;
             this.timShow.Tick += new System.EventHandler(this.timShow_Tick);
             // 
             // piBShow
@@ -239,11 +247,39 @@
             this.piBShow.Image = ((System.Drawing.Image)(resources.GetObject("piBShow.Image")));
             this.piBShow.ImageLocation = "";
             this.piBShow.InitialImage = ((System.Drawing.Image)(resources.GetObject("piBShow.InitialImage")));
-            this.piBShow.Location = new System.Drawing.Point(96, 69);
+            this.piBShow.Location = new System.Drawing.Point(225, 77);
             this.piBShow.Name = "piBShow";
-            this.piBShow.Size = new System.Drawing.Size(520, 240);
+            this.piBShow.Size = new System.Drawing.Size(256, 200);
             this.piBShow.TabIndex = 19;
             this.piBShow.TabStop = false;
+            this.piBShow.Click += new System.EventHandler(this.piBShow_Click);
+            // 
+            // lblBook1
+            // 
+            this.lblBook1.AutoSize = true;
+            this.lblBook1.Location = new System.Drawing.Point(58, 195);
+            this.lblBook1.Name = "lblBook1";
+            this.lblBook1.Size = new System.Drawing.Size(69, 25);
+            this.lblBook1.TabIndex = 9;
+            this.lblBook1.Text = "Book1";
+            // 
+            // lblBook2
+            // 
+            this.lblBook2.AutoSize = true;
+            this.lblBook2.Location = new System.Drawing.Point(240, 195);
+            this.lblBook2.Name = "lblBook2";
+            this.lblBook2.Size = new System.Drawing.Size(69, 25);
+            this.lblBook2.TabIndex = 10;
+            this.lblBook2.Text = "Book2";
+            // 
+            // lblBook3
+            // 
+            this.lblBook3.AutoSize = true;
+            this.lblBook3.Location = new System.Drawing.Point(430, 195);
+            this.lblBook3.Name = "lblBook3";
+            this.lblBook3.Size = new System.Drawing.Size(69, 25);
+            this.lblBook3.TabIndex = 11;
+            this.lblBook3.Text = "Book3";
             // 
             // Main
             // 
@@ -270,6 +306,7 @@
             this.Text = "主界面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -282,9 +319,9 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDividingline;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnBook1;
+        private System.Windows.Forms.Button btnBook2;
+        private System.Windows.Forms.Button btnBook3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBookManagement;
         private System.Windows.Forms.ImageList imlRecommend;
@@ -297,5 +334,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timShow;
         private System.Windows.Forms.PictureBox piBShow;
+        private System.Windows.Forms.Label lblBook3;
+        private System.Windows.Forms.Label lblBook2;
+        private System.Windows.Forms.Label lblBook1;
     }
 }

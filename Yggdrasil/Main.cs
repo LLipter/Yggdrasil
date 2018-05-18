@@ -63,6 +63,36 @@ namespace Yggdrasil
             Manage managePage = new Manage();
             managePage.Show();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search searchPage = new Search();
+            searchPage.Show();
+        }
+
+        private void piBShow_Click(object sender, EventArgs e)
+        {
+            Book_Interface bkitfPage = new Book_Interface();
+            bkitfPage.Show();
+        }
+
+        private void btnBook1_Click(object sender, EventArgs e)
+        {
+            Book_Interface bkitfPage = new Book_Interface();
+            bkitfPage.Show();
+        }
+
+        private void btnBook2_Click(object sender, EventArgs e)
+        {
+            Book_Interface bkitfPage = new Book_Interface();
+            bkitfPage.Show();
+        }
+
+        private void btnBook3_Click(object sender, EventArgs e)
+        {
+            Book_Interface bkitfPage = new Book_Interface();
+            bkitfPage.Show();
+        }
     }
 
 }

@@ -111,6 +111,8 @@
             this.BeginReadButton.Text = "Begin to Read";
             this.BeginReadButton.UseVisualStyleBackColor = true;
             this.BeginReadButton.Click += new System.EventHandler(this.BeginReadButton_Click);
+            this.BeginReadButton.MouseEnter += new System.EventHandler(this.BeginReadButton_OnMouseEnter);
+            this.BeginReadButton.MouseLeave += new System.EventHandler(this.BeginReadButton_OnMouseLeave);
             // 
             // Book_Interface
             // 
