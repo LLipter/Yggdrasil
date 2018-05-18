@@ -22,6 +22,9 @@ namespace Yggdrasil.Model
         public int Privilege { get { return privilege; } set { privilege = value; } }
         public DateTime Register_date { get { return register_date; } set { register_date = value; } }
 
-
+        public User(int user_id = -1)
+        {
+            this.User_id = user_id;
+        }
     }
 }
