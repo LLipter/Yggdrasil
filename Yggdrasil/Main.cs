@@ -15,12 +15,13 @@ namespace Yggdrasil
 
         private Form lastForm;
         int s = 0;
-        
-        public Main(Form lastForm)
+        int privilege;
+        public Main(Form lastForm,int privilege)
         {
             InitializeComponent();
             this.lastForm = lastForm;
-            
+            this.privilege = privilege;
+            if (privilege<20) btnBookManagement.Hide();
 
         }
 
@@ -56,5 +57,12 @@ namespace Yggdrasil
         {
             piBShow.Image = imlRecommend.Images[3];
         }
+
+        private void btnBookManagement_Click(object sender, EventArgs e)
+        {
+            Manage managePage = new Manage();
+            managePage.Show();
+        }
     }
+
 }

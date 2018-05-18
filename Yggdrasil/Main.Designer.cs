@@ -138,6 +138,7 @@
             this.btnBookManagement.TabIndex = 10;
             this.btnBookManagement.Text = "Book Management";
             this.btnBookManagement.UseVisualStyleBackColor = true;
+            this.btnBookManagement.Click += new System.EventHandler(this.btnBookManagement_Click);
             // 
             // imlRecommend
             // 
