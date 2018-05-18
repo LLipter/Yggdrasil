@@ -45,5 +45,17 @@ namespace Yggdrasil
             this.Visible = true;
             
         }
+        private void BeginReadButton_OnMouseEnter(object sender, EventArgs e)
+        {
+            string path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+            path += @"\pic\button2.png";
+            BeginReadButton.BackgroundImage = Image.FromFile(path);
+        }
+        private void BeginReadButton_OnMouseLeave(object sender, EventArgs e)
+        {
+            string path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+            path += @"\pic\button1.png";
+            BeginReadButton.BackgroundImage = Image.FromFile(path);
+        }
     }
 }
