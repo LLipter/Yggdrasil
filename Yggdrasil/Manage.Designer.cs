@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil
 {
-    partial class Form7
+    partial class Manage
     {
         /// <summary>
         /// Required designer variable.

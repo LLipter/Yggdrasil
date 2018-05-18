@@ -10,26 +10,18 @@ using System.Windows.Forms;
 
 namespace Yggdrasil
 {
-    public partial class Form1 : Form
+    public partial class Warning : Form
     {
-        public Form1()
+        public Warning(string msg)
         {
             InitializeComponent();
+            lblWarning.Text = msg;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
