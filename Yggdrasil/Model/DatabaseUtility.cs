@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace Yggdrasil.Model
 {
@@ -40,7 +41,7 @@ namespace Yggdrasil.Model
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
             if (!read.Read())
-                user = null;
+                user = null;    // no such user
             else
             {
                 user.User_id = read.GetInt32("user_id");
@@ -53,6 +54,12 @@ namespace Yggdrasil.Model
             }
             read.Close();
             return 1;   // 1 means everything is right
+        }
+
+
+        public static int getBookByName(ref ArrayList books,String bookName)
+        {
+
         }
     }
 }
