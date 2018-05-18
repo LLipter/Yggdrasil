@@ -35,7 +35,7 @@ namespace Yggdrasil
                 }
                 else
                 {
-                    Warning warningPage = new Warning("The password and confirm password don't match!!");
+                    Warning warningPage = new Warning("The password and confirm password don't match!");
                     warningPage.Show();
                 }
             }
@@ -51,6 +51,7 @@ namespace Yggdrasil
         private void button1_Click(object sender, EventArgs e)
         {
             lastForm.Show();
+            this.Close();
         }
     }
 }

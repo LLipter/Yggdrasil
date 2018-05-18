@@ -148,11 +148,11 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // Signin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 336);
+            this.ClientSize = new System.Drawing.Size(483, 336);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.txtConfirmPassword);
@@ -165,7 +165,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAccount);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form2";
+            this.Name = "Signin";
             this.Text = "注册账号";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
