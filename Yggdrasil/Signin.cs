@@ -38,8 +38,16 @@ namespace Yggdrasil
                     User currentUser = new User();
                     currentUser.User_name = txtAccount.Text;
                     currentUser.Passwd = txtPassword.Text;
-                    this.Close();
-                    lastForm.Show();
+                    currentUser.Nick_name = txtNickname.Text;
+                    int situation = DatabaseUtility.register(ref currentUser);
+                    if (situation == -1) { MessageBox.Show("You have some problems about the Internet!"); }
+                    else
+                    {
+                        MessageBox.Show("You have signed in successfully!", "Success!",MessageBoxButtons.OK);
+                        this.Close();
+                        lastForm.Show();
+                    }
+                    
                 }
             }
             
