@@ -67,16 +67,18 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(311, 21);
+            this.txtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSearch.Location = new System.Drawing.Point(250, 17);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(82, 21);
+            this.txtSearch.Size = new System.Drawing.Size(125, 29);
             this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(399, 20);
+            this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSearch.Location = new System.Drawing.Point(381, 17);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(51, 21);
+            this.btnSearch.Size = new System.Drawing.Size(79, 29);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -92,33 +94,38 @@
             // 
             // btnBook1
             // 
+            this.btnBook1.FlatAppearance.BorderSize = 0;
+            this.btnBook1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBook1.Image = ((System.Drawing.Image)(resources.GetObject("btnBook1.Image")));
             this.btnBook1.Location = new System.Drawing.Point(30, 42);
             this.btnBook1.Name = "btnBook1";
             this.btnBook1.Size = new System.Drawing.Size(150, 150);
             this.btnBook1.TabIndex = 6;
             this.btnBook1.UseVisualStyleBackColor = true;
-            this.btnBook1.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // btnBook2
             // 
+            this.btnBook2.FlatAppearance.BorderSize = 0;
+            this.btnBook2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBook2.Image = ((System.Drawing.Image)(resources.GetObject("btnBook2.Image")));
             this.btnBook2.Location = new System.Drawing.Point(205, 42);
             this.btnBook2.Name = "btnBook2";
             this.btnBook2.Size = new System.Drawing.Size(150, 150);
             this.btnBook2.TabIndex = 7;
             this.btnBook2.UseVisualStyleBackColor = true;
-            this.btnBook2.Click += new System.EventHandler(this.btnBook2_Click);
+            this.btnBook2.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // btnBook3
             // 
+            this.btnBook3.FlatAppearance.BorderSize = 0;
+            this.btnBook3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBook3.Image = ((System.Drawing.Image)(resources.GetObject("btnBook3.Image")));
             this.btnBook3.Location = new System.Drawing.Point(372, 42);
             this.btnBook3.Name = "btnBook3";
             this.btnBook3.Size = new System.Drawing.Size(150, 150);
             this.btnBook3.TabIndex = 8;
             this.btnBook3.UseVisualStyleBackColor = true;
-            this.btnBook3.Click += new System.EventHandler(this.btnBook3_Click);
+            this.btnBook3.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // groupBox1
             // 
@@ -138,30 +145,42 @@
             // 
             // lblBook3
             // 
+            this.lblBook3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBook3.AutoSize = true;
-            this.lblBook3.Location = new System.Drawing.Point(430, 195);
+            this.lblBook3.Location = new System.Drawing.Point(417, 195);
             this.lblBook3.Name = "lblBook3";
             this.lblBook3.Size = new System.Drawing.Size(69, 25);
             this.lblBook3.TabIndex = 11;
             this.lblBook3.Text = "Book3";
+            this.lblBook3.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // lblBook2
             // 
+            this.lblBook2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBook2.AutoSize = true;
-            this.lblBook2.Location = new System.Drawing.Point(240, 195);
+            this.lblBook2.Location = new System.Drawing.Point(250, 195);
             this.lblBook2.Name = "lblBook2";
             this.lblBook2.Size = new System.Drawing.Size(69, 25);
             this.lblBook2.TabIndex = 10;
             this.lblBook2.Text = "Book2";
+            this.lblBook2.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // lblBook1
             // 
+            this.lblBook1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBook1.AutoSize = true;
-            this.lblBook1.Location = new System.Drawing.Point(58, 195);
+            this.lblBook1.Location = new System.Drawing.Point(69, 195);
             this.lblBook1.Name = "lblBook1";
             this.lblBook1.Size = new System.Drawing.Size(69, 25);
             this.lblBook1.TabIndex = 9;
             this.lblBook1.Text = "Book1";
+            this.lblBook1.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // btnBookManagement
             // 
@@ -189,9 +208,9 @@
             this.btnShow1.FlatAppearance.BorderSize = 0;
             this.btnShow1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow1.Location = new System.Drawing.Point(96, 283);
+            this.btnShow1.Location = new System.Drawing.Point(96, 280);
             this.btnShow1.Name = "btnShow1";
-            this.btnShow1.Size = new System.Drawing.Size(130, 26);
+            this.btnShow1.Size = new System.Drawing.Size(130, 30);
             this.btnShow1.TabIndex = 11;
             this.btnShow1.Text = "example1";
             this.btnShow1.UseVisualStyleBackColor = false;
@@ -203,9 +222,9 @@
             this.btnShow2.FlatAppearance.BorderSize = 0;
             this.btnShow2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow2.Location = new System.Drawing.Point(226, 283);
+            this.btnShow2.Location = new System.Drawing.Point(225, 280);
             this.btnShow2.Name = "btnShow2";
-            this.btnShow2.Size = new System.Drawing.Size(130, 26);
+            this.btnShow2.Size = new System.Drawing.Size(130, 30);
             this.btnShow2.TabIndex = 12;
             this.btnShow2.Text = "example2";
             this.btnShow2.UseVisualStyleBackColor = false;
@@ -217,9 +236,9 @@
             this.btnShow3.FlatAppearance.BorderSize = 0;
             this.btnShow3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow3.Location = new System.Drawing.Point(356, 283);
+            this.btnShow3.Location = new System.Drawing.Point(356, 280);
             this.btnShow3.Name = "btnShow3";
-            this.btnShow3.Size = new System.Drawing.Size(130, 26);
+            this.btnShow3.Size = new System.Drawing.Size(130, 30);
             this.btnShow3.TabIndex = 13;
             this.btnShow3.Text = "example3";
             this.btnShow3.UseVisualStyleBackColor = false;
@@ -231,9 +250,9 @@
             this.btnShow4.FlatAppearance.BorderSize = 0;
             this.btnShow4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow4.Location = new System.Drawing.Point(486, 283);
+            this.btnShow4.Location = new System.Drawing.Point(486, 280);
             this.btnShow4.Name = "btnShow4";
-            this.btnShow4.Size = new System.Drawing.Size(130, 26);
+            this.btnShow4.Size = new System.Drawing.Size(130, 30);
             this.btnShow4.TabIndex = 14;
             this.btnShow4.Text = "example4";
             this.btnShow4.UseVisualStyleBackColor = false;
@@ -279,7 +298,7 @@
             this.piBShow.Size = new System.Drawing.Size(256, 200);
             this.piBShow.TabIndex = 19;
             this.piBShow.TabStop = false;
-            this.piBShow.Click += new System.EventHandler(this.piBShow_Click);
+            this.piBShow.Click += new System.EventHandler(this.btnBook1_Click);
             // 
             // Main
             // 
