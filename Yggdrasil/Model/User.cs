@@ -26,5 +26,7 @@ namespace Yggdrasil.Model
         {
             this.User_id = user_id;
         }
+
+        public static User noSuchUser = new User();
     }
 }

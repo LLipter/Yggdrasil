@@ -8,6 +8,6 @@ namespace Yggdrasil.Model
 {
     class Global
     {
-        private static User user;   // represents current user
+        public static User user;   // represents current user
     }
 }

@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DatabaseUtility.cs" />
+    <Compile Include="Model\Global.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Signin.cs">
       <SubType>Form</SubType>

@@ -38,6 +38,9 @@
             this.btnBook2 = new System.Windows.Forms.Button();
             this.btnBook3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblBook3 = new System.Windows.Forms.Label();
+            this.lblBook2 = new System.Windows.Forms.Label();
+            this.lblBook1 = new System.Windows.Forms.Label();
             this.btnBookManagement = new System.Windows.Forms.Button();
             this.imlRecommend = new System.Windows.Forms.ImageList(this.components);
             this.btnShow1 = new System.Windows.Forms.Button();
@@ -49,9 +52,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.timShow = new System.Windows.Forms.Timer(this.components);
             this.piBShow = new System.Windows.Forms.PictureBox();
-            this.lblBook1 = new System.Windows.Forms.Label();
-            this.lblBook2 = new System.Windows.Forms.Label();
-            this.lblBook3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).BeginInit();
             this.SuspendLayout();
@@ -135,6 +135,33 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recommend";
+            // 
+            // lblBook3
+            // 
+            this.lblBook3.AutoSize = true;
+            this.lblBook3.Location = new System.Drawing.Point(430, 195);
+            this.lblBook3.Name = "lblBook3";
+            this.lblBook3.Size = new System.Drawing.Size(69, 25);
+            this.lblBook3.TabIndex = 11;
+            this.lblBook3.Text = "Book3";
+            // 
+            // lblBook2
+            // 
+            this.lblBook2.AutoSize = true;
+            this.lblBook2.Location = new System.Drawing.Point(240, 195);
+            this.lblBook2.Name = "lblBook2";
+            this.lblBook2.Size = new System.Drawing.Size(69, 25);
+            this.lblBook2.TabIndex = 10;
+            this.lblBook2.Text = "Book2";
+            // 
+            // lblBook1
+            // 
+            this.lblBook1.AutoSize = true;
+            this.lblBook1.Location = new System.Drawing.Point(58, 195);
+            this.lblBook1.Name = "lblBook1";
+            this.lblBook1.Size = new System.Drawing.Size(69, 25);
+            this.lblBook1.TabIndex = 9;
+            this.lblBook1.Text = "Book1";
             // 
             // btnBookManagement
             // 
@@ -253,33 +280,6 @@
             this.piBShow.TabIndex = 19;
             this.piBShow.TabStop = false;
             this.piBShow.Click += new System.EventHandler(this.piBShow_Click);
-            // 
-            // lblBook1
-            // 
-            this.lblBook1.AutoSize = true;
-            this.lblBook1.Location = new System.Drawing.Point(58, 195);
-            this.lblBook1.Name = "lblBook1";
-            this.lblBook1.Size = new System.Drawing.Size(69, 25);
-            this.lblBook1.TabIndex = 9;
-            this.lblBook1.Text = "Book1";
-            // 
-            // lblBook2
-            // 
-            this.lblBook2.AutoSize = true;
-            this.lblBook2.Location = new System.Drawing.Point(240, 195);
-            this.lblBook2.Name = "lblBook2";
-            this.lblBook2.Size = new System.Drawing.Size(69, 25);
-            this.lblBook2.TabIndex = 10;
-            this.lblBook2.Text = "Book2";
-            // 
-            // lblBook3
-            // 
-            this.lblBook3.AutoSize = true;
-            this.lblBook3.Location = new System.Drawing.Point(430, 195);
-            this.lblBook3.Name = "lblBook3";
-            this.lblBook3.Size = new System.Drawing.Size(69, 25);
-            this.lblBook3.TabIndex = 11;
-            this.lblBook3.Text = "Book3";
             // 
             // Main
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yggdrasil.Model;
 
 namespace Yggdrasil
 {
@@ -17,13 +18,16 @@ namespace Yggdrasil
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            if (txtAccount.Text == null) { MessageBox.Show("Please input username!"); }
+            if (txtPassword.Text == null) { MessageBox.Show("Please input password!"); }
+            User currentUser = new User();
+            int situation = DatabaseUtility.getUser(ref currentUser, txtAccount.Text);
+            if (situation == -1) { MessageBox.Show("You have some problems about the Internet!"); }
+            else { }
+            if (currentUser == User.noSuchUser) { MessageBox.Show("The user doesn't exist"); }
             Main mainPage = new Main(this,30);
             mainPage.Show();
             this.Hide();

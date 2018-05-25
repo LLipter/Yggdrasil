@@ -17,7 +17,7 @@ namespace Yggdrasil.Model
         private static string connPassword = "admin";
         private static string connStr = string.Format("Database={0};Data Source={1};User Id={2};Password={3}", connDatabase, connHost, connUser, connPassword);
 
-        private static User noSuchUser = new User();
+        
 
         private static MySqlConnection openConn()
         {
@@ -44,7 +44,7 @@ namespace Yggdrasil.Model
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
             if (!read.Read())
-                user = noSuchUser;    // no such user
+                user = User.noSuchUser;    // no such user
             else
             {
                 user.User_id = read.GetInt32("user_id");
