@@ -166,6 +166,7 @@
             this.Controls.Add(this.lblAccount);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Signin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注册账号";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
