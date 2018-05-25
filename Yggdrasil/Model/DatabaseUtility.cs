@@ -66,9 +66,9 @@ namespace Yggdrasil.Model
             MySqlConnection conn = openConn();
             if (conn == null)
                 return -1;  // -1 means cannot connect to database
-            string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES({0},{1},{2});", user.User_name,user.Passwd,user.Nick_name);
+            string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES('{0}','{1}','{2}');", user.User_name,user.Passwd,user.Nick_name);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
-            cmd.ExecuteNonQuery();
+            if (cmd.ExecuteNonQuery() == 1) { };
             return 1;
         }
 
