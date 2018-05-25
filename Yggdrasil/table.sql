@@ -38,8 +38,9 @@ CREATE TABLE book(
 	FOREIGN KEY(publisher_id) REFERENCES publisher(publisher_id)
 )default charset=utf8;
 
-INSERT INTO book(book_name) VALUES('斗破苍穹');
+INSERT INTO book(book_name,location,chapter_no) VALUES('斗破苍穹','dpcqxdhv7db5vt1revrsi1',5);
 INSERT INTO book(book_name) VALUES('C++ How to Programming');
+INSERT INTO book(book_name,location,chapter_no) VALUES('永夜君王','yyjw12315s4fe87g98f4dw',5);
 
 
 CREATE TABLE author(
