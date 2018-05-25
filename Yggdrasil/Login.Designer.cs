@@ -109,10 +109,11 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(250, 200);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(147, 21);
             this.txtPassword.TabIndex = 6;
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,7 +126,7 @@
             this.Controls.Add(this.lblAccount);
             this.Controls.Add(this.lblWelcome);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Yggdrasil";
             this.ResumeLayout(false);
             this.PerformLayout();

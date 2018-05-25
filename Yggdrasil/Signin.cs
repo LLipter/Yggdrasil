@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yggdrasil.Model;
 
 namespace Yggdrasil
 {
@@ -22,16 +23,23 @@ namespace Yggdrasil
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
-            if(txtAccount!=null && txtPassword != null)
+
+            if (txtAccount.Text == "") { MessageBox.Show("Please input username!"); }
+            else if (txtPassword.Text == "") { MessageBox.Show("Please input password!"); }
+            else
             {
-                if (txtConfirmPassword.Text == txtPassword.Text)
+                if (txtConfirmPassword.Text != txtPassword.Text)
                 {
-                    this.Close();
-                    lastForm.Show();
+                    MessageBox.Show("The password and confirm password don't match!", "Warning!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("The password and confirm password don't match!","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    User currentUser = new User();
+                    currentUser.User_name = txtAccount.Text;
+                    currentUser.Passwd = txtPassword.Text;
+                    this.Close();
+                    lastForm.Show();
                 }
             }
             

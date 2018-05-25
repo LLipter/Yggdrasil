@@ -21,16 +21,24 @@ namespace Yggdrasil
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            if (txtAccount.Text == null) { MessageBox.Show("Please input username!"); }
-            if (txtPassword.Text == null) { MessageBox.Show("Please input password!"); }
+            if (txtAccount.Text == "") { MessageBox.Show("Please input username!"); }
+            else if (txtPassword.Text == "") { MessageBox.Show("Please input password!"); }
+            else { 
             User currentUser = new User();
             int situation = DatabaseUtility.getUser(ref currentUser, txtAccount.Text);
             if (situation == -1) { MessageBox.Show("You have some problems about the Internet!"); }
-            else { Global.user = currentUser; }
-            if (currentUser == User.noSuchUser) { MessageBox.Show("The user doesn't exist"); }
-            Main mainPage = new Main(this,30);
-            mainPage.Show();
-            this.Hide();
+            else
+            {
+                Global.user = currentUser;
+                    if (currentUser == User.noSuchUser) { MessageBox.Show("The user doesn't exist"); }
+                    else
+                    {
+                        Main mainPage = new Main(this, 30);
+                        mainPage.Show();
+                        this.Hide();
+                    }
+            }
+        } 
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)

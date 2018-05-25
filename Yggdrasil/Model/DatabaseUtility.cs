@@ -61,7 +61,14 @@ namespace Yggdrasil.Model
             read.Close();
             return 1;   // 1 means everything is right
         }
-
+        public static int register(ref User user)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("INSERT INTO User values()");
+            return 1;
+        }
 
         public static int getBookByName(ref ArrayList books, String bookName)
         {
