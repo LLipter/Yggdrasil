@@ -22,6 +22,7 @@ namespace Yggdrasil
             this.lastForm = lastForm;
             this.privilege = privilege;
             if (privilege<20) btnBookManagement.Hide();
+            piBShow.Image = imlRecommend.Images[0];
 
         }
 

@@ -41,7 +41,7 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblWelcome.Location = new System.Drawing.Point(106, 31);
+            this.lblWelcome.Location = new System.Drawing.Point(92, 48);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(404, 48);
@@ -74,11 +74,11 @@
             // 
             this.btnLogIn.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnLogIn.FlatAppearance.BorderSize = 0;
-            this.btnLogIn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLogIn.Location = new System.Drawing.Point(191, 270);
+            this.btnLogIn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLogIn.Location = new System.Drawing.Point(188, 270);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(72, 32);
+            this.btnLogIn.Size = new System.Drawing.Size(80, 40);
             this.btnLogIn.TabIndex = 3;
             this.btnLogIn.Text = "Log in ";
             this.btnLogIn.UseVisualStyleBackColor = false;
@@ -88,11 +88,11 @@
             // 
             this.btnSignIn.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSignIn.FlatAppearance.BorderSize = 0;
-            this.btnSignIn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSignIn.Location = new System.Drawing.Point(309, 270);
+            this.btnSignIn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSignIn.Location = new System.Drawing.Point(317, 270);
             this.btnSignIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(72, 32);
+            this.btnSignIn.Size = new System.Drawing.Size(80, 40);
             this.btnSignIn.TabIndex = 4;
             this.btnSignIn.Text = "Sign in";
             this.btnSignIn.UseVisualStyleBackColor = false;
@@ -100,17 +100,19 @@
             // 
             // txtAccount
             // 
+            this.txtAccount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtAccount.Location = new System.Drawing.Point(250, 168);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(147, 21);
+            this.txtAccount.Size = new System.Drawing.Size(147, 26);
             this.txtAccount.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(250, 200);
+            this.txtPassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPassword.Location = new System.Drawing.Point(250, 205);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(147, 21);
+            this.txtPassword.Size = new System.Drawing.Size(147, 26);
             this.txtPassword.TabIndex = 6;
             // 
             // Login
@@ -125,7 +127,9 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblAccount);
             this.Controls.Add(this.lblWelcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yggdrasil";

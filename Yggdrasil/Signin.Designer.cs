@@ -45,7 +45,7 @@
             // 
             this.lblAccount.AutoSize = true;
             this.lblAccount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblAccount.Location = new System.Drawing.Point(146, 150);
+            this.lblAccount.Location = new System.Drawing.Point(137, 137);
             this.lblAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccount.Name = "lblAccount";
             this.lblAccount.Size = new System.Drawing.Size(72, 20);
@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(139, 210);
+            this.label2.Location = new System.Drawing.Point(130, 197);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
@@ -67,10 +67,10 @@
             // 
             this.btnCommit.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCommit.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCommit.Location = new System.Drawing.Point(142, 278);
+            this.btnCommit.Location = new System.Drawing.Point(129, 278);
             this.btnCommit.Margin = new System.Windows.Forms.Padding(2);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(76, 29);
+            this.btnCommit.Size = new System.Drawing.Size(80, 40);
             this.btnCommit.TabIndex = 2;
             this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = false;
@@ -80,7 +80,7 @@
             // 
             this.lblNickName.AutoSize = true;
             this.lblNickName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblNickName.Location = new System.Drawing.Point(134, 180);
+            this.lblNickName.Location = new System.Drawing.Point(125, 167);
             this.lblNickName.Name = "lblNickName";
             this.lblNickName.Size = new System.Drawing.Size(84, 20);
             this.lblNickName.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(85, 240);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(76, 227);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(133, 20);
             this.lblConfirmPassword.TabIndex = 4;
@@ -99,38 +99,42 @@
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(250, 149);
+            this.txtAccount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAccount.Location = new System.Drawing.Point(241, 136);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(140, 21);
+            this.txtAccount.Size = new System.Drawing.Size(140, 23);
             this.txtAccount.TabIndex = 5;
             // 
             // txtNickname
             // 
-            this.txtNickname.Location = new System.Drawing.Point(250, 179);
+            this.txtNickname.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtNickname.Location = new System.Drawing.Point(241, 166);
             this.txtNickname.Name = "txtNickname";
-            this.txtNickname.Size = new System.Drawing.Size(139, 21);
+            this.txtNickname.Size = new System.Drawing.Size(139, 23);
             this.txtNickname.TabIndex = 6;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(250, 209);
+            this.txtPassword.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPassword.Location = new System.Drawing.Point(241, 196);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(140, 21);
+            this.txtPassword.Size = new System.Drawing.Size(140, 23);
             this.txtPassword.TabIndex = 7;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(250, 239);
+            this.txtConfirmPassword.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(241, 226);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(139, 21);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(139, 23);
             this.txtConfirmPassword.TabIndex = 8;
             // 
             // lblImage
             // 
             this.lblImage.AutoSize = true;
-            this.lblImage.Location = new System.Drawing.Point(189, 86);
+            this.lblImage.Location = new System.Drawing.Point(197, 62);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(83, 12);
             this.lblImage.TabIndex = 9;
@@ -140,9 +144,9 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBack.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBack.Location = new System.Drawing.Point(260, 278);
+            this.btnBack.Location = new System.Drawing.Point(241, 278);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(83, 29);
+            this.btnBack.Size = new System.Drawing.Size(80, 40);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -164,7 +168,9 @@
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAccount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Signin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注册账号";

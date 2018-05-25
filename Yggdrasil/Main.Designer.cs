@@ -290,7 +290,6 @@
             // 
             // piBShow
             // 
-            this.piBShow.Image = ((System.Drawing.Image)(resources.GetObject("piBShow.Image")));
             this.piBShow.ImageLocation = "";
             this.piBShow.InitialImage = ((System.Drawing.Image)(resources.GetObject("piBShow.InitialImage")));
             this.piBShow.Location = new System.Drawing.Point(225, 77);
@@ -320,7 +319,9 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.piBShow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "主界面";
