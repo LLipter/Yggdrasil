@@ -136,5 +136,39 @@ namespace Yggdrasil.Model
             read.Close();
             return 1;   // 1 means everything is right
         }
+
+        public static int getBooks(ref ArrayList books, int number)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM book WHERE book_name LIMIT {0}", number);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+
+            while (read.Read())
+            {
+                Book book = new Book();
+                book.Book_id = read.GetInt32("book_id");
+                book.Book_name = read.GetString("book_name");
+                if (!read.IsDBNull(2))
+                    book.Location = read.GetString("location");
+                else
+                    book.Location = null;
+                book.Book_status = read.GetInt32("book_status");
+                if (!read.IsDBNull(4))
+                    book.Publisher_id = read.GetInt32("publisher_id");
+                else
+                    book.Publisher_id = -1; // -1 indicates its publisher_id is null
+                book.Chapter_no = read.GetInt32("chapter_no");
+                book.Create_date = read.GetDateTime("create_date");
+                book.Modify_date = read.GetDateTime("modify_date");
+                books.Add(book);
+            }
+            read.Close();
+            return 1;   // 1 means everything is right
+        }
     }
+
+
 }
