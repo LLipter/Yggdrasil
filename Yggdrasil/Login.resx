@@ -1012,4 +1012,7 @@
         0uhC4tGcBp9Vhtg4VeN5D1bTJ1bGXz9/C9wKONCxrnW4XfwVluOxGYZKBHp+S//Z
 </value>
   </data>
+  <metadata name="skinEngine1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
