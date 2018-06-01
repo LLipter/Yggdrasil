@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDividingline = new System.Windows.Forms.Label();
@@ -52,23 +51,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.timShow = new System.Windows.Forms.Timer(this.components);
             this.piBShow = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "This is the logo";
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSearch.Location = new System.Drawing.Point(250, 17);
+            this.txtSearch.Location = new System.Drawing.Point(213, 18);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(125, 29);
             this.txtSearch.TabIndex = 1;
@@ -76,18 +70,18 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSearch.Location = new System.Drawing.Point(381, 17);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(365, 18);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(79, 29);
+            this.btnSearch.Size = new System.Drawing.Size(80, 30);
             this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDividingline
             // 
             this.lblDividingline.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.lblDividingline.Location = new System.Drawing.Point(12, 61);
+            this.lblDividingline.Location = new System.Drawing.Point(12, 65);
             this.lblDividingline.Name = "lblDividingline";
             this.lblDividingline.Size = new System.Drawing.Size(644, 5);
             this.lblDividingline.TabIndex = 3;
@@ -129,6 +123,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.lblBook3);
             this.groupBox1.Controls.Add(this.lblBook2);
             this.groupBox1.Controls.Add(this.lblBook1);
@@ -141,7 +136,6 @@
             this.groupBox1.Size = new System.Drawing.Size(547, 241);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Recommend";
             // 
             // lblBook3
             // 
@@ -175,7 +169,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBook1.AutoSize = true;
-            this.lblBook1.Location = new System.Drawing.Point(69, 195);
+            this.lblBook1.Location = new System.Drawing.Point(58, 195);
             this.lblBook1.Name = "lblBook1";
             this.lblBook1.Size = new System.Drawing.Size(69, 25);
             this.lblBook1.TabIndex = 9;
@@ -185,11 +179,11 @@
             // btnBookManagement
             // 
             this.btnBookManagement.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBookManagement.Location = new System.Drawing.Point(488, 13);
+            this.btnBookManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnBookManagement.Image")));
+            this.btnBookManagement.Location = new System.Drawing.Point(477, 18);
             this.btnBookManagement.Name = "btnBookManagement";
-            this.btnBookManagement.Size = new System.Drawing.Size(168, 36);
+            this.btnBookManagement.Size = new System.Drawing.Size(188, 36);
             this.btnBookManagement.TabIndex = 10;
-            this.btnBookManagement.Text = "Book Management";
             this.btnBookManagement.UseVisualStyleBackColor = true;
             this.btnBookManagement.Click += new System.EventHandler(this.btnBookManagement_Click);
             // 
@@ -299,12 +293,31 @@
             this.piBShow.TabStop = false;
             this.piBShow.Click += new System.EventHandler(this.btnBook1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(43, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 50);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(30, -7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(163, 36);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(668, 580);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -317,7 +330,6 @@
             this.Controls.Add(this.lblDividingline);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.piBShow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -329,14 +341,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDividingline;
@@ -358,5 +370,7 @@
         private System.Windows.Forms.Label lblBook3;
         private System.Windows.Forms.Label lblBook2;
         private System.Windows.Forms.Label lblBook1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
