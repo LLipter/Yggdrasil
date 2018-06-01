@@ -61,6 +61,7 @@
             // 
             // ChapterBox
             // 
+            this.ChapterBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChapterBox.FormattingEnabled = true;
             this.ChapterBox.Items.AddRange(new object[] {
             "1",

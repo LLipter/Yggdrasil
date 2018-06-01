@@ -40,34 +40,33 @@
             this.ChapterNameText.BackColor = System.Drawing.SystemColors.Menu;
             this.ChapterNameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ChapterNameText.Font = new System.Drawing.Font("华文中宋", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ChapterNameText.Location = new System.Drawing.Point(9, 25);
-            this.ChapterNameText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChapterNameText.Location = new System.Drawing.Point(12, 31);
             this.ChapterNameText.Multiline = true;
             this.ChapterNameText.Name = "ChapterNameText";
             this.ChapterNameText.ReadOnly = true;
-            this.ChapterNameText.Size = new System.Drawing.Size(446, 43);
+            this.ChapterNameText.Size = new System.Drawing.Size(594, 54);
             this.ChapterNameText.TabIndex = 0;
             this.ChapterNameText.Text = "ChapterName";
             this.ChapterNameText.TextChanged += new System.EventHandler(this.ChapterName_TextChanged);
             // 
             // BookContents
             // 
-            this.BookContents.Location = new System.Drawing.Point(16, 60);
-            this.BookContents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BookContents.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookContents.Location = new System.Drawing.Point(22, 75);
             this.BookContents.Multiline = true;
             this.BookContents.Name = "BookContents";
+            this.BookContents.ReadOnly = true;
             this.BookContents.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.BookContents.Size = new System.Drawing.Size(480, 310);
+            this.BookContents.Size = new System.Drawing.Size(639, 387);
             this.BookContents.TabIndex = 1;
             this.BookContents.Text = resources.GetString("BookContents.Text");
             this.BookContents.TextChanged += new System.EventHandler(this.Contents_TextChanged);
             // 
             // LastPage
             // 
-            this.LastPage.Location = new System.Drawing.Point(86, 374);
-            this.LastPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastPage.Location = new System.Drawing.Point(115, 468);
             this.LastPage.Name = "LastPage";
-            this.LastPage.Size = new System.Drawing.Size(76, 18);
+            this.LastPage.Size = new System.Drawing.Size(101, 23);
             this.LastPage.TabIndex = 2;
             this.LastPage.Text = "Last page";
             this.LastPage.UseVisualStyleBackColor = true;
@@ -75,10 +74,9 @@
             // 
             // NextPage
             // 
-            this.NextPage.Location = new System.Drawing.Point(335, 374);
-            this.NextPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NextPage.Location = new System.Drawing.Point(447, 468);
             this.NextPage.Name = "NextPage";
-            this.NextPage.Size = new System.Drawing.Size(76, 18);
+            this.NextPage.Size = new System.Drawing.Size(102, 23);
             this.NextPage.TabIndex = 3;
             this.NextPage.Text = "Next page";
             this.NextPage.UseVisualStyleBackColor = true;
@@ -86,14 +84,13 @@
             // 
             // Read_Interface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 401);
+            this.ClientSize = new System.Drawing.Size(687, 501);
             this.Controls.Add(this.NextPage);
             this.Controls.Add(this.LastPage);
             this.Controls.Add(this.BookContents);
             this.Controls.Add(this.ChapterNameText);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Read_Interface";
             this.Text = "阅读界面";
             this.ResumeLayout(false);

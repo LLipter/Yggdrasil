@@ -47,7 +47,6 @@ namespace Yggdrasil
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            pageNum = 0;
             clear();
             if(searchText.Text == "")
             {
@@ -72,9 +71,18 @@ namespace Yggdrasil
             }
             else
             {
-                pageNum = Convert.ToInt32(pageChangeText.ToString());
-                showBook();
+                string pageText = pageChangeText.ToString();
+                if (pageText.Contains("/"))
+                {
+                    MessageBox.Show("Please enter number like this--5!");
+                }
+                else
+                {
+                    pageNum = Convert.ToInt32(pageText);
+                    showBook();
+                }
             }
+
         }
 
         private void lastPageButton_Click(object sender, EventArgs e)
@@ -135,10 +143,6 @@ namespace Yggdrasil
             Book book = new Book();
             Label labelShow = new Label();
             PictureBox imageShow = new PictureBox();
-            if (pageNum == 0)
-            {
-                pageNum++;
-            }
             for (int i = 6 * pageNum + 1; i < size; i++)
             {
                 string location;
@@ -156,6 +160,11 @@ namespace Yggdrasil
                 targetSite = "http://www.irran.top:8080/Yggdrasil/book/" + location + "/cover.jpg";
                 imageShow.Load(targetSite);
             }
+            if (pageNum == 0)
+            {
+                pageNum++;
+            }
+            pageChangeText.Text = String.Format("{0}/{1}",pageNum,totalPage);
         }
 
         private void clear()
@@ -172,6 +181,18 @@ namespace Yggdrasil
             {
                 image = (PictureBox)imageList[i];
                 image.Image = null;
+            }
+
+            pageNum = 0;
+            totalPage = 0;
+            bookList.Clear();
+        }
+
+        private void pageChangeText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

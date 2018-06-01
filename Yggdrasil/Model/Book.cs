@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using Yggdrasil.Model;
+using System.Net;
 
 namespace Yggdrasil.Model
 {
@@ -27,5 +34,26 @@ namespace Yggdrasil.Model
         public DateTime Modify_date { get { return modify_date; } set { modify_date = value; } }
 
         public static Book noSuchBook = new Book();
+        public static Image getCover(Book currentBook)
+        {
+            return Image.FromStream(WebRequest.Create("[图片]http://www.irran.top:8080/Yggdrasil/book/"+ currentBook.location + "/cover.jpg").GetResponse().GetResponseStream());
+        }
+
+        public Book()
+        {
+
+        }
+
+        public Book(int bid, string bn, string lc, int status, int pubid, int chapNo, DateTime cd, DateTime md)
+        {
+            book_id = bid;
+            book_name = bn;
+            location = lc;
+            book_status = status;
+            publisher_id = pubid;
+            chapter_no = chapNo;
+            create_date = cd;
+            modify_date = md;
+        }
     }
 }
