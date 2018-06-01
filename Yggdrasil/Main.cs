@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,13 +13,12 @@ namespace Yggdrasil
 {
     public partial class Main : Form
     {
-
         private Form lastForm;//usde for getting the login info
         int s = 0;//used as a counter for the recommend books
         int privilege;
         Book currentBook = new Book();
-        List<Book> recommends = new List<Book>();//list for the recommend books
-        List<Image> recommendsCover = new List<Image>();//list for the covers of the recommend books
+        ArrayList recommends = new ArrayList();//list for the recommend books
+        ArrayList recommendsCover = new ArrayList();//list for the covers of the recommend books
         public Main(Form lastForm,int privilege)
         {
             InitializeComponent();
