@@ -26,6 +26,6 @@ namespace Yggdrasil.Model
         public DateTime Create_date { get { return create_date; } set { create_date = value; } }
         public DateTime Modify_date { get { return modify_date; } set { modify_date = value; } }
 
-
+        public static Book noSuchBook = new Book();
     }
 }
