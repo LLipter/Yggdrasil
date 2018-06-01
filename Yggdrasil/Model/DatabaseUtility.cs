@@ -15,9 +15,9 @@ namespace Yggdrasil.Model
         private static string connHost = "www.irran.top";
         private static string connUser = "yggdrasil";
         private static string connPassword = "admin";
-        private static string connStr = string.Format("Database={0};Data Source={1};User Id={2};Password={3}", connDatabase, connHost, connUser, connPassword);
+        private static string connStr = string.Format("Database={0};Data Source={1};User Id={2};Password={3};Charset=utf8", connDatabase, connHost, connUser, connPassword);
 
-        
+
 
         private static MySqlConnection openConn()
         {
@@ -66,7 +66,7 @@ namespace Yggdrasil.Model
             MySqlConnection conn = openConn();
             if (conn == null)
                 return -1;  // -1 means cannot connect to database
-            string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES('{0}','{1}','{2}');", user.User_name,user.Passwd,user.Nick_name);
+            string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES('{0}','{1}','{2}');", user.User_name, user.Passwd, user.Nick_name);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             if (cmd.ExecuteNonQuery() == 1) { };
             return 1;
@@ -105,7 +105,7 @@ namespace Yggdrasil.Model
         }
 
 
-        public static int getBookByID(ref Book book,int book_id)
+        public static int getBookByID(ref Book book, int book_id)
         {
             MySqlConnection conn = openConn();
             if (conn == null)
