@@ -35,14 +35,16 @@
             this.btnSignIn = new System.Windows.Forms.Button();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnWelcome = new System.Windows.Forms.Button();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAccount
             // 
             this.lblAccount.AutoSize = true;
             this.lblAccount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblAccount.Location = new System.Drawing.Point(165, 196);
+            this.lblAccount.Location = new System.Drawing.Point(163, 199);
             this.lblAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccount.Name = "lblAccount";
             this.lblAccount.Size = new System.Drawing.Size(91, 20);
@@ -53,7 +55,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblPassword.Location = new System.Drawing.Point(165, 231);
+            this.lblPassword.Location = new System.Drawing.Point(163, 250);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(90, 20);
@@ -65,7 +67,7 @@
             this.btnLogIn.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnLogIn.FlatAppearance.BorderSize = 0;
             this.btnLogIn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLogIn.Location = new System.Drawing.Point(188, 270);
+            this.btnLogIn.Location = new System.Drawing.Point(185, 295);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(80, 40);
@@ -79,7 +81,7 @@
             this.btnSignIn.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSignIn.FlatAppearance.BorderSize = 0;
             this.btnSignIn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSignIn.Location = new System.Drawing.Point(317, 270);
+            this.btnSignIn.Location = new System.Drawing.Point(299, 295);
             this.btnSignIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(80, 40);
@@ -90,39 +92,42 @@
             // 
             // txtAccount
             // 
-            this.txtAccount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtAccount.Location = new System.Drawing.Point(274, 193);
+            this.txtAccount.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAccount.Location = new System.Drawing.Point(284, 192);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(147, 26);
+            this.txtAccount.Size = new System.Drawing.Size(147, 33);
             this.txtAccount.TabIndex = 5;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPassword.Location = new System.Drawing.Point(274, 228);
+            this.txtPassword.Location = new System.Drawing.Point(284, 244);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(147, 26);
             this.txtPassword.TabIndex = 6;
             // 
-            // btnWelcome
+            // skinEngine1
             // 
-            this.btnWelcome.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnWelcome.FlatAppearance.BorderSize = 0;
-            this.btnWelcome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWelcome.Image = ((System.Drawing.Image)(resources.GetObject("btnWelcome.Image")));
-            this.btnWelcome.Location = new System.Drawing.Point(-1, 0);
-            this.btnWelcome.Name = "btnWelcome";
-            this.btnWelcome.Size = new System.Drawing.Size(576, 166);
-            this.btnWelcome.TabIndex = 7;
-            this.btnWelcome.UseVisualStyleBackColor = false;
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = null;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(576, 166);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 378);
-            this.Controls.Add(this.btnWelcome);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.btnSignIn);
@@ -135,6 +140,8 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yggdrasil";
+            this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +154,8 @@
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnWelcome;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

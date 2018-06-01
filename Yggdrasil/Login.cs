@@ -18,6 +18,30 @@ namespace Yggdrasil
             InitializeComponent();
         }
 
+        //移动窗体
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.Location.X - this.oldX; //新的鼠标位置
+                this.Top += e.Location.Y - this.oldY;
+            }
+        }
+        private int oldX = 0;
+        private int oldY = 0;
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.oldX = e.Location.X; //鼠标原来位置
+                this.oldY = e.Location.Y;
+            }
+        }
+        //关闭窗体
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -46,6 +70,11 @@ namespace Yggdrasil
             Signin signInPage = new Signin(this);
             signInPage.Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "RealOne.ssk";//***为皮肤名称
         }
     }
 }
