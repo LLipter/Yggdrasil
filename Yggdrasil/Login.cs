@@ -57,9 +57,13 @@ namespace Yggdrasil
                     if (currentUser == User.noSuchUser) { MessageBox.Show("The user doesn't exist"); }
                     else
                     {
-                        Main mainPage = new Main(this, 30);
-                        mainPage.Show();
-                        this.Hide();
+                        if(currentUser.Passwd == txtPassword.Text){
+                            Main mainPage = new Main(this, 30);
+                            mainPage.Show();
+                            this.Hide();
+                        }
+                        else MessageBox.Show("Password is not correct.");
+
                     }
             }
         } 

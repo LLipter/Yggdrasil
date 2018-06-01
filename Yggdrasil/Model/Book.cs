@@ -36,7 +36,7 @@ namespace Yggdrasil.Model
         public static Book noSuchBook = new Book();
         public static Image getCover(Book currentBook)
         {
-            return Image.FromStream(WebRequest.Create("[图片]http://www.irran.top:8080/Yggdrasil/book/"+ currentBook.location + "/cover.jpg").GetResponse().GetResponseStream());
+            return Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+ currentBook.location + "/cover.jpg").GetResponse().GetResponseStream());
         }
     }
 }
