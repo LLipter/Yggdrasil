@@ -62,7 +62,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSearch.Location = new System.Drawing.Point(213, 18);
+            this.txtSearch.Location = new System.Drawing.Point(225, 19);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(125, 29);
             this.txtSearch.TabIndex = 1;
@@ -189,7 +189,7 @@
             // 
             this.btnBookManagement.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnBookManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnBookManagement.Image")));
-            this.btnBookManagement.Location = new System.Drawing.Point(477, 18);
+            this.btnBookManagement.Location = new System.Drawing.Point(477, 12);
             this.btnBookManagement.Name = "btnBookManagement";
             this.btnBookManagement.Size = new System.Drawing.Size(188, 36);
             this.btnBookManagement.TabIndex = 10;
