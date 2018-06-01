@@ -84,6 +84,7 @@
             this.image1.Location = new System.Drawing.Point(138, 92);
             this.image1.Name = "image1";
             this.image1.Size = new System.Drawing.Size(100, 85);
+            this.image1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image1.TabIndex = 3;
             this.image1.TabStop = false;
             // 
@@ -92,6 +93,7 @@
             this.image2.Location = new System.Drawing.Point(341, 92);
             this.image2.Name = "image2";
             this.image2.Size = new System.Drawing.Size(100, 85);
+            this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image2.TabIndex = 4;
             this.image2.TabStop = false;
             // 
@@ -100,6 +102,7 @@
             this.image3.Location = new System.Drawing.Point(555, 92);
             this.image3.Name = "image3";
             this.image3.Size = new System.Drawing.Size(100, 85);
+            this.image3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image3.TabIndex = 5;
             this.image3.TabStop = false;
             // 
@@ -141,6 +144,7 @@
             this.image6.Location = new System.Drawing.Point(555, 225);
             this.image6.Name = "image6";
             this.image6.Size = new System.Drawing.Size(100, 85);
+            this.image6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image6.TabIndex = 11;
             this.image6.TabStop = false;
             // 
@@ -149,6 +153,7 @@
             this.image5.Location = new System.Drawing.Point(341, 225);
             this.image5.Name = "image5";
             this.image5.Size = new System.Drawing.Size(100, 85);
+            this.image5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image5.TabIndex = 10;
             this.image5.TabStop = false;
             // 
@@ -157,6 +162,7 @@
             this.image4.Location = new System.Drawing.Point(138, 225);
             this.image4.Name = "image4";
             this.image4.Size = new System.Drawing.Size(100, 85);
+            this.image4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image4.TabIndex = 9;
             this.image4.TabStop = false;
             // 

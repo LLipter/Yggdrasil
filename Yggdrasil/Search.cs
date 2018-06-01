@@ -143,7 +143,7 @@ namespace Yggdrasil
             Book book = new Book();
             Label labelShow = new Label();
             PictureBox imageShow = new PictureBox();
-            for (int i = 6 * pageNum + 1; i < size; i++)
+            for (int i = 6 * pageNum + 1; i <= size; i++)
             {
                 string location;
                 string targetSite;
