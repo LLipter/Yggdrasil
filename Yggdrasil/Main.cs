@@ -81,15 +81,19 @@ namespace Yggdrasil
 
         private void Main_Load(object sender, EventArgs e)
         {
-            recommends = DatabaseUtility.getRecommendBooks();
-            for(int i = 0; i < 3; i++) { imlRecommend.Images[i] = recommends[i].; }
-            shiftBook(0);
-            
+            int status = DatabaseUtility.getBooks(ref recommends,4);
+            if (status == -1) { MessageBox.Show("You have some problems about the Internet!"); }
+            else
+            {
+                for (int i = 0; i < 3; i++) { imlRecommend.Images[i] = Book.getCover((Book)recommends[i]); }
+                shiftBook(0);
+            }
         }
+
         private void shiftBook(int s)
         {
             piBShow.Image = imlRecommend.Images[s];
-            currentBook = recommends[s];
+            currentBook = (Book)recommends[s];
         }
     }
 
