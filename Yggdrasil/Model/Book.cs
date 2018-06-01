@@ -38,5 +38,22 @@ namespace Yggdrasil.Model
         {
             return Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+ currentBook.location + "/cover.jpg").GetResponse().GetResponseStream());
         }
+
+        public Book()
+        {
+
+        }
+
+        public Book(int bid, string bn, string lc, int status, int pubid, int chapNo, DateTime cd, DateTime md)
+        {
+            book_id = bid;
+            book_name = bn;
+            location = lc;
+            book_status = status;
+            publisher_id = pubid;
+            chapter_no = chapNo;
+            create_date = cd;
+            modify_date = md;
+        }
     }
 }

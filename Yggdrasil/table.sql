@@ -40,7 +40,10 @@ CREATE TABLE book(
 
 INSERT INTO book(book_name,location,chapter_no) VALUES('斗破苍穹','dpcqxdhv7db5vt1revrsi1',5);
 INSERT INTO book(book_name) VALUES('C++ How to Programming');
+UPDATE book SET location = 'cpphtp' WHERE book_name = 'C++ How to Programming';
 INSERT INTO book(book_name,location,chapter_no) VALUES('永夜君王','yyjw12315s4fe87g98f4dw',5);
+INSERT INTO book(book_name,location,chapter_no) VALUES('斗罗大陆','dldl',5);
+INSERT INTO book(book_name,location,chapter_no) VALUES('斗罗大陆2','dldl2',5);
 
 
 CREATE TABLE author(

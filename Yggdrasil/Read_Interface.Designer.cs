@@ -55,6 +55,7 @@
             this.BookContents.Location = new System.Drawing.Point(22, 75);
             this.BookContents.Multiline = true;
             this.BookContents.Name = "BookContents";
+            this.BookContents.ReadOnly = true;
             this.BookContents.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.BookContents.Size = new System.Drawing.Size(639, 387);
             this.BookContents.TabIndex = 1;
