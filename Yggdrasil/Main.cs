@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -7,23 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yggdrasil.Model;
 
 namespace Yggdrasil
 {
     public partial class Main : Form
     {
-
-        private Form lastForm;
-        int s = 0;
+        private Form lastForm;//usde for getting the login info
+        int s = 0;//used as a counter for the recommend books
         int privilege;
+        Book currentBook = new Book();
+        ArrayList recommends = new ArrayList();//list for the recommend books
+        ArrayList recommendsCover = new ArrayList();//list for the covers of the recommend books
         public Main(Form lastForm,int privilege)
         {
             InitializeComponent();
             this.lastForm = lastForm;
             this.privilege = privilege;
-            if (privilege<20) btnBookManagement.Hide();
-            piBShow.Image = imlRecommend.Images[0];
-
+            if (privilege<20) btnBookManagement.Hide();//if the privilege is not high enough,then the user has no right to manage the books
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -35,28 +36,28 @@ namespace Yggdrasil
         {
             if (s < 4) {}
             else { s -= 4; }
-            piBShow.Image = imlRecommend.Images[s];
+            shiftBook(s);
             s++;
         }
 
         private void btnShow1_Click(object sender, EventArgs e)
         {
-            piBShow.Image = imlRecommend.Images[0];
+            shiftBook(0);
         }
 
         private void btnShow2_Click(object sender, EventArgs e)
         {
-            piBShow.Image = imlRecommend.Images[1];
+            shiftBook(1);
         }
 
         private void btnShow3_Click(object sender, EventArgs e)
         {
-            piBShow.Image = imlRecommend.Images[2];
+            shiftBook(2);
         }
 
         private void btnShow4_Click(object sender, EventArgs e)
         {
-            piBShow.Image = imlRecommend.Images[3];
+            shiftBook(3);
         }
 
         private void btnBookManagement_Click(object sender, EventArgs e)
@@ -78,6 +79,18 @@ namespace Yggdrasil
             bkitfPage.Show();
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            recommends = DatabaseUtility.getRecommendBooks();
+            for(int i = 0; i < 3; i++) { imlRecommend.Images[i] = recommends[i].; }
+            shiftBook(0);
+            
+        }
+        private void shiftBook(int s)
+        {
+            piBShow.Image = imlRecommend.Images[s];
+            currentBook = recommends[s];
+        }
     }
 
 }
