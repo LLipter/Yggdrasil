@@ -93,6 +93,7 @@
             this.Controls.Add(this.ChapterNameText);
             this.Name = "Read_Interface";
             this.Text = "阅读界面";
+            this.Load += new System.EventHandler(this.Read_Interface_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

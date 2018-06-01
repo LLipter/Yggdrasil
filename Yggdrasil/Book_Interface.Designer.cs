@@ -63,17 +63,6 @@
             // 
             this.ChapterBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChapterBox.FormattingEnabled = true;
-            this.ChapterBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
             this.ChapterBox.Location = new System.Drawing.Point(66, 350);
             this.ChapterBox.Name = "ChapterBox";
             this.ChapterBox.Size = new System.Drawing.Size(121, 23);
@@ -128,6 +117,7 @@
             this.Controls.Add(this.BookNameLabel);
             this.Name = "Book_Interface";
             this.Text = "书籍界面";
+            this.Load += new System.EventHandler(this.Book_Interface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

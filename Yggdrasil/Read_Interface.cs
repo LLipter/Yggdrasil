@@ -20,13 +20,13 @@ namespace Yggdrasil
         public static int pageNumber = 1;
         static int totalPage = 2;
         int head = 0;
-        public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
+       // public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
         public Read_Interface()
         {
             InitializeComponent();
 
             WebClient wc = new WebClient();
-            Stream FirstPage = wc.OpenRead(url);
+            Stream FirstPage = wc.OpenRead(Book_Interface.url);
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
             String content = sr.ReadToEnd();
             totalPage = Convert.ToInt32(content.Length / 500) + 1;
@@ -54,7 +54,7 @@ namespace Yggdrasil
             else
             {
                 WebClient wc = new WebClient();
-                Stream CurrentPage = wc.OpenRead(url);
+                Stream CurrentPage = wc.OpenRead(Book_Interface.url);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
                 head = (pageNumber - 1) * 500;
@@ -83,7 +83,7 @@ namespace Yggdrasil
             else
             {
                 WebClient wc = new WebClient();
-                Stream CurrentPage = wc.OpenRead(url);
+                Stream CurrentPage = wc.OpenRead(Book_Interface.url);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
                 head = (pageNumber - 1) * 500;
@@ -108,5 +108,9 @@ namespace Yggdrasil
 
         }
 
+        private void Read_Interface_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
