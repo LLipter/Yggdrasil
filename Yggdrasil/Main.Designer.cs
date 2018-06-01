@@ -189,12 +189,9 @@
             // 
             // imlRecommend
             // 
-            this.imlRecommend.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlRecommend.ImageStream")));
+            this.imlRecommend.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imlRecommend.ImageSize = new System.Drawing.Size(256, 256);
             this.imlRecommend.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlRecommend.Images.SetKeyName(0, "TIM图片20180510014734.jpg");
-            this.imlRecommend.Images.SetKeyName(1, "TIM图片20180510014743.jpg");
-            this.imlRecommend.Images.SetKeyName(2, "TIM图片20180510014748.jpg");
-            this.imlRecommend.Images.SetKeyName(3, "TIM图片20180510014751.jpg");
             // 
             // btnShow1
             // 
@@ -338,6 +335,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "主界面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piBShow)).EndInit();
