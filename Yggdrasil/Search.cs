@@ -17,7 +17,6 @@ namespace Yggdrasil
         static int pageNum = 0;
         static int totalPage = 0;
         private int size;
-        private string tempSite = "http://www.irran.top:8080/Yggdrasil/book/";
         private ArrayList bookList = new ArrayList();
         private ArrayList labelList = new ArrayList();
         private ArrayList imageList = new ArrayList();
@@ -154,7 +153,7 @@ namespace Yggdrasil
                 book = (Book)bookList[temp - 1];
                 labelShow.Text = book.Book_name;
                 location = book.Location;
-                targetSite = tempSite + location + "/cover.jpg";
+                targetSite = "http://www.irran.top:8080/Yggdrasil/book/" + location + "/cover.jpg";
                 imageShow.Load(targetSite);
             }
         }
