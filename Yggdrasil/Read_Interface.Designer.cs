@@ -51,6 +51,7 @@
             // 
             // BookContents
             // 
+            this.BookContents.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BookContents.Location = new System.Drawing.Point(22, 75);
             this.BookContents.Multiline = true;
             this.BookContents.Name = "BookContents";

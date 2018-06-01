@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using Yggdrasil.Model;
 
 namespace Yggdrasil
 {
+    
     public partial class Book_Interface : Form
     {
+        
         public Book_Interface()
         {
             InitializeComponent();
+            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/cover.jpg").GetResponse().GetResponseStream());
+            pictureBox1.Image = Cover;
         }
 
         private void BookNameLabel_Click(object sender, EventArgs e)
@@ -39,10 +45,14 @@ namespace Yggdrasil
 
         private void BeginReadButton_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            
+
+            this.Hide();
+            Read_Interface.pageNumber = 1;
             Read_Interface readInter = new Read_Interface();
             readInter.ShowDialog();
-            this.Visible = true;
+           
+            this.Show();
             
         }
         private void BeginReadButton_OnMouseEnter(object sender, EventArgs e)
