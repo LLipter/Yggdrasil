@@ -172,8 +172,9 @@
             // 
             this.pageChangeText.Location = new System.Drawing.Point(490, 361);
             this.pageChangeText.Name = "pageChangeText";
-            this.pageChangeText.Size = new System.Drawing.Size(33, 25);
+            this.pageChangeText.Size = new System.Drawing.Size(42, 25);
             this.pageChangeText.TabIndex = 14;
+            this.pageChangeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pageChangeText_KeyPress);
             // 
             // lastPageButton
             // 
@@ -197,7 +198,7 @@
             // 
             // changePageButton
             // 
-            this.changePageButton.Location = new System.Drawing.Point(529, 363);
+            this.changePageButton.Location = new System.Drawing.Point(538, 361);
             this.changePageButton.Name = "changePageButton";
             this.changePageButton.Size = new System.Drawing.Size(66, 23);
             this.changePageButton.TabIndex = 17;
