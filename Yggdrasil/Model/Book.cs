@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Yggdrasil.Model
 {
-    class Book
+   public class Book
     {
         private int book_id;
         private string book_name;

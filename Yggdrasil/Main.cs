@@ -76,7 +76,7 @@ namespace Yggdrasil
 
         private void btnBook1_Click(object sender, EventArgs e)
         {
-            Book_Interface bkitfPage = new Book_Interface();
+            Book_Interface bkitfPage = new Book_Interface(currentBook);
             bkitfPage.Show();
             /*this.Enabled = false;*/
         }

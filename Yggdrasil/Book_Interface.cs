@@ -15,14 +15,17 @@ namespace Yggdrasil
     
     public partial class Book_Interface : Form
     {   
-        public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
-        private Book currentBook = new Book();
+        //public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
+        private string bookURL;
+        private Book currentBook;
         public static int chapNo = 1;
-        public Book_Interface()
+        public Book_Interface(Book cbook)
         {
-            currentBook.Chapter_no = 5;
             InitializeComponent();
-            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/cover.jpg").GetResponse().GetResponseStream());
+            currentBook = cbook;
+            bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
+
+            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
             pictureBox1.Image = Cover;
             for (int i = 1; i <= currentBook.Chapter_no; i++)
             {
@@ -47,7 +50,7 @@ namespace Yggdrasil
 
         private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/"+ChapterBox.Text+".txt");
+            bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/"+ChapterBox.Text+".txt");
             chapNo = Convert.ToInt32(ChapterBox.Text);
         }
 
@@ -57,7 +60,7 @@ namespace Yggdrasil
 
             this.Hide();
             Read_Interface.pageNumber = 1;
-            Read_Interface readInter = new Read_Interface();
+            Read_Interface readInter = new Read_Interface(bookURL);
             readInter.ShowDialog();
            
             this.Show();
@@ -74,6 +77,11 @@ namespace Yggdrasil
             string path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
             path += @"\pic\button1.png";
             BeginReadButton.BackgroundImage = Image.FromFile(path);
+        }
+
+        public string getBookURL()
+        {
+            return bookURL;
         }
 
         private void Book_Interface_Load(object sender, EventArgs e)
