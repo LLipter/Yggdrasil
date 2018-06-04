@@ -125,7 +125,7 @@ def main():
     diff = stop_time - start_time
     print(diff,"seconds")
     print(diff/60,"minutes")
-    print(diff/60,"hours")
+    print(diff/60/60,"hours")
 
 
 if __name__ == '__main__':
