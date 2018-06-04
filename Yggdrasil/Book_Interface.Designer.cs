@@ -42,10 +42,10 @@
             // 
             this.BookNameLabel.AutoSize = true;
             this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BookNameLabel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameLabel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BookNameLabel.Location = new System.Drawing.Point(42, 20);
             this.BookNameLabel.Name = "BookNameLabel";
-            this.BookNameLabel.Size = new System.Drawing.Size(106, 24);
+            this.BookNameLabel.Size = new System.Drawing.Size(114, 24);
             this.BookNameLabel.TabIndex = 0;
             this.BookNameLabel.Text = "BookName";
             this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
@@ -75,9 +75,10 @@
             // 
             this.ChapterLabel.AutoSize = true;
             this.ChapterLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ChapterLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ChapterLabel.Location = new System.Drawing.Point(43, 303);
             this.ChapterLabel.Name = "ChapterLabel";
-            this.ChapterLabel.Size = new System.Drawing.Size(63, 15);
+            this.ChapterLabel.Size = new System.Drawing.Size(70, 15);
             this.ChapterLabel.TabIndex = 3;
             this.ChapterLabel.Text = "Chapter";
             // 
@@ -85,6 +86,7 @@
             // 
             this.Summary.BackColor = System.Drawing.SystemColors.MenuBar;
             this.Summary.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Summary.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Summary.Location = new System.Drawing.Point(347, 47);
             this.Summary.Multiline = true;
             this.Summary.Name = "Summary";
