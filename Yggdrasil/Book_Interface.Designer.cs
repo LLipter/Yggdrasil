@@ -73,7 +73,7 @@
             // ChapterLabel
             // 
             this.ChapterLabel.AutoSize = true;
-            this.ChapterLabel.Location = new System.Drawing.Point(63, 321);
+            this.ChapterLabel.Location = new System.Drawing.Point(72, 321);
             this.ChapterLabel.Name = "ChapterLabel";
             this.ChapterLabel.Size = new System.Drawing.Size(63, 15);
             this.ChapterLabel.TabIndex = 3;
