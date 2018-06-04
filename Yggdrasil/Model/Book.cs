@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using Yggdrasil.Model;
 using System.Net;
+using System.IO;
 
 namespace Yggdrasil.Model
 {
@@ -23,6 +24,8 @@ namespace Yggdrasil.Model
         private int chapter_no;
         private DateTime create_date;
         private DateTime modify_date;
+        private string info = null;
+        private Image cover = null;
 
         public int Book_id { get { return book_id; } set { book_id = value; } }
         public string Book_name { get { return book_name; } set { book_name = value; } }
@@ -34,9 +37,22 @@ namespace Yggdrasil.Model
         public DateTime Modify_date { get { return modify_date; } set { modify_date = value; } }
 
         public static Book noSuchBook = new Book();
-        public static Image getCover(Book currentBook)
+
+        public Image getCover()
         {
-            return Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+ currentBook.location + "/cover.jpg").GetResponse().GetResponseStream());
+            if (cover != null)
+                return cover;
+            return cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+ this.location + "/cover.jpg").GetResponse().GetResponseStream());
+        }
+
+        public string getInfo()
+        {
+            if (info != null)
+                return info;
+            WebClient wc = new WebClient();
+            Stream binaryInputStream = wc.OpenRead("http://www.irran.top:8080/Yggdrasil/book/" + this.location + "/info.txt");
+            StreamReader sr = new StreamReader(binaryInputStream, Encoding.UTF8);
+            return info = sr.ReadToEnd();
         }
 
         public Book()
