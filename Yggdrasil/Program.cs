@@ -16,7 +16,7 @@ namespace Yggdrasil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBookReport());
+            Application.Run(new Search());
         }
     }
 }

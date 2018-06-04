@@ -21,7 +21,6 @@ namespace Yggdrasil
         static int totalPage = 2;
         int head = 0;
         private string bookURL;
-       // public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
         public Read_Interface(string bookurl)
         {
             InitializeComponent();

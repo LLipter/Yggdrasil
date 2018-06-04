@@ -40,33 +40,34 @@
             this.ChapterNameText.BackColor = System.Drawing.SystemColors.Menu;
             this.ChapterNameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ChapterNameText.Font = new System.Drawing.Font("华文中宋", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ChapterNameText.Location = new System.Drawing.Point(12, 31);
+            this.ChapterNameText.Location = new System.Drawing.Point(-2, 0);
             this.ChapterNameText.Multiline = true;
             this.ChapterNameText.Name = "ChapterNameText";
             this.ChapterNameText.ReadOnly = true;
-            this.ChapterNameText.Size = new System.Drawing.Size(594, 54);
+            this.ChapterNameText.Size = new System.Drawing.Size(696, 81);
             this.ChapterNameText.TabIndex = 0;
             this.ChapterNameText.Text = "ChapterName";
             this.ChapterNameText.TextChanged += new System.EventHandler(this.ChapterName_TextChanged);
             // 
             // BookContents
             // 
+            this.BookContents.BackColor = System.Drawing.SystemColors.Info;
             this.BookContents.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookContents.Location = new System.Drawing.Point(22, 75);
+            this.BookContents.Location = new System.Drawing.Point(-2, 75);
             this.BookContents.Multiline = true;
             this.BookContents.Name = "BookContents";
             this.BookContents.ReadOnly = true;
             this.BookContents.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.BookContents.Size = new System.Drawing.Size(639, 387);
+            this.BookContents.Size = new System.Drawing.Size(688, 458);
             this.BookContents.TabIndex = 1;
             this.BookContents.Text = resources.GetString("BookContents.Text");
             this.BookContents.TextChanged += new System.EventHandler(this.Contents_TextChanged);
             // 
             // LastPage
             // 
-            this.LastPage.Location = new System.Drawing.Point(115, 468);
+            this.LastPage.Location = new System.Drawing.Point(27, 559);
             this.LastPage.Name = "LastPage";
-            this.LastPage.Size = new System.Drawing.Size(101, 23);
+            this.LastPage.Size = new System.Drawing.Size(145, 45);
             this.LastPage.TabIndex = 2;
             this.LastPage.Text = "Last page";
             this.LastPage.UseVisualStyleBackColor = true;
@@ -74,9 +75,9 @@
             // 
             // NextPage
             // 
-            this.NextPage.Location = new System.Drawing.Point(447, 468);
+            this.NextPage.Location = new System.Drawing.Point(488, 559);
             this.NextPage.Name = "NextPage";
-            this.NextPage.Size = new System.Drawing.Size(102, 23);
+            this.NextPage.Size = new System.Drawing.Size(153, 45);
             this.NextPage.TabIndex = 3;
             this.NextPage.Text = "Next page";
             this.NextPage.UseVisualStyleBackColor = true;
@@ -86,7 +87,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 501);
+            this.BackgroundImage = global::Yggdrasil.Properties.Resources._37698293_p0;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(680, 605);
             this.Controls.Add(this.NextPage);
             this.Controls.Add(this.LastPage);
             this.Controls.Add(this.BookContents);

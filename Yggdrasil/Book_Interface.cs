@@ -15,7 +15,7 @@ namespace Yggdrasil
     
     public partial class Book_Interface : Form
     {   
-        //public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
+        
         private string bookURL;
         private Book currentBook;
         public static int chapNo = 1;
@@ -27,6 +27,7 @@ namespace Yggdrasil
 
             Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
             pictureBox1.Image = Cover;
+            Summary.Text = currentBook.getInfo();
             for (int i = 1; i <= currentBook.Chapter_no; i++)
             {
                 ChapterBox.Items.Add(i);

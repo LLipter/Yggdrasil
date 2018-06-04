@@ -55,6 +55,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(46, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(269, 227);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -72,7 +73,7 @@
             // ChapterLabel
             // 
             this.ChapterLabel.AutoSize = true;
-            this.ChapterLabel.Location = new System.Drawing.Point(63, 319);
+            this.ChapterLabel.Location = new System.Drawing.Point(63, 321);
             this.ChapterLabel.Name = "ChapterLabel";
             this.ChapterLabel.Size = new System.Drawing.Size(63, 15);
             this.ChapterLabel.TabIndex = 3;
@@ -94,12 +95,14 @@
             // 
             // BeginReadButton
             // 
+            this.BeginReadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BeginReadButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BeginReadButton.Location = new System.Drawing.Point(414, 350);
             this.BeginReadButton.Name = "BeginReadButton";
             this.BeginReadButton.Size = new System.Drawing.Size(160, 63);
             this.BeginReadButton.TabIndex = 5;
             this.BeginReadButton.Text = "Begin to Read";
-            this.BeginReadButton.UseVisualStyleBackColor = true;
+            this.BeginReadButton.UseVisualStyleBackColor = false;
             this.BeginReadButton.Click += new System.EventHandler(this.BeginReadButton_Click);
             this.BeginReadButton.MouseEnter += new System.EventHandler(this.BeginReadButton_OnMouseEnter);
             this.BeginReadButton.MouseLeave += new System.EventHandler(this.BeginReadButton_OnMouseLeave);
@@ -108,6 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
             this.ClientSize = new System.Drawing.Size(784, 465);
             this.Controls.Add(this.BeginReadButton);
             this.Controls.Add(this.Summary);

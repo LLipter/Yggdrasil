@@ -221,7 +221,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+                //this.Close();
             }
         }
 
@@ -232,7 +232,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+               // this.Close();
             }
         }
 
@@ -243,7 +243,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+               // this.Close();
             }
         }
 
@@ -254,7 +254,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+               // this.Close();
             }
         }
 
@@ -265,7 +265,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+               // this.Close();
             }
         }
 
@@ -276,7 +276,7 @@ namespace Yggdrasil
             {
                 Book_Interface book = new Book_Interface((Book)bookList[localBook]);
                 book.Show();
-                this.Close();
+             //   this.Close();
             }
         }
 
