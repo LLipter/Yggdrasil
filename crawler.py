@@ -40,7 +40,7 @@ def getChapter(html,res_url):
         # print(chapter_url,chapter_title)
         passage = getChapterContent(chapter_url)
         write(passage,'book/' + res_url + '/' + str(i+1) + '.txt','w')
-        time.sleep(1)
+        # time.sleep(1)
     return len(res)
     # print(html)
 
