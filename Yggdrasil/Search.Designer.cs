@@ -46,6 +46,7 @@
             this.lastPageButton = new System.Windows.Forms.Button();
             this.nextPageButton = new System.Windows.Forms.Button();
             this.changePageButton = new System.Windows.Forms.Button();
+            this.backToMain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image3)).BeginInit();
@@ -87,6 +88,7 @@
             this.image1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image1.TabIndex = 3;
             this.image1.TabStop = false;
+            this.image1.Click += new System.EventHandler(this.image1_Click);
             // 
             // image2
             // 
@@ -96,6 +98,7 @@
             this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image2.TabIndex = 4;
             this.image2.TabStop = false;
+            this.image2.Click += new System.EventHandler(this.image2_Click);
             // 
             // image3
             // 
@@ -105,6 +108,7 @@
             this.image3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image3.TabIndex = 5;
             this.image3.TabStop = false;
+            this.image3.Click += new System.EventHandler(this.image3_Click);
             // 
             // book2
             // 
@@ -176,7 +180,7 @@
             // 
             // pageChangeText
             // 
-            this.pageChangeText.Location = new System.Drawing.Point(490, 361);
+            this.pageChangeText.Location = new System.Drawing.Point(399, 362);
             this.pageChangeText.Name = "pageChangeText";
             this.pageChangeText.Size = new System.Drawing.Size(42, 25);
             this.pageChangeText.TabIndex = 14;
@@ -184,7 +188,7 @@
             // 
             // lastPageButton
             // 
-            this.lastPageButton.Location = new System.Drawing.Point(268, 363);
+            this.lastPageButton.Location = new System.Drawing.Point(236, 363);
             this.lastPageButton.Name = "lastPageButton";
             this.lastPageButton.Size = new System.Drawing.Size(52, 23);
             this.lastPageButton.TabIndex = 15;
@@ -194,7 +198,7 @@
             // 
             // nextPageButton
             // 
-            this.nextPageButton.Location = new System.Drawing.Point(366, 363);
+            this.nextPageButton.Location = new System.Drawing.Point(311, 363);
             this.nextPageButton.Name = "nextPageButton";
             this.nextPageButton.Size = new System.Drawing.Size(49, 23);
             this.nextPageButton.TabIndex = 16;
@@ -204,7 +208,7 @@
             // 
             // changePageButton
             // 
-            this.changePageButton.Location = new System.Drawing.Point(538, 361);
+            this.changePageButton.Location = new System.Drawing.Point(447, 364);
             this.changePageButton.Name = "changePageButton";
             this.changePageButton.Size = new System.Drawing.Size(66, 23);
             this.changePageButton.TabIndex = 17;
@@ -212,11 +216,22 @@
             this.changePageButton.UseVisualStyleBackColor = true;
             this.changePageButton.Click += new System.EventHandler(this.changePageButton_Click);
             // 
+            // backToMain
+            // 
+            this.backToMain.Location = new System.Drawing.Point(597, 361);
+            this.backToMain.Name = "backToMain";
+            this.backToMain.Size = new System.Drawing.Size(58, 23);
+            this.backToMain.TabIndex = 18;
+            this.backToMain.Text = "Back";
+            this.backToMain.UseVisualStyleBackColor = true;
+            this.backToMain.Click += new System.EventHandler(this.backToMain_Click);
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 446);
+            this.Controls.Add(this.backToMain);
             this.Controls.Add(this.changePageButton);
             this.Controls.Add(this.nextPageButton);
             this.Controls.Add(this.lastPageButton);
@@ -269,5 +284,6 @@
         private System.Windows.Forms.Button lastPageButton;
         private System.Windows.Forms.Button nextPageButton;
         private System.Windows.Forms.Button changePageButton;
+        private System.Windows.Forms.Button backToMain;
     }
 }
