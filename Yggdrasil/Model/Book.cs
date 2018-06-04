@@ -26,6 +26,7 @@ namespace Yggdrasil.Model
         private DateTime modify_date;
         private string info = null;
         private Image cover = null;
+        private ArrayList types = null;
 
         public int Book_id { get { return book_id; } set { book_id = value; } }
         public string Book_name { get { return book_name; } set { book_name = value; } }
@@ -53,6 +54,14 @@ namespace Yggdrasil.Model
             Stream binaryInputStream = wc.OpenRead("http://www.irran.top:8080/Yggdrasil/book/" + this.location + "/info.txt");
             StreamReader sr = new StreamReader(binaryInputStream, Encoding.UTF8);
             return info = sr.ReadToEnd();
+        }
+
+        public ArrayList getTypes()
+        {
+            if (types != null)
+                return types;
+            DatabaseUtility.getTypes(ref types, this);
+            return types;
         }
 
         public Book()

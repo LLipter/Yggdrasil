@@ -59,6 +59,7 @@ namespace Yggdrasil.Model
 
             }
             read.Close();
+            conn.Close();
             return 1;   // 1 means everything is right
         }
         public static int register(ref User user)
@@ -68,8 +69,13 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES('{0}','{1}','{2}');", user.User_name, user.Passwd, user.Nick_name);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
-            if (cmd.ExecuteNonQuery() == 1) { };
-            return 1;
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                conn.Close();
+                return -2; // duplicate user name
+            }
+            conn.Close();
+            return 1;// 1 means everything is right
         }
 
         public static int getBookByName(ref ArrayList books, String bookName)
@@ -106,6 +112,7 @@ namespace Yggdrasil.Model
                 books.Add(book);
             }
             read.Close();
+            conn.Close();
             return 1;   // 1 means everything is right
         }
 
@@ -144,6 +151,7 @@ namespace Yggdrasil.Model
                 book.Modify_date = read.GetDateTime("modify_date");
             }
             read.Close();
+            conn.Close();
             return 1;   // 1 means everything is right
         }
 
@@ -180,6 +188,7 @@ namespace Yggdrasil.Model
                 books.Add(book);
             }
             read.Close();
+            conn.Close();
             return 1;   // 1 means everything is right
         }
 
@@ -193,7 +202,7 @@ namespace Yggdrasil.Model
             MySqlDataReader read = cmd.ExecuteReader();
 
             if (!read.Read())
-                publisher = Publisher.noSuchPublisher;    // no such book
+                publisher = Publisher.noSuchPublisher;    // no such publisher
             else
             {
                 publisher.Publisher_id = read.GetInt32("publisher_id");
@@ -203,6 +212,54 @@ namespace Yggdrasil.Model
                     publisher.Publisher_name = null;
             }
             read.Close();
+            conn.Close();
+            return 1;   // 1 means everything is right
+        }
+
+        public static int getTypeByID(ref Type type, int type_id)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM type WHERE type_id = '{0}'", type_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+
+            if (!read.Read())
+                type = Type.noSuchType;    // no such type
+            else
+            {
+                type.Type_id = read.GetInt32("type_id");
+                if (!read.IsDBNull(1))
+                    type.Ptype_id = read.GetInt32("ptype_id");
+                else
+                    type.Ptype_id = -1;
+                type.Type_name = read.GetString("type_name");
+            }
+            read.Close();
+            conn.Close();
+            return 1;   // 1 means everything is right
+        }
+
+        public static int getTypes(ref ArrayList types, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM book_type WHERE book_id = {0}", book.Book_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            types = new ArrayList();
+
+            while (read.Read())
+            {
+                int type_id = read.GetInt32("type_id");
+                Type type = new Type();
+                DatabaseUtility.getTypeByID(ref type, type_id);
+                types.Add(type);
+            }
+            read.Close();
+            conn.Close();
             return 1;   // 1 means everything is right
         }
     }

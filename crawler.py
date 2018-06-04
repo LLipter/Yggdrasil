@@ -68,7 +68,7 @@ def main():
     res = re.compile(pattern_title).findall(html)
     res = res[10:]
     size = len(res)
-    for i in range(10):
+    for i in range(size):
         url_title = res[i]
         url_title = url_title[13:][:-9]
         index = url_title.find('"')
