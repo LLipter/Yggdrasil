@@ -24,15 +24,16 @@ namespace Yggdrasil
         public Read_Interface()
         {
             InitializeComponent();
-
+            ChapterNameText.Text = string.Format(@"Chapter"+Book_Interface.chapNo.ToString());
             WebClient wc = new WebClient();
             Stream FirstPage = wc.OpenRead(Book_Interface.url);
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
             String content = sr.ReadToEnd();
+            content = content.Replace("\n", "\r\n");
             totalPage = Convert.ToInt32(content.Length / 500) + 1;
             head = (pageNumber - 1) * 500;
             BookContents.Text = content.Substring(head, 500);
-            
+
             FirstPage.Close();
             sr.Close();
             wc.Dispose();
@@ -57,6 +58,7 @@ namespace Yggdrasil
                 Stream CurrentPage = wc.OpenRead(Book_Interface.url);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
+                content = content.Replace("\n", "\r\n");
                 head = (pageNumber - 1) * 500;
                 if (content.Length - head >= 500)
                 {
@@ -86,6 +88,7 @@ namespace Yggdrasil
                 Stream CurrentPage = wc.OpenRead(Book_Interface.url);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
+                content = content.Replace("\n", "\r\n");
                 head = (pageNumber - 1) * 500;
                 if (content.Length - head >= 500)
                 {

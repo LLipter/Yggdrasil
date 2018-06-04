@@ -14,9 +14,10 @@ namespace Yggdrasil
 {
     
     public partial class Book_Interface : Form
-    {
+    {   
         public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
         private Book currentBook = new Book();
+        public static int chapNo = 1;
         public Book_Interface()
         {
             currentBook.Chapter_no = 5;
@@ -47,6 +48,7 @@ namespace Yggdrasil
         private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/"+ChapterBox.Text+".txt");
+            chapNo = Convert.ToInt32(ChapterBox.Text);
         }
 
         private void BeginReadButton_Click(object sender, EventArgs e)
