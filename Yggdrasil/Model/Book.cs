@@ -20,7 +20,7 @@ namespace Yggdrasil.Model
         private string book_name;
         private string location;
         private int book_status;
-        private int publisher_id;
+        private Publisher publisher;
         private int chapter_no;
         private DateTime create_date;
         private DateTime modify_date;
@@ -31,7 +31,7 @@ namespace Yggdrasil.Model
         public string Book_name { get { return book_name; } set { book_name = value; } }
         public string Location { get { return location; } set { location = value; } }
         public int Book_status { get { return book_status; } set { book_status = value; } }
-        public int Publisher_id { get { return publisher_id; } set { publisher_id = value; } }
+        public Publisher Publisher { get { return publisher; } set { publisher = value; } }
         public int Chapter_no { get { return chapter_no; } set { chapter_no = value; } }
         public DateTime Create_date { get { return create_date; } set { create_date = value; } }
         public DateTime Modify_date { get { return modify_date; } set { modify_date = value; } }
@@ -60,16 +60,21 @@ namespace Yggdrasil.Model
 
         }
 
-        public Book(int bid, string bn, string lc, int status, int pubid, int chapNo, DateTime cd, DateTime md)
+
+
+
+        //将Image转换成流数据，并保存为byte[]   
+        public byte[] getCoverInByte()
         {
-            book_id = bid;
-            book_name = bn;
-            location = lc;
-            book_status = status;
-            publisher_id = pubid;
-            chapter_no = chapNo;
-            create_date = cd;
-            modify_date = md;
+            if (cover == null)
+                getCover();
+            MemoryStream mstream = new MemoryStream();
+            cover.Save(mstream, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] byData = new Byte[mstream.Length];
+            mstream.Position = 0;
+            mstream.Read(byData, 0, byData.Length);
+            mstream.Close();
+            return byData;
         }
     }
 }

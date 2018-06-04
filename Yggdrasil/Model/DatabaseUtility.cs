@@ -80,7 +80,7 @@ namespace Yggdrasil.Model
             string sqlStr = string.Format("SELECT * FROM book WHERE book_name like '%{0}%'", bookName);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
-
+            books = new ArrayList();
             while (read.Read())
             {
                 Book book = new Book();
@@ -92,9 +92,14 @@ namespace Yggdrasil.Model
                     book.Location = null;
                 book.Book_status = read.GetInt32("book_status");
                 if (!read.IsDBNull(4))
-                    book.Publisher_id = read.GetInt32("publisher_id");
+                {
+                    int publisher_id = read.GetInt32("publisher_id");
+                    Publisher publisher = null;
+                    DatabaseUtility.getPublisherByID(ref publisher, publisher_id);
+                    book.Publisher = publisher;
+                }
                 else
-                    book.Publisher_id = -1; // -1 indicates its publisher_id is null
+                    book.Publisher = null; // publisher_id is null
                 book.Chapter_no = read.GetInt32("chapter_no");
                 book.Create_date = read.GetDateTime("create_date");
                 book.Modify_date = read.GetDateTime("modify_date");
@@ -126,9 +131,14 @@ namespace Yggdrasil.Model
                     book.Location = null;
                 book.Book_status = read.GetInt32("book_status");
                 if (!read.IsDBNull(4))
-                    book.Publisher_id = read.GetInt32("publisher_id");
+                {
+                    int publisher_id = read.GetInt32("publisher_id");
+                    Publisher publisher = null;
+                    DatabaseUtility.getPublisherByID(ref publisher, publisher_id);
+                    book.Publisher = publisher;
+                }
                 else
-                    book.Publisher_id = -1; // -1 indicates its publisher_id is null
+                    book.Publisher = null; // publisher_id is null
                 book.Chapter_no = read.GetInt32("chapter_no");
                 book.Create_date = read.GetDateTime("create_date");
                 book.Modify_date = read.GetDateTime("modify_date");
@@ -157,13 +167,40 @@ namespace Yggdrasil.Model
                     book.Location = null;
                 book.Book_status = read.GetInt32("book_status");
                 if (!read.IsDBNull(4))
-                    book.Publisher_id = read.GetInt32("publisher_id");
-                else
-                    book.Publisher_id = -1; // -1 indicates its publisher_id is null
+                {
+                    int publisher_id = read.GetInt32("publisher_id");
+                    Publisher publisher = null;
+                    DatabaseUtility.getPublisherByID(ref publisher, publisher_id);
+                    book.Publisher = publisher;
+                } else
+                    book.Publisher = null; // publisher_id is null
                 book.Chapter_no = read.GetInt32("chapter_no");
                 book.Create_date = read.GetDateTime("create_date");
                 book.Modify_date = read.GetDateTime("modify_date");
                 books.Add(book);
+            }
+            read.Close();
+            return 1;   // 1 means everything is right
+        }
+
+        public static int getPublisherByID(ref Publisher publisher, int publisher_id)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM publisher WHERE publisher_id = '{0}'", publisher_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+
+            if (!read.Read())
+                publisher = Publisher.noSuchPublisher;    // no such book
+            else
+            {
+                publisher.Publisher_id = read.GetInt32("publisher_id");
+                if (!read.IsDBNull(1))
+                    publisher.Publisher_name = read.GetString("publisher_name");
+                else
+                    publisher.Publisher_name = null;
             }
             read.Close();
             return 1;   // 1 means everything is right

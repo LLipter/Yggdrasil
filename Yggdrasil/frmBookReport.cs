@@ -37,15 +37,16 @@ namespace Yggdrasil
                     r[3] = "on shelf";
                 else
                     r[3] = "off shelf";
-                r[3] = read.GetInt32("book_status");
-                if (!read.IsDBNull(4))
-                    r[4] = read.GetInt32("publisher_id");
+                if (book.Publisher != null)
+                    r[4] = book.Publisher.Publisher_name;
                 else
-                    r[4] = -1; // -1 indicates its publisher_id is null
-                r[5] = read.GetInt32("chapter_no");
-                r[6] = read.GetDateTime("create_date");
-                r[7] = read.GetDateTime("modify_date");
-                ds.Tables["dataTable1"].Rows.Add(r);
+                    r[4] = null;
+                r[5] = book.Chapter_no;
+                r[6] = book.Create_date;
+                r[7] = book.Modify_date;
+                r[8] = book.getInfo();
+                r[9] = book.getCoverInByte();
+                ds.Tables["book"].Rows.Add(r);
             }
 
             cr.SetDataSource(ds);
