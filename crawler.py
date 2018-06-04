@@ -3,6 +3,7 @@ import ssl
 import re
 import os
 import time
+import threading
 
 ssl._create_default_https_context = ssl._create_unverified_context
 base = 'https://www.booktxt.net'
@@ -40,7 +41,7 @@ def getChapter(html,res_url):
         # print(chapter_url,chapter_title)
         passage = getChapterContent(chapter_url)
         write(passage,'book/' + res_url + '/' + str(i+1) + '.txt','w')
-        # time.sleep(1)
+        time.sleep(1)
     return len(res)
     # print(html)
 
@@ -59,7 +60,7 @@ def getChapterContent(chapter_url):
     return paragraphs
     
 
-def main():
+def getBooks():
     url = base + "/xiaoshuodaquan"
     html = getHtml(url)
     # print(html)
@@ -68,6 +69,7 @@ def main():
     res = re.compile(pattern_title).findall(html)
     res = res[10:]
     size = len(res)
+    books = []
     for i in range(size):
         url_title = res[i]
         url_title = url_title[13:][:-9]
@@ -77,23 +79,54 @@ def main():
         res_url = url[url.rfind('/')+1:]
         title = url_title[index+2:]
 
-        # print(res_url,url,title)
-
-        os.mkdir('book/' + res_url)
-        # print('book/' + res_url)
-        img_url = 'https://www.booktxt.net/files/article/image/' + res_url[0:1] + '/' + res_url[-4:] + '/' + res_url[-4:] + 's.jpg'
-        getCover(img_url,'book/'+res_url+'/cover.jpg')
-
-        subhtml = getHtml(url)
-        info = getInfo(subhtml)
-        write(info,'book/' + res_url + '/info.txt','w')
-        chapter_no = getChapter(subhtml,res_url)
-
-        sqlstr = 'INSERT INTO book(book_name,location,chapter_no) VALUES("' + title + '","' + res_url + '",' + str(chapter_no) + ');\n'
-        write(sqlstr,'book.sql','a')
-
-        print(str(i+1)+'/'+str(size),title)
+        books.append([url,res_url,title])
+    return books
 
 
+def getBook(book,index):
+    url = book[0]
+    res_url = book[1]
+    title = book[2]
+    print(index,title)
 
-main()
+    os.mkdir('book/' + res_url)
+    img_url = 'https://www.booktxt.net/files/article/image/' + res_url[0:1] + '/' + res_url[-4:] + '/' + res_url[-4:] + 's.jpg'
+    getCover(img_url,'book/'+res_url+'/cover.jpg')
+
+    subhtml = getHtml(url)
+    info = getInfo(subhtml)
+    write(info,'book/' + res_url + '/info.txt','w')
+    chapter_no = getChapter(subhtml,res_url)
+
+    sqlstr = 'INSERT INTO book(book_name,location,chapter_no) VALUES("' + title + '","' + res_url + '",' + str(chapter_no) + ');\n'
+    write(sqlstr,'book.sql','a')
+
+
+
+def main(): 
+    start_time = time.time()
+    books = getBooks()
+    i = 0
+    total_size = len(books)
+    lock = threading.Lock()
+    while i < total_size:
+        if(threading.activeCount() < 50):
+            lock.acquire()
+            try:
+                thd = threading.Thread(target=getBook,args=(books[i],i))
+                i += 1
+                thd.start()
+            finally:
+                lock.release()
+        time.sleep(1)
+    for thd in threading.enumerate():
+        thd.join()
+    stop_time = time.time()
+    diff = stop_time - start_time
+    print(diff,"seconds")
+    print(diff/60,"minutes")
+    print(diff/60,"hours")
+
+
+if __name__ == '__main__':
+    main()
