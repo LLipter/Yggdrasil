@@ -151,6 +151,7 @@
             this.image6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image6.TabIndex = 11;
             this.image6.TabStop = false;
+            this.image6.Click += new System.EventHandler(this.image6_Click);
             // 
             // image5
             // 
@@ -160,6 +161,7 @@
             this.image5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image5.TabIndex = 10;
             this.image5.TabStop = false;
+            this.image5.Click += new System.EventHandler(this.image5_Click);
             // 
             // image4
             // 
@@ -169,6 +171,7 @@
             this.image4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image4.TabIndex = 9;
             this.image4.TabStop = false;
+            this.image4.Click += new System.EventHandler(this.image4_Click);
             // 
             // book4
             // 

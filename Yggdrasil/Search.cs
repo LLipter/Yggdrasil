@@ -223,17 +223,42 @@ namespace Yggdrasil
 
         private void image2_Click(object sender, EventArgs e)
         {
-
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 1]);
+            book.Show();
+            this.Close();
         }
 
         private void image3_Click(object sender, EventArgs e)
         {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 2]);
+            book.Show();
+            this.Close();
+        }
 
+        private void image4_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 3]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image5_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 4]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image6_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 5]);
+            book.Show();
+            this.Close();
         }
 
         private void backToMain_Click(object sender, EventArgs e)
         {
-   
+
         }
     }
 }
