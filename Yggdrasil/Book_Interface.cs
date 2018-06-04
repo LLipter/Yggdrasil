@@ -27,6 +27,7 @@ namespace Yggdrasil
 
             Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
             pictureBox1.Image = Cover;
+            BookNameLabel.Text = currentBook.Book_name;
             Summary.Text = currentBook.getInfo();
             for (int i = 1; i <= currentBook.Chapter_no; i++)
             {

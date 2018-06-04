@@ -41,6 +41,7 @@
             // BookNameLabel
             // 
             this.BookNameLabel.AutoSize = true;
+            this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.BookNameLabel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BookNameLabel.Location = new System.Drawing.Point(42, 20);
             this.BookNameLabel.Name = "BookNameLabel";
@@ -64,7 +65,7 @@
             // 
             this.ChapterBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChapterBox.FormattingEnabled = true;
-            this.ChapterBox.Location = new System.Drawing.Point(66, 350);
+            this.ChapterBox.Location = new System.Drawing.Point(46, 332);
             this.ChapterBox.Name = "ChapterBox";
             this.ChapterBox.Size = new System.Drawing.Size(121, 23);
             this.ChapterBox.TabIndex = 2;
@@ -73,7 +74,8 @@
             // ChapterLabel
             // 
             this.ChapterLabel.AutoSize = true;
-            this.ChapterLabel.Location = new System.Drawing.Point(72, 321);
+            this.ChapterLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ChapterLabel.Location = new System.Drawing.Point(43, 303);
             this.ChapterLabel.Name = "ChapterLabel";
             this.ChapterLabel.Size = new System.Drawing.Size(63, 15);
             this.ChapterLabel.TabIndex = 3;

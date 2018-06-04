@@ -25,7 +25,7 @@ namespace Yggdrasil
         {
             InitializeComponent();
             bookURL = bookurl;
-            ChapterNameText.Text = string.Format(@"Chapter"+Book_Interface.chapNo.ToString());
+            ChapterName.Text = string.Format(@"Chapter"+Book_Interface.chapNo.ToString());
             WebClient wc = new WebClient();
             Stream FirstPage = wc.OpenRead(bookURL);
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
