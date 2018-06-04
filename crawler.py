@@ -108,19 +108,15 @@ def main():
     books = getBooks()
     i = 0
     total_size = len(books)
-    lock = threading.Lock()
-    while i < total_size:
+    while i < 100: # 只爬前100本书，总共三千本书，实在是太多了，没必要
         if(threading.activeCount() < 50):
-            lock.acquire()
-            try:
-                thd = threading.Thread(target=getBook,args=(books[i],i))
-                i += 1
-                thd.start()
-            finally:
-                lock.release()
+            thd = threading.Thread(target=getBook,args=(books[i],i))
+            i += 1
+            thd.start()
         time.sleep(1)
     for thd in threading.enumerate():
-        thd.join()
+        if(thd.getName() != threading.currentThread().getName()):
+            thd.join()
     stop_time = time.time()
     diff = stop_time - start_time
     print(diff,"seconds")
