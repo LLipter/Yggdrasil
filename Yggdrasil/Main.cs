@@ -68,8 +68,9 @@ namespace Yggdrasil
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search searchPage = new Search();
+            Search searchPage = new Search(/*txtSearch.Text*/);
             searchPage.Show();
+            /*this.Enabled = false;*/
         }
     
 
@@ -77,6 +78,7 @@ namespace Yggdrasil
         {
             Book_Interface bkitfPage = new Book_Interface();
             bkitfPage.Show();
+            /*this.Enabled = false;*/
         }
 
         private void Main_Load(object sender, EventArgs e)

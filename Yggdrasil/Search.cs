@@ -26,6 +26,24 @@ namespace Yggdrasil
         public Search()
         {
             InitializeComponent();
+            initList();
+        }
+
+        public Search(string name)
+        {
+            initList();
+            InitializeComponent();
+            searchText.Text = name;
+            byte[] utf8 = Encoding.UTF8.GetBytes(name);
+            string wantBook = Encoding.UTF8.GetString(utf8);
+            if (getData(wantBook) == 1)
+            {
+                showBook();
+            }
+        }
+
+        private void initList()
+        {
             labelList.Add(book1);
             labelList.Add(book2);
             labelList.Add(book3);
@@ -195,5 +213,53 @@ namespace Yggdrasil
                 e.Handled = true;
             }
         }
+
+        private void image1_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image2_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 1]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image3_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 2]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image4_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 3]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image5_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 4]);
+            book.Show();
+            this.Close();
+        }
+
+        private void image6_Click(object sender, EventArgs e)
+        {
+            Book_Interface book = new Book_Interface((Book)bookList[pageNum * 6 + 5]);
+            book.Show();
+            this.Close();
+        }
+
+        private void backToMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

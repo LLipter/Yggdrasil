@@ -10,7 +10,7 @@ namespace Yggdrasil
     {
         /// <summary>
         /// 应用程序的主入口点。
-        /// </summary>
+        /// </summary>/ol,
         [STAThread]
         static void Main()
         {
