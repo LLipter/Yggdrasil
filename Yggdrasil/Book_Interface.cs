@@ -22,15 +22,11 @@ namespace Yggdrasil
         public static int chapNo = 1;
         private ArrayList bookComments;
         private Comment UserComment;
-        private User user1;
+        //private User user1;
         public Book_Interface(Book cbook)
         {
             InitializeComponent();
-            //Here for testing user
-            user1 = new User();
-            user1.User_id = 5;
-            user1.User_name = "Anneyino";
-
+       
             ContinueReadButton.Visible = false;
             currentBook = cbook;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
@@ -121,7 +117,7 @@ namespace Yggdrasil
         private void CommentButton_Click(object sender, EventArgs e)
         {   
             UserComment = new Comment();
-            UserComment.User_id = user1.User_id;
+            UserComment.User_id = Global.user.User_id;
             UserComment.Book_id = currentBook.Book_id;
             UserComment.Content = WriteCommentBox.Text.ToString();
             int commitSuccess = DatabaseUtility.setComment(ref UserComment);
