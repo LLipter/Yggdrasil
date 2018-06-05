@@ -75,6 +75,7 @@
             this.booksView.Size = new System.Drawing.Size(636, 181);
             this.booksView.TabIndex = 7;
             this.booksView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.booksView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellValueChanged);
             // 
             // bookListLabel
             // 

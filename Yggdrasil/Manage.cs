@@ -45,6 +45,8 @@ namespace Yggdrasil
             booksView.DataSource = ds.Tables[0];
             booksView.RowHeadersVisible = false;
             booksView.Columns[0].ReadOnly = true;
+            booksView.Columns[2].ReadOnly = true;
+            booksView.Columns[4].ReadOnly = true;
             booksView.Columns[7].ReadOnly = true;
             booksView.Columns[8].ReadOnly = true;
         }
@@ -66,9 +68,8 @@ namespace Yggdrasil
             dtUpdate.Rows.Clear();
             DataTable dtShow = new DataTable();
             dtShow = (DataTable)this.booksView.DataSource;
-            DataTable dtChange = new DataTable();
-            dtChange = dtShow.GetChanges();
-            for(int i = 0; i < dtShow.Rows.Count; i++)
+
+            for (int i = 0; i < dtShow.Rows.Count; i++)
             {
                 dtUpdate.ImportRow(dtShow.Rows[i]);
             }
@@ -87,6 +88,11 @@ namespace Yggdrasil
             }
             dtUpdate.AcceptChanges();
             return true;
+        }
+
+        private void booksView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private void commitButton_Click(object sender, EventArgs e)
