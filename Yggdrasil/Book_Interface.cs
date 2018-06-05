@@ -21,10 +21,16 @@ namespace Yggdrasil
         private Book currentBook;
         public static int chapNo = 1;
         private ArrayList bookComments;
-
+        private Comment UserComment;
+        private User user1;
         public Book_Interface(Book cbook)
         {
             InitializeComponent();
+            //Here for testing user
+            user1 = new User();
+            user1.User_id = 5;
+            user1.User_name = "Anneyino";
+
             ContinueReadButton.Visible = false;
             currentBook = cbook;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
@@ -37,8 +43,17 @@ namespace Yggdrasil
             {
                 ChapterBox.Items.Add(i);
             }
-        }
+            DatabaseUtility.getComments(ref bookComments, currentBook);
+            
+            for(int j = 0; j < bookComments.Count; j++)
+            {
+                Comment newCommentItem = (Comment)bookComments[j];
+                CommentsBox.AppendText(newCommentItem.User_name +"-------"+ newCommentItem.Create_date.ToString()+"\r\n"  + newCommentItem.Content.ToString()+"\r\n"+"\r\n");
+                
+            }
 
+        }
+        //This imcomplete function may be useful if you want to improve the performance
         private void BookNameLabel_Click(object sender, EventArgs e)
         {
 
@@ -101,6 +116,29 @@ namespace Yggdrasil
             Read_Interface readInter = new Read_Interface(bookURL);
             readInter.ShowDialog();
             this.Show();
+        }
+
+        private void CommentButton_Click(object sender, EventArgs e)
+        {   
+            UserComment = new Comment();
+            UserComment.User_id = user1.User_id;
+            UserComment.Book_id = currentBook.Book_id;
+            UserComment.Content = WriteCommentBox.Text.ToString();
+            int commitSuccess = DatabaseUtility.setComment(ref UserComment);
+            if(commitSuccess == -1)
+            {
+                MessageBox.Show("Please check your network connection!");
+            }
+            CommentsBox.Clear();
+            DatabaseUtility.getComments(ref bookComments, currentBook);
+
+            for (int j = 0; j < bookComments.Count; j++)
+            {
+                Comment newCommentItem = (Comment)bookComments[j];
+                CommentsBox.AppendText(newCommentItem.User_name + "-------" + newCommentItem.Create_date.ToString() + "\r\n" + newCommentItem.Content.ToString() + "\r\n" + "\r\n");
+
+            }
+            WriteCommentBox.Clear();
         }
     }
 }

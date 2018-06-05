@@ -73,17 +73,13 @@ namespace Yggdrasil
                 searchPage.Show();
                 this.Enabled = false;
             }
-            else MessageBox.Show("Please input information!");
-            
-            
+            else MessageBox.Show("Please input information!");  
         }
     
-
         private void btnBook1_Click(object sender, EventArgs e)
         {
             Book_Interface bkitfPage = new Book_Interface(currentBook);
             bkitfPage.Show();
-            /*this.Enabled = false;*/
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -99,19 +95,23 @@ namespace Yggdrasil
                 }
                 shiftBook(0);
             }
-            btnShow1.Text = ((Book)recommends[0]).Book_name;
-            btnShow2.Text = ((Book)recommends[1]).Book_name;
-            btnShow3.Text = ((Book)recommends[2]).Book_name;
-            btnShow4.Text = ((Book)recommends[3]).Book_name;
+            //将展示按钮文字与书本名称对应，将下方的推荐书目图片，书名对应
+            {
+                btnShow1.Text = ((Book)recommends[0]).Book_name;
+                btnShow2.Text = ((Book)recommends[1]).Book_name;
+                btnShow3.Text = ((Book)recommends[2]).Book_name;
+                btnShow4.Text = ((Book)recommends[3]).Book_name;
 
-            picBox1.Image = ((Book)recommends[counter++]).getCover();
-            lblBook1.Text = ((Book)recommends[counter]).Book_name;
+                picBox1.Image = ((Book)recommends[4]).getCover();
+                lblBook1.Text = ((Book)recommends[4]).Book_name;
 
-            picBox2.Image = ((Book)recommends[counter++]).getCover();
-            lblBook2.Text = ((Book)recommends[counter]).Book_name;
+                picBox2.Image = ((Book)recommends[5]).getCover();
+                lblBook2.Text = ((Book)recommends[5]).Book_name;
 
-            picBox3.Image = ((Book)recommends[counter]).getCover();
-            lblBook3.Text = ((Book)recommends[counter]).Book_name;
+                picBox3.Image = ((Book)recommends[6]).getCover();
+                lblBook3.Text = ((Book)recommends[6]).Book_name;
+            }
+
 
         }
 
@@ -124,16 +124,19 @@ namespace Yggdrasil
         private void picBox1_Click(object sender, EventArgs e)
         {
             Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]));
+            bookInfo.Show();
         }
 
         private void picBox2_Click(object sender, EventArgs e)
         {
             Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]));
+            bookInfo.Show();
         }
 
         private void picBox3_Click(object sender, EventArgs e)
         {
             Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]));
+            bookInfo.Show();
         }
     }
 
