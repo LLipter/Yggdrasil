@@ -18,8 +18,16 @@ namespace Yggdrasil
         private static string connUser = "yggdrasil";
         private static string connPassword = "admin";
         private static string connStr = string.Format("Database={0};Data Source={1};User Id={2};Password={3};Charset=utf8", connDatabase, connHost, connUser, connPassword);
+        private static string sqlStr = "SELECT b.book_id,b.book_name,a.user_id,u.user_name,b.publisher_id,p.publisher_name,b.book_status,b.create_date,b.modify_date " +
+                                        "FROM book b " +
+                                        "LEFT JOIN author a " +
+                                        "ON a.book_id = b.book_id " +
+                                        "LEFT JOIN user u " +
+                                        "ON u.user_id = a.user_id " +
+                                        "LEFT JOIN publisher p " +
+                                        "ON b.publisher_id = p.publisher_id ";
 
-        MySqlConnection conn;
+       MySqlConnection conn;
         MySqlDataAdapter adapter;
 
         public Manage()
@@ -30,13 +38,15 @@ namespace Yggdrasil
         private void Manage_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
-            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM book", conn);
+            MySqlDataAdapter sda = new MySqlDataAdapter(sqlStr, conn);
             DataSet ds = new DataSet();
 
             sda.Fill(ds);
             booksView.DataSource = ds.Tables[0];
             booksView.RowHeadersVisible = false;
             booksView.Columns[0].ReadOnly = true;
+            booksView.Columns[8].ReadOnly = true;
+            booksView.Columns[9].ReadOnly = true;
         }
 
         private DataTable dbconn(string strSql)
@@ -51,9 +61,8 @@ namespace Yggdrasil
 
         private Boolean dbUpdate()
         {
-            string strSql = "SELECT * FROM book";
             DataTable dtUpdate = new DataTable();
-            dtUpdate = this.dbconn(strSql);
+            dtUpdate = this.dbconn(sqlStr);
             dtUpdate.Rows.Clear();
             DataTable dtShow = new DataTable();
             dtShow = (DataTable)this.booksView.DataSource;
