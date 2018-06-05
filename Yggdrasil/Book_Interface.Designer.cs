@@ -36,6 +36,9 @@
             this.Summary = new System.Windows.Forms.TextBox();
             this.BeginReadButton = new System.Windows.Forms.Button();
             this.ContinueReadButton = new System.Windows.Forms.Button();
+            this.CommentsBox = new System.Windows.Forms.RichTextBox();
+            this.WriteCommentBox = new System.Windows.Forms.RichTextBox();
+            this.CommentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,12 +127,48 @@
             this.ContinueReadButton.UseVisualStyleBackColor = false;
             this.ContinueReadButton.Click += new System.EventHandler(this.ContinueReadButton_Click);
             // 
+            // CommentsBox
+            // 
+            this.CommentsBox.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.CommentsBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CommentsBox.Location = new System.Drawing.Point(3, 422);
+            this.CommentsBox.Name = "CommentsBox";
+            this.CommentsBox.ReadOnly = true;
+            this.CommentsBox.Size = new System.Drawing.Size(792, 270);
+            this.CommentsBox.TabIndex = 7;
+            this.CommentsBox.Text = "";
+            // 
+            // WriteCommentBox
+            // 
+            this.WriteCommentBox.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.WriteCommentBox.Location = new System.Drawing.Point(11, 779);
+            this.WriteCommentBox.Name = "WriteCommentBox";
+            this.WriteCommentBox.Size = new System.Drawing.Size(784, 96);
+            this.WriteCommentBox.TabIndex = 8;
+            this.WriteCommentBox.Text = "";
+            // 
+            // CommentButton
+            // 
+            this.CommentButton.BackColor = System.Drawing.Color.LightSalmon;
+            this.CommentButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CommentButton.Location = new System.Drawing.Point(347, 915);
+            this.CommentButton.Name = "CommentButton";
+            this.CommentButton.Size = new System.Drawing.Size(106, 36);
+            this.CommentButton.TabIndex = 9;
+            this.CommentButton.Text = "Submit";
+            this.CommentButton.UseVisualStyleBackColor = false;
+            this.CommentButton.Click += new System.EventHandler(this.CommentButton_Click);
+            // 
             // Book_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
-            this.ClientSize = new System.Drawing.Size(792, 716);
+            this.ClientSize = new System.Drawing.Size(798, 963);
+            this.Controls.Add(this.CommentButton);
+            this.Controls.Add(this.WriteCommentBox);
+            this.Controls.Add(this.CommentsBox);
             this.Controls.Add(this.ContinueReadButton);
             this.Controls.Add(this.BeginReadButton);
             this.Controls.Add(this.Summary);
@@ -155,5 +194,8 @@
         private System.Windows.Forms.TextBox Summary;
         private System.Windows.Forms.Button BeginReadButton;
         private System.Windows.Forms.Button ContinueReadButton;
+        private System.Windows.Forms.RichTextBox CommentsBox;
+        private System.Windows.Forms.RichTextBox WriteCommentBox;
+        private System.Windows.Forms.Button CommentButton;
     }
 }

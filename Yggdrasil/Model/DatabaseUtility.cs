@@ -269,7 +269,7 @@ namespace Yggdrasil.Model
             MySqlConnection conn = openConn();
             if (conn == null)
                 return -1;  // -1 means cannot connect to database
-            string sqlStr = string.Format("SELECT * FROM comment WHERE book_id = {0}", book.Book_id);
+            string sqlStr = string.Format("SELECT * FROM comment INNER JOIN user on comment.user_id = user.user_id WHERE book_id = {0}", book.Book_id);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
             comments = new ArrayList();
@@ -281,6 +281,7 @@ namespace Yggdrasil.Model
                 comment.Book_id = read.GetInt32("book_id");
                 comment.User_id = read.GetInt32("user_id");
                 comment.Content = read.GetString("content");
+                comment.User_name = read.GetString("user_name");
                 comment.Create_date = read.GetDateTime("create_date");
                 comments.Add(comment);
             }
