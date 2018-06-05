@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Net;
+using System.IO;
 
 namespace Yggdrasil.Model
 {
@@ -373,6 +375,34 @@ namespace Yggdrasil.Model
             conn.Close();
             return 1;// 1 means everything is right
 
+        }
+
+        public static int modifyBookContent(Book book,int chapter,string content)
+        {
+            // Prepare data
+            string url = "http://www.irran.top:8080/Yggdrasil/modifybookcontent";
+            string postData = string.Format("location={0}&chapter={1}&content={2}",book.Location, chapter, content);
+            byte[] data = Encoding.UTF8.GetBytes(postData);
+
+            // Prepare web request...  
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            request.ContentLength = data.Length;
+            Stream newStream = request.GetRequestStream();
+
+            // Send the data.  
+            newStream.Write(data, 0, data.Length);
+            newStream.Close();
+
+            // Get response  
+            HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
+            if(myResponse.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
+                return -1; // some error
+            }
+            return 1;
         }
     }
 
