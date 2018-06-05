@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 
-public class ModifyBookContent extends HttpServlet{
+public class ModifyBookInfo extends HttpServlet{
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

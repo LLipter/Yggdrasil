@@ -18,7 +18,6 @@ namespace Yggdrasil
         int privilege;
         Book currentBook = new Book();
         ArrayList recommends = new ArrayList();//list for the recommend books
-        ArrayList recommendsCover = new ArrayList();//list for the covers of the recommend books
         public Main(Form lastForm,int privilege)
         {
             InitializeComponent();
@@ -68,34 +67,76 @@ namespace Yggdrasil
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search searchPage = new Search(/*txtSearch.Text*/);
-            searchPage.Show();
-            /*this.Enabled = false;*/
+            if (txtSearch.Text != null)
+            {
+                Search searchPage = new Search(txtSearch.Text, this);
+                searchPage.Show();
+                this.Enabled = false;
+            }
+            else MessageBox.Show("Please input information!");  
         }
     
-
         private void btnBook1_Click(object sender, EventArgs e)
         {
             Book_Interface bkitfPage = new Book_Interface(currentBook);
             bkitfPage.Show();
-            /*this.Enabled = false;*/
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            int status = DatabaseUtility.getBooks(ref recommends,4);
+            int status = DatabaseUtility.getBooks(ref recommends,7);
+            int counter = 0;
             if (status == -1) { MessageBox.Show("You have some problems about the Internet!"); }
             else
             {
-                for (int i = 0; i <= 3; i++) { imlRecommend.Images.Add(((Book)recommends[i]).getCover()); }
+                for (; counter <= 3; counter++)
+                {
+                    imlRecommend.Images.Add(((Book)recommends[counter]).getCover());
+                }
                 shiftBook(0);
             }
+            //将展示按钮文字与书本名称对应，将下方的推荐书目图片，书名对应
+            {
+                btnShow1.Text = ((Book)recommends[0]).Book_name;
+                btnShow2.Text = ((Book)recommends[1]).Book_name;
+                btnShow3.Text = ((Book)recommends[2]).Book_name;
+                btnShow4.Text = ((Book)recommends[3]).Book_name;
+
+                picBox1.Image = ((Book)recommends[4]).getCover();
+                lblBook1.Text = ((Book)recommends[4]).Book_name;
+
+                picBox2.Image = ((Book)recommends[5]).getCover();
+                lblBook2.Text = ((Book)recommends[5]).Book_name;
+
+                picBox3.Image = ((Book)recommends[6]).getCover();
+                lblBook3.Text = ((Book)recommends[6]).Book_name;
+            }
+
+
         }
 
         private void shiftBook(int s)
         {
             piBShow.Image = imlRecommend.Images[s];
             currentBook = (Book)recommends[s];
+        }
+
+        private void picBox1_Click(object sender, EventArgs e)
+        {
+            Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]));
+            bookInfo.Show();
+        }
+
+        private void picBox2_Click(object sender, EventArgs e)
+        {
+            Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]));
+            bookInfo.Show();
+        }
+
+        private void picBox3_Click(object sender, EventArgs e)
+        {
+            Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]));
+            bookInfo.Show();
         }
     }
 

@@ -17,6 +17,7 @@ namespace Yggdrasil
         static int pageNum = 0;
         static int totalPage = 0;
         private int size;
+        private Form mainForm;
         private ArrayList bookList = new ArrayList();
         private ArrayList labelList = new ArrayList();
         private ArrayList imageList = new ArrayList();
@@ -29,11 +30,12 @@ namespace Yggdrasil
             initList();
         }
 
-        public Search(string name)
+        public Search(string name,Form mainForm)
         {
-            initList();
             InitializeComponent();
+            initList();
             searchText.Text = name;
+            this.mainForm = mainForm;
             byte[] utf8 = Encoding.UTF8.GetBytes(name);
             string wantBook = Encoding.UTF8.GetString(utf8);
             if (getData(wantBook) == 1)
@@ -280,6 +282,10 @@ namespace Yggdrasil
             }
         }
 
+        private void Search_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Enabled = true;
+        }
     }
 }
 
