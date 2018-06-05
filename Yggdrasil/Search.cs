@@ -32,8 +32,8 @@ namespace Yggdrasil
 
         public Search(string name,Form mainForm)
         {
-            initList();
             InitializeComponent();
+            initList();
             searchText.Text = name;
             this.mainForm = mainForm;
             byte[] utf8 = Encoding.UTF8.GetBytes(name);
