@@ -86,8 +86,8 @@ INSERT INTO book_type(book_id,type_id) VALUES(2,1);
 
 CREATE TABLE comment(
 	comment_id INT auto_increment,
-	book_id INT,
-	user_id INT,
+	book_id INT NOT NULL,
+	user_id INT NOT NULL,
 	comment VARCHAR(500) NOT NULL,
 	PRIMARY KEY(comment_id),
 	FOREIGN KEY(book_id) REFERENCES book(book_id),

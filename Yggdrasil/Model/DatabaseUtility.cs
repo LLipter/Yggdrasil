@@ -262,6 +262,34 @@ namespace Yggdrasil.Model
             conn.Close();
             return 1;   // 1 means everything is right
         }
+
+        public static int getComments(ref ArrayList comments, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM comment WHERE book_id = {0}", book.Book_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            comments = new ArrayList();
+
+            while (read.Read())
+            {
+                int comment_id = read.GetInt32("comment_id");
+                int book_id = read.GetInt32("book_id");
+                int user_id = read.GetInt32("user_id");
+                string comment = read.GetString("comment");
+                Comment the_comment = new Comment();
+                the_comment.Comment_id = comment_id;
+                the_comment.Book_id = book_id;
+                the_comment.User_id = user_id;
+                the_comment.Comment = comment;
+                comments.Add(the_comment);
+            }
+            read.Close();
+            conn.Close();
+            return 1;   // 1 means everything is right
+        }
     }
 
 
