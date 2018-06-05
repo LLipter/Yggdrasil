@@ -101,4 +101,7 @@ INSERT INTO comment(book_id,user_id,content) VALUES(1,1,'这书我吹爆');
 CREATE TABLE favorite(
 	book_id INT NOT NULL,
 	user_id INT NOT NULL,
-);
+	PRIMARY KEY(book_id,user_id)
+)default charset=utf8;
+
+INSERT INTO favorite(book_id,user_id) VALUES(1,1);

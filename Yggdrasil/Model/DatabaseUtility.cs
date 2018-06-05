@@ -287,6 +287,62 @@ namespace Yggdrasil.Model
             conn.Close();
             return 1;   // 1 means everything is right
         }
+
+        public static int setComment(ref Comment comment)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("INSERT INTO comment(book_id,user_id,content) VALUES({0},{1},'{2}');;", comment.Book_id, comment.User_id, comment.Content);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                conn.Close();
+                return -2; // duplicate user name
+            }
+            conn.Close();
+            return 1;// 1 means everything is right
+        }
+
+        public static int getFavorite(ref ArrayList books,User user)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM book INNER JOIN favorite ON favorite.book_id = book.book_id  WHERE user_id = {0};", user.User_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            books = new ArrayList();
+
+
+            while (read.Read())
+            {
+                Book book = new Book();
+                book.Book_id = read.GetInt32("book_id");
+                book.Book_name = read.GetString("book_name");
+                if (!read.IsDBNull(2))
+                    book.Location = read.GetString("location");
+                else
+                    book.Location = null;
+                book.Book_status = read.GetInt32("book_status");
+                if (!read.IsDBNull(4))
+                {
+                    int publisher_id = read.GetInt32("publisher_id");
+                    Publisher publisher = null;
+                    DatabaseUtility.getPublisherByID(ref publisher, publisher_id);
+                    book.Publisher = publisher;
+                }
+                else
+                    book.Publisher = null; // publisher_id is null
+                book.Chapter_no = read.GetInt32("chapter_no");
+                book.Create_date = read.GetDateTime("create_date");
+                book.Modify_date = read.GetDateTime("modify_date");
+                books.Add(book);
+            }
+            read.Close();
+            conn.Close();
+            return 1;   // 1 means everything is right
+        }
     }
 
 
