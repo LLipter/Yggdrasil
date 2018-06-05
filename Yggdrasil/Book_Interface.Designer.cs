@@ -129,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
-            this.ClientSize = new System.Drawing.Size(807, 470);
+            this.ClientSize = new System.Drawing.Size(792, 716);
             this.Controls.Add(this.ContinueReadButton);
             this.Controls.Add(this.BeginReadButton);
             this.Controls.Add(this.Summary);
