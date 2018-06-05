@@ -105,3 +105,4 @@ CREATE TABLE favorite(
 )default charset=utf8;
 
 INSERT INTO favorite(book_id,user_id) VALUES(1,1);
+
