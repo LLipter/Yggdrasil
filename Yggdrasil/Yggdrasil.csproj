@@ -81,6 +81,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\DatabaseUtility.cs" />
     <Compile Include="Model\Global.cs" />
     <Compile Include="Model\Publisher.cs" />

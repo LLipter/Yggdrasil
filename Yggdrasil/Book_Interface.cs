@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using Yggdrasil.Model;
+using System.Collections;
 
 namespace Yggdrasil
 {
@@ -19,6 +20,8 @@ namespace Yggdrasil
         private string bookURL;
         private Book currentBook;
         public static int chapNo = 1;
+        private ArrayList bookComments;
+
         public Book_Interface(Book cbook)
         {
             InitializeComponent();

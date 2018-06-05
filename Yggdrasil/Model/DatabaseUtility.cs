@@ -83,7 +83,7 @@ namespace Yggdrasil.Model
             MySqlConnection conn = openConn();
             if (conn == null)
                 return -1;  // -1 means cannot connect to database
-            string sqlStr = string.Format("SELECT * FROM book WHERE book_name like '%{0}%' WHERE book_status = 1", bookName);
+            string sqlStr = string.Format("SELECT * FROM book WHERE book_name like '%{0}%' AND book_status = 1", bookName);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
             books = new ArrayList();
