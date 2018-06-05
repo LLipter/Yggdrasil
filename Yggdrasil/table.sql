@@ -88,10 +88,17 @@ CREATE TABLE comment(
 	comment_id INT auto_increment,
 	book_id INT NOT NULL,
 	user_id INT NOT NULL,
-	comment VARCHAR(500) NOT NULL,
+	content VARCHAR(500) NOT NULL,
+	create_date DATETIME DEFAULT NOW(),
 	PRIMARY KEY(comment_id),
 	FOREIGN KEY(book_id) REFERENCES book(book_id),
 	FOREIGN KEY(user_id) REFERENCES user(user_id)
 )default charset=utf8;
 
-INSERT INTO comment(book_id,user_id,comment) VALUES(1,1,'这书我吹爆');
+INSERT INTO comment(book_id,user_id,content) VALUES(1,1,'这书我吹爆');
+
+
+CREATE TABLE favorite(
+	book_id INT NOT NULL,
+	user_id INT NOT NULL,
+);

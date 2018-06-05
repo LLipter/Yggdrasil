@@ -275,16 +275,13 @@ namespace Yggdrasil.Model
 
             while (read.Read())
             {
-                int comment_id = read.GetInt32("comment_id");
-                int book_id = read.GetInt32("book_id");
-                int user_id = read.GetInt32("user_id");
-                string comment = read.GetString("comment");
-                Comment the_comment = new Comment();
-                the_comment.Comment_id = comment_id;
-                the_comment.Book_id = book_id;
-                the_comment.User_id = user_id;
-                the_comment.Comment = comment;
-                comments.Add(the_comment);
+                Comment comment = new Comment();
+                comment.Comment_id = read.GetInt32("comment_id");
+                comment.Book_id = read.GetInt32("book_id");
+                comment.User_id = read.GetInt32("user_id");
+                comment.Content = read.GetString("content");
+                comment.Create_date = read.GetDateTime("create_date");
+                comments.Add(comment);
             }
             read.Close();
             conn.Close();

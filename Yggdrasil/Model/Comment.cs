@@ -11,12 +11,14 @@ namespace Yggdrasil.Model
         private int comment_id;
         private int book_id;
         private int user_id;
-        private string comment;
+        private string content;
+        private DateTime create_date;
+        public DateTime Create_date { get { return create_date; } set { create_date = value; } }
 
         public int Comment_id { get { return comment_id; } set { comment_id = value; } }
         public int Book_id { get { return book_id; } set { book_id = value; } }
         public int User_id { get { return user_id; } set { user_id = value; } }
-        public string Comment { get { return comment; } set { comment = value; } }
+        public string Content { get { return content; } set { content = value; } }
 
     }
 }
