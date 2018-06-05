@@ -22,6 +22,7 @@ namespace Yggdrasil
         public Book_Interface(Book cbook)
         {
             InitializeComponent();
+            ContinueReadButton.Visible = false;
             currentBook = cbook;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
 
@@ -58,8 +59,8 @@ namespace Yggdrasil
 
         private void BeginReadButton_Click(object sender, EventArgs e)
         {
-            
 
+            ContinueReadButton.Visible = true;
             this.Hide();
             Read_Interface.pageNumber = 1;
             Read_Interface readInter = new Read_Interface(bookURL);
@@ -89,6 +90,14 @@ namespace Yggdrasil
         private void Book_Interface_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ContinueReadButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Read_Interface readInter = new Read_Interface(bookURL);
+            readInter.ShowDialog();
+            this.Show();
         }
     }
 }

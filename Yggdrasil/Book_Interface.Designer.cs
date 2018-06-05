@@ -35,6 +35,7 @@
             this.ChapterLabel = new System.Windows.Forms.Label();
             this.Summary = new System.Windows.Forms.TextBox();
             this.BeginReadButton = new System.Windows.Forms.Button();
+            this.ContinueReadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,9 +102,9 @@
             // 
             this.BeginReadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BeginReadButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BeginReadButton.Location = new System.Drawing.Point(414, 350);
+            this.BeginReadButton.Location = new System.Drawing.Point(347, 353);
             this.BeginReadButton.Name = "BeginReadButton";
-            this.BeginReadButton.Size = new System.Drawing.Size(160, 63);
+            this.BeginReadButton.Size = new System.Drawing.Size(200, 63);
             this.BeginReadButton.TabIndex = 5;
             this.BeginReadButton.Text = "Begin to Read";
             this.BeginReadButton.UseVisualStyleBackColor = false;
@@ -111,12 +112,25 @@
             this.BeginReadButton.MouseEnter += new System.EventHandler(this.BeginReadButton_OnMouseEnter);
             this.BeginReadButton.MouseLeave += new System.EventHandler(this.BeginReadButton_OnMouseLeave);
             // 
+            // ContinueReadButton
+            // 
+            this.ContinueReadButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ContinueReadButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ContinueReadButton.Location = new System.Drawing.Point(574, 353);
+            this.ContinueReadButton.Name = "ContinueReadButton";
+            this.ContinueReadButton.Size = new System.Drawing.Size(198, 63);
+            this.ContinueReadButton.TabIndex = 6;
+            this.ContinueReadButton.Text = "Continue to Read";
+            this.ContinueReadButton.UseVisualStyleBackColor = false;
+            this.ContinueReadButton.Click += new System.EventHandler(this.ContinueReadButton_Click);
+            // 
             // Book_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
-            this.ClientSize = new System.Drawing.Size(784, 465);
+            this.ClientSize = new System.Drawing.Size(807, 470);
+            this.Controls.Add(this.ContinueReadButton);
             this.Controls.Add(this.BeginReadButton);
             this.Controls.Add(this.Summary);
             this.Controls.Add(this.ChapterLabel);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Label ChapterLabel;
         private System.Windows.Forms.TextBox Summary;
         private System.Windows.Forms.Button BeginReadButton;
+        private System.Windows.Forms.Button ContinueReadButton;
     }
 }

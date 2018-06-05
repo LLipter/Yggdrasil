@@ -74,7 +74,7 @@
             // 
             this.ChapterName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ChapterName.Font = new System.Drawing.Font("微软雅黑", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ChapterName.Location = new System.Drawing.Point(-2, -4);
+            this.ChapterName.Location = new System.Drawing.Point(-7, -4);
             this.ChapterName.Name = "ChapterName";
             this.ChapterName.ReadOnly = true;
             this.ChapterName.Size = new System.Drawing.Size(685, 80);
