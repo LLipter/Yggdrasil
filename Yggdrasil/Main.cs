@@ -67,7 +67,7 @@ namespace Yggdrasil
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearch.Text != null)
+            if (txtSearch.Text != "")
             {
                 Search searchPage = new Search(txtSearch.Text, this);
                 searchPage.Show();
