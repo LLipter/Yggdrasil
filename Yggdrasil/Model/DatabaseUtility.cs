@@ -180,7 +180,8 @@ namespace Yggdrasil.Model
                     Publisher publisher = null;
                     DatabaseUtility.getPublisherByID(ref publisher, publisher_id);
                     book.Publisher = publisher;
-                } else
+                }
+                else
                     book.Publisher = null; // publisher_id is null
                 book.Chapter_no = read.GetInt32("chapter_no");
                 book.Create_date = read.GetDateTime("create_date");
@@ -295,16 +296,12 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO comment(book_id,user_id,content) VALUES({0},{1},'{2}');;", comment.Book_id, comment.User_id, comment.Content);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
-            if (cmd.ExecuteNonQuery() == 0)
-            {
-                conn.Close();
-                return -2; // duplicate user name
-            }
+            cmd.ExecuteNonQuery();
             conn.Close();
             return 1;// 1 means everything is right
         }
 
-        public static int getFavorite(ref ArrayList books,User user)
+        public static int getFavorite(ref ArrayList books, User user)
         {
             MySqlConnection conn = openConn();
             if (conn == null)
@@ -342,6 +339,40 @@ namespace Yggdrasil.Model
             read.Close();
             conn.Close();
             return 1;   // 1 means everything is right
+        }
+
+        public static int setFavorite(User user, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("INSERT INTO favorite(book_id,user_id) VALUES({0},{1});", book.Book_id, user.User_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                conn.Close();
+                return -2; // duplicate favorite
+            }
+            conn.Close();
+            return 1;// 1 means everything is right
+
+        }
+
+        public static int removeFavorite(User user, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("DELETE FROM favorite WHERE book_id = {0} AND user_id = {1};", book.Book_id, user.User_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                conn.Close();
+                return -2; // no such favorite
+            }
+            conn.Close();
+            return 1;// 1 means everything is right
+
         }
     }
 
