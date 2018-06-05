@@ -107,7 +107,7 @@
             // 
             // picBox3
             // 
-            this.picBox3.Location = new System.Drawing.Point(371, 42);
+            this.picBox3.Location = new System.Drawing.Point(370, 42);
             this.picBox3.Name = "picBox3";
             this.picBox3.Size = new System.Drawing.Size(150, 150);
             this.picBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +117,7 @@
             // 
             // picBox2
             // 
-            this.picBox2.Location = new System.Drawing.Point(198, 42);
+            this.picBox2.Location = new System.Drawing.Point(200, 42);
             this.picBox2.Name = "picBox2";
             this.picBox2.Size = new System.Drawing.Size(150, 150);
             this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -149,36 +149,34 @@
             this.lblBook3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBook3.AutoSize = true;
-            this.lblBook3.Location = new System.Drawing.Point(415, 195);
+            this.lblBook3.Location = new System.Drawing.Point(370, 195);
             this.lblBook3.Name = "lblBook3";
-            this.lblBook3.Size = new System.Drawing.Size(69, 25);
+            this.lblBook3.Size = new System.Drawing.Size(150, 25);
             this.lblBook3.TabIndex = 11;
             this.lblBook3.Text = "Book3";
+            this.lblBook3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBook2
             // 
             this.lblBook2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBook2.AutoSize = true;
-            this.lblBook2.Location = new System.Drawing.Point(236, 195);
+            this.lblBook2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBook2.Location = new System.Drawing.Point(200, 195);
             this.lblBook2.Name = "lblBook2";
-            this.lblBook2.Size = new System.Drawing.Size(69, 25);
+            this.lblBook2.Size = new System.Drawing.Size(150, 25);
             this.lblBook2.TabIndex = 10;
             this.lblBook2.Text = "Book2";
+            this.lblBook2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBook1
             // 
-            this.lblBook1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBook1.AutoSize = true;
-            this.lblBook1.Location = new System.Drawing.Point(58, 195);
+            this.lblBook1.Location = new System.Drawing.Point(30, 195);
             this.lblBook1.Name = "lblBook1";
-            this.lblBook1.Size = new System.Drawing.Size(69, 25);
+            this.lblBook1.Size = new System.Drawing.Size(150, 25);
             this.lblBook1.TabIndex = 9;
             this.lblBook1.Text = "Book1";
+            this.lblBook1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBookManagement
             // 
@@ -333,7 +331,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
