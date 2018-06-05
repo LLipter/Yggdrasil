@@ -45,8 +45,8 @@ namespace Yggdrasil
             booksView.DataSource = ds.Tables[0];
             booksView.RowHeadersVisible = false;
             booksView.Columns[0].ReadOnly = true;
+            booksView.Columns[7].ReadOnly = true;
             booksView.Columns[8].ReadOnly = true;
-            booksView.Columns[9].ReadOnly = true;
         }
 
         private DataTable dbconn(string strSql)
@@ -66,6 +66,8 @@ namespace Yggdrasil
             dtUpdate.Rows.Clear();
             DataTable dtShow = new DataTable();
             dtShow = (DataTable)this.booksView.DataSource;
+            DataTable dtChange = new DataTable();
+            dtChange = dtShow.GetChanges();
             for(int i = 0; i < dtShow.Rows.Count; i++)
             {
                 dtUpdate.ImportRow(dtShow.Rows[i]);
