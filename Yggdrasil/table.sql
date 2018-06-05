@@ -82,3 +82,27 @@ INSERT INTO book_type(book_id,type_id) VALUES(1,4);
 INSERT INTO book_type(book_id,type_id) VALUES(1,3);
 INSERT INTO book_type(book_id,type_id) VALUES(2,2);
 INSERT INTO book_type(book_id,type_id) VALUES(2,1);
+
+
+CREATE TABLE comment(
+	comment_id INT auto_increment,
+	book_id INT NOT NULL,
+	user_id INT NOT NULL,
+	content VARCHAR(500) NOT NULL,
+	create_date DATETIME DEFAULT NOW(),
+	PRIMARY KEY(comment_id),
+	FOREIGN KEY(book_id) REFERENCES book(book_id),
+	FOREIGN KEY(user_id) REFERENCES user(user_id)
+)default charset=utf8;
+
+INSERT INTO comment(book_id,user_id,content) VALUES(1,1,'这书我吹爆');
+
+
+CREATE TABLE favorite(
+	book_id INT NOT NULL,
+	user_id INT NOT NULL,
+	PRIMARY KEY(book_id,user_id)
+)default charset=utf8;
+
+INSERT INTO favorite(book_id,user_id) VALUES(1,1);
+

@@ -87,6 +87,7 @@
             this.image1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image1.TabIndex = 3;
             this.image1.TabStop = false;
+            this.image1.Click += new System.EventHandler(this.image1_Click);
             // 
             // image2
             // 
@@ -96,6 +97,7 @@
             this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image2.TabIndex = 4;
             this.image2.TabStop = false;
+            this.image2.Click += new System.EventHandler(this.image2_Click);
             // 
             // image3
             // 
@@ -105,6 +107,7 @@
             this.image3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image3.TabIndex = 5;
             this.image3.TabStop = false;
+            this.image3.Click += new System.EventHandler(this.image3_Click);
             // 
             // book2
             // 
@@ -147,6 +150,7 @@
             this.image6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image6.TabIndex = 11;
             this.image6.TabStop = false;
+            this.image6.Click += new System.EventHandler(this.image6_Click);
             // 
             // image5
             // 
@@ -156,6 +160,7 @@
             this.image5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image5.TabIndex = 10;
             this.image5.TabStop = false;
+            this.image5.Click += new System.EventHandler(this.image5_Click);
             // 
             // image4
             // 
@@ -165,6 +170,7 @@
             this.image4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image4.TabIndex = 9;
             this.image4.TabStop = false;
+            this.image4.Click += new System.EventHandler(this.image4_Click);
             // 
             // book4
             // 
@@ -176,7 +182,7 @@
             // 
             // pageChangeText
             // 
-            this.pageChangeText.Location = new System.Drawing.Point(490, 361);
+            this.pageChangeText.Location = new System.Drawing.Point(541, 362);
             this.pageChangeText.Name = "pageChangeText";
             this.pageChangeText.Size = new System.Drawing.Size(42, 25);
             this.pageChangeText.TabIndex = 14;
@@ -184,7 +190,7 @@
             // 
             // lastPageButton
             // 
-            this.lastPageButton.Location = new System.Drawing.Point(268, 363);
+            this.lastPageButton.Location = new System.Drawing.Point(290, 364);
             this.lastPageButton.Name = "lastPageButton";
             this.lastPageButton.Size = new System.Drawing.Size(52, 23);
             this.lastPageButton.TabIndex = 15;
@@ -194,7 +200,7 @@
             // 
             // nextPageButton
             // 
-            this.nextPageButton.Location = new System.Drawing.Point(366, 363);
+            this.nextPageButton.Location = new System.Drawing.Point(424, 364);
             this.nextPageButton.Name = "nextPageButton";
             this.nextPageButton.Size = new System.Drawing.Size(49, 23);
             this.nextPageButton.TabIndex = 16;
@@ -204,7 +210,7 @@
             // 
             // changePageButton
             // 
-            this.changePageButton.Location = new System.Drawing.Point(538, 361);
+            this.changePageButton.Location = new System.Drawing.Point(589, 361);
             this.changePageButton.Name = "changePageButton";
             this.changePageButton.Size = new System.Drawing.Size(66, 23);
             this.changePageButton.TabIndex = 17;

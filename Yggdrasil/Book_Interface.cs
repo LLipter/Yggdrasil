@@ -9,20 +9,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using Yggdrasil.Model;
+using System.Collections;
 
 namespace Yggdrasil
 {
     
     public partial class Book_Interface : Form
-    {
-        public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
-        private Book currentBook = new Book();
-        public Book_Interface()
+    {   
+        
+        private string bookURL;
+        private Book currentBook;
+        public static int chapNo = 1;
+        private ArrayList bookComments;
+
+        public Book_Interface(Book cbook)
         {
-            currentBook.Chapter_no = 5;
             InitializeComponent();
-            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/cover.jpg").GetResponse().GetResponseStream());
+            ContinueReadButton.Visible = false;
+            currentBook = cbook;
+            bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
+
+            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
             pictureBox1.Image = Cover;
+            BookNameLabel.Text = currentBook.Book_name;
+            Summary.Text = currentBook.getInfo();
             for (int i = 1; i <= currentBook.Chapter_no; i++)
             {
                 ChapterBox.Items.Add(i);
@@ -46,16 +56,17 @@ namespace Yggdrasil
 
         private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/"+ChapterBox.Text+".txt");
+            bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/"+ChapterBox.Text+".txt");
+            chapNo = Convert.ToInt32(ChapterBox.Text);
         }
 
         private void BeginReadButton_Click(object sender, EventArgs e)
         {
-            
 
+            ContinueReadButton.Visible = true;
             this.Hide();
             Read_Interface.pageNumber = 1;
-            Read_Interface readInter = new Read_Interface();
+            Read_Interface readInter = new Read_Interface(bookURL);
             readInter.ShowDialog();
            
             this.Show();
@@ -74,9 +85,22 @@ namespace Yggdrasil
             BeginReadButton.BackgroundImage = Image.FromFile(path);
         }
 
+        public string getBookURL()
+        {
+            return bookURL;
+        }
+
         private void Book_Interface_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ContinueReadButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Read_Interface readInter = new Read_Interface(bookURL);
+            readInter.ShowDialog();
+            this.Show();
         }
     }
 }

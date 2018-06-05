@@ -20,19 +20,21 @@ namespace Yggdrasil
         public static int pageNumber = 1;
         static int totalPage = 2;
         int head = 0;
-       // public static string url = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/yyjw12315s4fe87g98f4dw/1.txt");
-        public Read_Interface()
+        private string bookURL;
+        public Read_Interface(string bookurl)
         {
             InitializeComponent();
-
+            bookURL = bookurl;
+            ChapterName.Text = string.Format(@"Chapter"+Book_Interface.chapNo.ToString());
             WebClient wc = new WebClient();
-            Stream FirstPage = wc.OpenRead(Book_Interface.url);
+            Stream FirstPage = wc.OpenRead(bookURL);
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
             String content = sr.ReadToEnd();
+            content = content.Replace("\n", "\r\n");
             totalPage = Convert.ToInt32(content.Length / 500) + 1;
             head = (pageNumber - 1) * 500;
             BookContents.Text = content.Substring(head, 500);
-            
+
             FirstPage.Close();
             sr.Close();
             wc.Dispose();
@@ -54,9 +56,10 @@ namespace Yggdrasil
             else
             {
                 WebClient wc = new WebClient();
-                Stream CurrentPage = wc.OpenRead(Book_Interface.url);
+                Stream CurrentPage = wc.OpenRead(bookURL);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
+                content = content.Replace("\n", "\r\n");
                 head = (pageNumber - 1) * 500;
                 if (content.Length - head >= 500)
                 {
@@ -83,9 +86,10 @@ namespace Yggdrasil
             else
             {
                 WebClient wc = new WebClient();
-                Stream CurrentPage = wc.OpenRead(Book_Interface.url);
+                Stream CurrentPage = wc.OpenRead(bookURL);
                 StreamReader sr = new StreamReader(CurrentPage, Encoding.UTF8);
                 String content = sr.ReadToEnd();
+                content = content.Replace("\n", "\r\n");
                 head = (pageNumber - 1) * 500;
                 if (content.Length - head >= 500)
                 {

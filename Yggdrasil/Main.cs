@@ -76,7 +76,7 @@ namespace Yggdrasil
 
         private void btnBook1_Click(object sender, EventArgs e)
         {
-            Book_Interface bkitfPage = new Book_Interface();
+            Book_Interface bkitfPage = new Book_Interface(currentBook);
             bkitfPage.Show();
             /*this.Enabled = false;*/
         }
@@ -87,7 +87,7 @@ namespace Yggdrasil
             if (status == -1) { MessageBox.Show("You have some problems about the Internet!"); }
             else
             {
-                for (int i = 0; i <= 3; i++) { imlRecommend.Images.Add(Book.getCover((Book)recommends[i])); }
+                for (int i = 0; i <= 3; i++) { imlRecommend.Images.Add(((Book)recommends[i]).getCover()); }
                 shiftBook(0);
             }
         }

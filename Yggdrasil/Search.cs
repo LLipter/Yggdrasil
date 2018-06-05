@@ -26,6 +26,24 @@ namespace Yggdrasil
         public Search()
         {
             InitializeComponent();
+            initList();
+        }
+
+        public Search(string name)
+        {
+            initList();
+            InitializeComponent();
+            searchText.Text = name;
+            byte[] utf8 = Encoding.UTF8.GetBytes(name);
+            string wantBook = Encoding.UTF8.GetString(utf8);
+            if (getData(wantBook) == 1)
+            {
+                showBook();
+            }
+        }
+
+        private void initList()
+        {
             labelList.Add(book1);
             labelList.Add(book2);
             labelList.Add(book3);
@@ -195,5 +213,73 @@ namespace Yggdrasil
                 e.Handled = true;
             }
         }
+
+        private void image1_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+                //this.Close();
+            }
+        }
+
+        private void image2_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6 + 1;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+               // this.Close();
+            }
+        }
+
+        private void image3_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6 + 2;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+               // this.Close();
+            }
+        }
+
+        private void image4_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6 + 3;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+               // this.Close();
+            }
+        }
+
+        private void image5_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6 + 4;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+               // this.Close();
+            }
+        }
+
+        private void image6_Click(object sender, EventArgs e)
+        {
+            int localBook = (pageNum - 1) * 6 + 5;
+            if (localBook < size)
+            {
+                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                book.Show();
+             //   this.Close();
+            }
+        }
+
     }
 }
+
