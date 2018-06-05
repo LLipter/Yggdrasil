@@ -82,3 +82,16 @@ INSERT INTO book_type(book_id,type_id) VALUES(1,4);
 INSERT INTO book_type(book_id,type_id) VALUES(1,3);
 INSERT INTO book_type(book_id,type_id) VALUES(2,2);
 INSERT INTO book_type(book_id,type_id) VALUES(2,1);
+
+
+CREATE TABLE comment(
+	comment_id INT auto_increment,
+	book_id INT,
+	user_id INT,
+	comment VARCHAR(500) NOT NULL,
+	PRIMARY KEY(comment_id),
+	FOREIGN KEY(book_id) REFERENCES book(book_id),
+	FOREIGN KEY(user_id) REFERENCES user(user_id)
+)default charset=utf8;
+
+INSERT INTO comment(book_id,user_id,comment) VALUES(1,1,'这书我吹爆');
