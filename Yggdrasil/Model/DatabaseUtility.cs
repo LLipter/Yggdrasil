@@ -294,7 +294,7 @@ namespace Yggdrasil.Model
             MySqlConnection conn = openConn();
             if (conn == null)
                 return -1;  // -1 means cannot connect to database
-            string sqlStr = string.Format("INSERT INTO comment(book_id,user_id,content) VALUES({0},{1},'{2}');;", comment.Book_id, comment.User_id, comment.Content);
+            string sqlStr = string.Format("INSERT INTO comment(book_id,user_id,content) VALUES({0},{1},'{2}');", comment.Book_id, comment.User_id, comment.Content);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
