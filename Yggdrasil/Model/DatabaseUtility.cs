@@ -404,6 +404,34 @@ namespace Yggdrasil.Model
             }
             return 1;
         }
+
+        public static int modifyBookInfo(Book book, string info)
+        {
+            // Prepare data
+            string url = "http://www.irran.top:8080/Yggdrasil/modifybookinfo";
+            string postData = string.Format("location={0}&content={1}", book.Location, info);
+            byte[] data = Encoding.UTF8.GetBytes(postData);
+
+            // Prepare web request...  
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            request.ContentLength = data.Length;
+            Stream newStream = request.GetRequestStream();
+
+            // Send the data.  
+            newStream.Write(data, 0, data.Length);
+            newStream.Close();
+
+            // Get response  
+            HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
+            if (myResponse.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
+                return -1; // some error
+            }
+            return 1;
+        }
     }
 
 
