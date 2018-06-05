@@ -8,11 +8,13 @@ public class ModifyBookContent extends HttpServlet{
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int location = Integer.parseInt(req.getParameter("location"));
+		String location = req.getParameter("location");
 		int chapter = Integer.parseInt(req.getParameter("chapter"));
 		String content = req.getParameter("content");
-		String path = String.format("%sbook/%s/%d.txt", getServletContext().getRealPath("/book/"),location,chapter);
-		FileWriter file = new FileWriter(path,false);
-		file.write(content);
+		String path = String.format("%s%s/%d.txt", getServletContext().getRealPath("/book/"),location,chapter);
+		FileWriter fw = new FileWriter(path);
+		fw.write(content);
+		fw.flush();
+		fw.close();
 	}
 }
