@@ -68,9 +68,15 @@ namespace Yggdrasil
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search searchPage = new Search(txtSearch.Text);
-            searchPage.Show();
-            /*this.Enabled = false;*/
+            if (txtSearch.Text != null)
+            {
+                Search searchPage = new Search(txtSearch.Text, this);
+                searchPage.Show();
+                this.Enabled = false;
+            }
+            else MessageBox.Show("Please input information!");
+            
+            
         }
     
 
