@@ -31,5 +31,14 @@
     <url-pattern>/modifybookcontent</url-pattern>
 </servlet-mapping>
 
+<servlet>
+    <servlet-name>modifybookinfo</servlet-name>
+    <servlet-class>ModifyBookInfo</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>modifybookinfo</servlet-name>
+    <url-pattern>/modifybookinfo</url-pattern>
+</servlet-mapping>
+
 
 </web-app>
