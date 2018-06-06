@@ -12,6 +12,7 @@ namespace Yggdrasil.Model
         private int book_id;
         private int user_id;
         private string content;
+        private string user_name;
         private DateTime create_date;
         public DateTime Create_date { get { return create_date; } set { create_date = value; } }
 
@@ -19,6 +20,7 @@ namespace Yggdrasil.Model
         public int Book_id { get { return book_id; } set { book_id = value; } }
         public int User_id { get { return user_id; } set { user_id = value; } }
         public string Content { get { return content; } set { content = value; } }
+        public string User_name { get { return user_name; } set { user_name = value; } }
 
     }
 }

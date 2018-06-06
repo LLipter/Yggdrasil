@@ -45,6 +45,8 @@ namespace Yggdrasil
             booksView.DataSource = ds.Tables[0];
             booksView.RowHeadersVisible = false;
             booksView.Columns[0].ReadOnly = true;
+            booksView.Columns[2].ReadOnly = true;
+            booksView.Columns[4].ReadOnly = true;
             booksView.Columns[7].ReadOnly = true;
             booksView.Columns[8].ReadOnly = true;
         }
@@ -66,9 +68,8 @@ namespace Yggdrasil
             dtUpdate.Rows.Clear();
             DataTable dtShow = new DataTable();
             dtShow = (DataTable)this.booksView.DataSource;
-            DataTable dtChange = new DataTable();
-            dtChange = dtShow.GetChanges();
-            for(int i = 0; i < dtShow.Rows.Count; i++)
+
+            for (int i = 0; i < dtShow.Rows.Count; i++)
             {
                 dtUpdate.ImportRow(dtShow.Rows[i]);
             }
@@ -87,6 +88,66 @@ namespace Yggdrasil
             }
             dtUpdate.AcceptChanges();
             return true;
+        }
+
+        private void booksView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int column = e.ColumnIndex;
+            int row = e.RowIndex;
+            byte[] utf8 = Encoding.UTF8.GetBytes(booksView[column, row].Value.ToString());
+            string value = Encoding.UTF8.GetString(utf8);
+            switch (column)
+            {
+                case 3:
+                    conn.Open();
+
+                    string tempSql1 = "SELECT user_name FROM user ";
+
+                    MySqlDataAdapter tempSda = new MySqlDataAdapter(tempSql1, conn);
+                    DataSet tempDs = new DataSet();
+                    tempSda.Fill(tempDs);
+                    DataTable tempDt = new DataTable();
+                    tempDt = tempDs.Tables[0];
+
+                    string tempSql2 = string.Format("INSERT INTO user(user_name) values({0}) ", value);
+
+                    if (compareInDb(tempDt, value) == 0)
+                    {
+                        MessageBox.Show("There is no such value!");
+                        MySqlCommand tempCmd = new MySqlCommand(tempSql2, conn);
+                        if (tempCmd.ExecuteNonQuery() == 0)
+                        {
+                            MessageBox.Show("The insert is successful!");
+                            string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
+                            MySqlDataAdapter tempSda3 = new MySqlDataAdapter(tempSql3, conn);
+                            DataSet tempDs3 = new DataSet();
+                            tempSda3.Fill(tempDs3);
+                            DataTable tempDt3 = new DataTable();
+                            tempDt3 = tempDs3.Tables[0];
+                            string newUserId = tempDt3.Rows[1].ToString();
+                            booksView[column - 1, row].Value = newUserId; 
+                        }
+                    }
+                    conn.Close();
+                    break;
+                case 5:
+                    break;
+
+            }
+        }
+
+        private int compareInDb(DataTable dt, string value)
+        {
+            int count = 0;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string dtValue = dt.Rows[i].ToString();
+                if (value == dtValue)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         private void commitButton_Click(object sender, EventArgs e)
