@@ -181,5 +181,26 @@ namespace Yggdrasil
             }
             
         }
+
+        private void CollectButton_Click(object sender, EventArgs e)
+        {
+            if (IsInternetAvailable())
+            {
+                int situation;
+                situation = DatabaseUtility.setFavorite(Global.user, currentBook);
+                if (situation == 1)
+                {
+                    MessageBox.Show("Add successfully");
+                }
+                else if (situation == -2)
+                {
+                    MessageBox.Show("This book has already been in your collection!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
+        }
     }
 }

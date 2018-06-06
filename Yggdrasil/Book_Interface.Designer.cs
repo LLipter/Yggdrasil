@@ -41,6 +41,7 @@
             this.CommentButton = new System.Windows.Forms.Button();
             this.CommentLabel = new System.Windows.Forms.Label();
             this.LeaveCommentLabel = new System.Windows.Forms.Label();
+            this.CollectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // 
             this.ChapterBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChapterBox.FormattingEnabled = true;
-            this.ChapterBox.Location = new System.Drawing.Point(46, 332);
+            this.ChapterBox.Location = new System.Drawing.Point(46, 343);
             this.ChapterBox.Name = "ChapterBox";
             this.ChapterBox.Size = new System.Drawing.Size(121, 23);
             this.ChapterBox.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.ChapterLabel.AutoSize = true;
             this.ChapterLabel.BackColor = System.Drawing.Color.Transparent;
             this.ChapterLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ChapterLabel.Location = new System.Drawing.Point(43, 303);
+            this.ChapterLabel.Location = new System.Drawing.Point(43, 320);
             this.ChapterLabel.Name = "ChapterLabel";
             this.ChapterLabel.Size = new System.Drawing.Size(86, 20);
             this.ChapterLabel.TabIndex = 3;
@@ -181,6 +182,18 @@
             this.LeaveCommentLabel.TabIndex = 11;
             this.LeaveCommentLabel.Text = "Leave your comments here";
             // 
+            // CollectButton
+            // 
+            this.CollectButton.BackColor = System.Drawing.Color.LightCoral;
+            this.CollectButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CollectButton.Location = new System.Drawing.Point(46, 276);
+            this.CollectButton.Name = "CollectButton";
+            this.CollectButton.Size = new System.Drawing.Size(269, 32);
+            this.CollectButton.TabIndex = 12;
+            this.CollectButton.Text = "Add to My Collection";
+            this.CollectButton.UseVisualStyleBackColor = false;
+            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
+            // 
             // Book_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -188,6 +201,7 @@
             this.AutoScroll = true;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
             this.ClientSize = new System.Drawing.Size(798, 980);
+            this.Controls.Add(this.CollectButton);
             this.Controls.Add(this.LeaveCommentLabel);
             this.Controls.Add(this.CommentLabel);
             this.Controls.Add(this.CommentButton);
@@ -226,5 +240,6 @@
         private System.Windows.Forms.Button CommentButton;
         private System.Windows.Forms.Label CommentLabel;
         private System.Windows.Forms.Label LeaveCommentLabel;
+        private System.Windows.Forms.Button CollectButton;
     }
 }

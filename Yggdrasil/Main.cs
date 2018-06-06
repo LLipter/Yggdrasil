@@ -196,6 +196,13 @@ namespace Yggdrasil
             }
 
         }
+
+        private void CollectionButton_Click(object sender, EventArgs e)
+        {
+            User_Collection myCollection = new User_Collection(this);
+            myCollection.Show();
+            this.Enabled = false;
+        }
     }
 
 }
