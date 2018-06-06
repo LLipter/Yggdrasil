@@ -91,7 +91,21 @@ namespace Yggdrasil
                 }
             }else if(initCon == content && author != initAuthor)
             {
-                DatabaseUtility.modifyAuthorByName(author, bookId);
+                if(DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
+                {
+                    MessageBox.Show("There already exists the author!");
+                }
+            }
+            else
+            {
+                if (DatabaseUtility.modifyBookContent(book, chapterNo, content) == -1)
+                {
+                    MessageBox.Show("There is something wrong with the content!");
+                }
+                if (DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
+                {
+                    MessageBox.Show("There already exists the author!");
+                }
             }
             chapterContent.Text = "";
         }
