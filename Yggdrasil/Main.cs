@@ -23,7 +23,7 @@ namespace Yggdrasil
             InitializeComponent();
             this.lastForm = lastForm;
             this.privilege = privilege;
-            if (privilege<20) btnBookManagement.Hide();//if the privilege is not high enough,then the user has no right to manage the books
+            if (privilege<50) btnBookManagement.Hide();//if the privilege is not high enough,then the user has no right to manage the books
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
