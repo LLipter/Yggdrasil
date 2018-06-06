@@ -40,6 +40,9 @@
             this.book4 = new System.Windows.Forms.Label();
             this.book5 = new System.Windows.Forms.Label();
             this.book6 = new System.Windows.Forms.Label();
+            this.LastPageButton = new System.Windows.Forms.Button();
+            this.NextPageButton = new System.Windows.Forms.Button();
+            this.PagecomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image3)).BeginInit();
@@ -144,11 +147,40 @@
             this.book6.Size = new System.Drawing.Size(0, 15);
             this.book6.TabIndex = 11;
             // 
+            // LastPageButton
+            // 
+            this.LastPageButton.Location = new System.Drawing.Point(158, 453);
+            this.LastPageButton.Name = "LastPageButton";
+            this.LastPageButton.Size = new System.Drawing.Size(88, 41);
+            this.LastPageButton.TabIndex = 12;
+            this.LastPageButton.Text = "Last page";
+            this.LastPageButton.UseVisualStyleBackColor = true;
+            // 
+            // NextPageButton
+            // 
+            this.NextPageButton.Location = new System.Drawing.Point(581, 453);
+            this.NextPageButton.Name = "NextPageButton";
+            this.NextPageButton.Size = new System.Drawing.Size(92, 41);
+            this.NextPageButton.TabIndex = 13;
+            this.NextPageButton.Text = "Next page";
+            this.NextPageButton.UseVisualStyleBackColor = true;
+            // 
+            // PagecomboBox
+            // 
+            this.PagecomboBox.FormattingEnabled = true;
+            this.PagecomboBox.Location = new System.Drawing.Point(341, 463);
+            this.PagecomboBox.Name = "PagecomboBox";
+            this.PagecomboBox.Size = new System.Drawing.Size(143, 23);
+            this.PagecomboBox.TabIndex = 14;
+            // 
             // User_Collection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(847, 506);
+            this.Controls.Add(this.PagecomboBox);
+            this.Controls.Add(this.NextPageButton);
+            this.Controls.Add(this.LastPageButton);
             this.Controls.Add(this.book6);
             this.Controls.Add(this.book5);
             this.Controls.Add(this.book4);
@@ -188,5 +220,8 @@
         private System.Windows.Forms.Label book4;
         private System.Windows.Forms.Label book5;
         private System.Windows.Forms.Label book6;
+        private System.Windows.Forms.Button LastPageButton;
+        private System.Windows.Forms.Button NextPageButton;
+        private System.Windows.Forms.ComboBox PagecomboBox;
     }
 }

@@ -99,8 +99,6 @@
             this.Summary.ReadOnly = true;
             this.Summary.Size = new System.Drawing.Size(425, 227);
             this.Summary.TabIndex = 4;
-            this.Summary.Text = "This is the sample！This is the sample！This is the sample！This is the sample！This " +
-    "is the sample！This is the sample！This is the sample！";
             this.Summary.TextChanged += new System.EventHandler(this.SummaryBox_TextChanged);
             // 
             // BeginReadButton

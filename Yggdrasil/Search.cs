@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yggdrasil.Model;
+using System.Net;
 
 namespace Yggdrasil
 {
@@ -67,19 +68,26 @@ namespace Yggdrasil
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            clear();
-            if(searchText.Text == "")
+            if (IsInternetAvailable())
             {
-                MessageBox.Show("Please enter the name of book");
+                clear();
+                if (searchText.Text == "")
+                {
+                    MessageBox.Show("Please enter the name of book");
+                }
+                else
+                {
+                    byte[] utf8 = Encoding.UTF8.GetBytes(searchText.Text.ToString());
+                    string wantBook = Encoding.UTF8.GetString(utf8);
+                    if (getData(wantBook) == 1)
+                    {
+                        showBook();
+                    }
+                }
             }
             else
             {
-                byte[] utf8 = Encoding.UTF8.GetBytes(searchText.Text.ToString());
-                string wantBook = Encoding.UTF8.GetString(utf8);
-                if (getData(wantBook) == 1)
-                {
-                    showBook();
-                }
+                MessageBox.Show("Please check your network");
             }
         }
 
@@ -107,27 +115,41 @@ namespace Yggdrasil
 
         private void lastPageButton_Click(object sender, EventArgs e)
         {
-            if(pageNum == 1)
+            if (IsInternetAvailable())
             {
-                MessageBox.Show("This is the first page!");
+                if (pageNum == 1)
+                {
+                    MessageBox.Show("This is the first page!");
+                }
+                else
+                {
+                    pageNum--;
+                    showBook();
+                }
             }
             else
             {
-                pageNum--;
-                showBook();
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void nextPageButton_Click(object sender, EventArgs e)
         {
-            if (pageNum == totalPage)
+            if (IsInternetAvailable())
             {
-                MessageBox.Show("This is the Last page!");
+                if (pageNum == totalPage)
+                {
+                    MessageBox.Show("This is the Last page!");
+                }
+                else
+                {
+                    pageNum++;
+                    showBook();
+                }
             }
             else
             {
-                pageNum++;
-                showBook();
+                MessageBox.Show("Please check your network");
             }
         }
 
@@ -218,67 +240,109 @@ namespace Yggdrasil
 
         private void image1_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-                //this.Close();
+                int localBook = (pageNum - 1) * 6;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    //this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void image2_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6 + 1;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-               // this.Close();
+                int localBook = (pageNum - 1) * 6 + 1;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    // this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void image3_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6 + 2;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-               // this.Close();
+                int localBook = (pageNum - 1) * 6 + 2;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    // this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void image4_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6 + 3;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-               // this.Close();
+                int localBook = (pageNum - 1) * 6 + 3;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    // this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void image5_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6 + 4;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-               // this.Close();
+                int localBook = (pageNum - 1) * 6 + 4;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    // this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
         private void image6_Click(object sender, EventArgs e)
         {
-            int localBook = (pageNum - 1) * 6 + 5;
-            if (localBook < size)
+            if (IsInternetAvailable())
             {
-                Book_Interface book = new Book_Interface((Book)bookList[localBook]);
-                book.Show();
-             //   this.Close();
+                int localBook = (pageNum - 1) * 6 + 5;
+                if (localBook < size)
+                {
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    book.Show();
+                    //   this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
             }
         }
 
@@ -288,6 +352,21 @@ namespace Yggdrasil
             labelList.Clear();
             imageList.Clear();
             mainForm.Enabled = true;
+        }
+
+        //function used to check network
+        private bool IsInternetAvailable()
+        {
+            try
+            {
+                Dns.GetHostEntry("www.baidu.com");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
     }
 }

@@ -32,22 +32,29 @@ namespace Yggdrasil
             currentBook = cbook;
             TotalChapNo = currentBook.Chapter_no;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
+            //Judge whether the network is available
+            if (IsInternetAvailable())
+            {
+                Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/cover.jpg").GetResponse().GetResponseStream());
+                pictureBox1.Image = Cover;
+                BookNameLabel.Text = currentBook.Book_name;
+                Summary.Text = currentBook.getInfo();
+                for (int i = 1; i <= currentBook.Chapter_no; i++)
+                {
+                    ChapterBox.Items.Add(i);
+                }
+                DatabaseUtility.getComments(ref bookComments, currentBook);
 
-            Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
-            pictureBox1.Image = Cover;
-            BookNameLabel.Text = currentBook.Book_name;
-            Summary.Text = currentBook.getInfo();
-            for (int i = 1; i <= currentBook.Chapter_no; i++)
-            {
-                ChapterBox.Items.Add(i);
+                for (int j = 0; j < bookComments.Count; j++)
+                {
+                    Comment newCommentItem = (Comment)bookComments[j];
+                    CommentsBox.AppendText(newCommentItem.User_name + "-------" + newCommentItem.Create_date.ToString() + "\r\n" + newCommentItem.Content.ToString() + "\r\n" + "\r\n");
+
+                }
             }
-            DatabaseUtility.getComments(ref bookComments, currentBook);
-            
-            for(int j = 0; j < bookComments.Count; j++)
+            else
             {
-                Comment newCommentItem = (Comment)bookComments[j];
-                CommentsBox.AppendText(newCommentItem.User_name +"-------"+ newCommentItem.Create_date.ToString()+"\r\n"  + newCommentItem.Content.ToString()+"\r\n"+"\r\n");
-                
+                MessageBox.Show("Please check your network!");
             }
 
         }
@@ -75,21 +82,27 @@ namespace Yggdrasil
 
         private void BeginReadButton_Click(object sender, EventArgs e)
         {
-            if (TotalChapNo > 0)
+            if (IsInternetAvailable())
             {
-                ContinueReadButton.Visible = true;
-                this.Hide();
-                Read_Interface.pageNumber = 1;
-                Read_Interface readInter = new Read_Interface(bookURL);
-                readInter.ShowDialog();
+                if (TotalChapNo > 0)
+                {
+                    ContinueReadButton.Visible = true;
+                    this.Hide();
+                    Read_Interface.pageNumber = 1;
+                    Read_Interface readInter = new Read_Interface(bookURL);
+                    readInter.ShowDialog();
 
-                this.Show();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry,The contents haven't been put on now");
+                }
             }
             else
             {
-                MessageBox.Show("Sorry,The contents haven't been put on now");
+                MessageBox.Show("Please check your network");
             }
-            
         }
         private void BeginReadButton_OnMouseEnter(object sender, EventArgs e)
         {
@@ -116,33 +129,57 @@ namespace Yggdrasil
 
         private void ContinueReadButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Read_Interface readInter = new Read_Interface(bookURL);
-            readInter.ShowDialog();
-            this.Show();
+            if (IsInternetAvailable())
+            {
+                this.Hide();
+                Read_Interface readInter = new Read_Interface(bookURL);
+                readInter.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
 
         private void CommentButton_Click(object sender, EventArgs e)
-        {   
-            UserComment = new Comment();
-            UserComment.User_id = Global.user.User_id;
-            UserComment.Book_id = currentBook.Book_id;
-            UserComment.Content = WriteCommentBox.Text.ToString();
-            int commitSuccess = DatabaseUtility.setComment(ref UserComment);
-            if(commitSuccess == -1)
+        {
+            if (IsInternetAvailable())
             {
-                MessageBox.Show("Please check your network connection!");
-            }
-            CommentsBox.Clear();
-            DatabaseUtility.getComments(ref bookComments, currentBook);
+                UserComment = new Comment();
+                UserComment.User_id = Global.user.User_id;
+                UserComment.Book_id = currentBook.Book_id;
+                UserComment.Content = WriteCommentBox.Text.ToString();
+                int commitSuccess = DatabaseUtility.setComment(ref UserComment);
+                CommentsBox.Clear();
+                DatabaseUtility.getComments(ref bookComments, currentBook);
 
-            for (int j = 0; j < bookComments.Count; j++)
+                for (int j = 0; j < bookComments.Count; j++)
+                {
+                    Comment newCommentItem = (Comment)bookComments[j];
+                    CommentsBox.AppendText(newCommentItem.User_name + "-------" + newCommentItem.Create_date.ToString() + "\r\n" + newCommentItem.Content.ToString() + "\r\n" + "\r\n");
+
+                }
+                WriteCommentBox.Clear();
+            }
+            else
             {
-                Comment newCommentItem = (Comment)bookComments[j];
-                CommentsBox.AppendText(newCommentItem.User_name + "-------" + newCommentItem.Create_date.ToString() + "\r\n" + newCommentItem.Content.ToString() + "\r\n" + "\r\n");
-
+                MessageBox.Show("Please check your network");
             }
-            WriteCommentBox.Clear();
+        }
+
+        //function used to check network
+        private bool IsInternetAvailable()
+        {
+            try
+            {
+                Dns.GetHostEntry("www.baidu.com");
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
     }
 }

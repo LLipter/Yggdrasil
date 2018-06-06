@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Read_Interface));
             this.BookContents = new System.Windows.Forms.TextBox();
             this.LastPage = new System.Windows.Forms.Button();
             this.NextPage = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
             this.BookContents.Size = new System.Drawing.Size(688, 458);
             this.BookContents.TabIndex = 1;
             this.BookContents.TabStop = false;
-            this.BookContents.Text = resources.GetString("BookContents.Text");
             this.BookContents.TextChanged += new System.EventHandler(this.Contents_TextChanged);
             // 
             // LastPage

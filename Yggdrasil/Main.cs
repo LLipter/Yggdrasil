@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yggdrasil.Model;
+using System.Net;
 
 namespace Yggdrasil
 {
@@ -61,25 +62,46 @@ namespace Yggdrasil
 
         private void btnBookManagement_Click(object sender, EventArgs e)
         {
-            Manage managePage = new Manage();
-            managePage.Show();
+            if (IsInternetAvailable())
+            {
+                Manage managePage = new Manage();
+                managePage.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearch.Text != "")
+            if (IsInternetAvailable())
             {
-                Search searchPage = new Search(txtSearch.Text, this);
-                searchPage.Show();
-                this.Enabled = false;
+                if (txtSearch.Text != "")
+                {
+                    Search searchPage = new Search(txtSearch.Text, this);
+                    searchPage.Show();
+                    this.Enabled = false;
+                }
+                else MessageBox.Show("Please input information!");
             }
-            else MessageBox.Show("Please input information!");  
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
     
         private void btnBook1_Click(object sender, EventArgs e)
         {
-            Book_Interface bkitfPage = new Book_Interface(currentBook);
-            bkitfPage.Show();
+            if (IsInternetAvailable())
+            {
+                Book_Interface bkitfPage = new Book_Interface(currentBook);
+                bkitfPage.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -123,20 +145,56 @@ namespace Yggdrasil
 
         private void picBox1_Click(object sender, EventArgs e)
         {
-            Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]));
-            bookInfo.Show();
+            if (IsInternetAvailable())
+            {
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]));
+                bookInfo.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
 
         private void picBox2_Click(object sender, EventArgs e)
         {
-            Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]));
-            bookInfo.Show();
+            if (IsInternetAvailable())
+            {
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]));
+                bookInfo.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
         }
 
         private void picBox3_Click(object sender, EventArgs e)
         {
-            Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]));
-            bookInfo.Show();
+            if (IsInternetAvailable())
+            {
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]));
+                bookInfo.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your network");
+            }
+        }
+        
+        //function used to check network
+        private bool IsInternetAvailable()
+        {
+            try
+            {
+                Dns.GetHostEntry("www.baidu.com");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
     }
 
