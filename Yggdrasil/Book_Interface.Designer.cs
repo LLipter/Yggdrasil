@@ -39,6 +39,8 @@
             this.CommentsBox = new System.Windows.Forms.RichTextBox();
             this.WriteCommentBox = new System.Windows.Forms.RichTextBox();
             this.CommentButton = new System.Windows.Forms.Button();
+            this.CommentLabel = new System.Windows.Forms.Label();
+            this.LeaveCommentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +48,10 @@
             // 
             this.BookNameLabel.AutoSize = true;
             this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BookNameLabel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameLabel.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BookNameLabel.Location = new System.Drawing.Point(42, 20);
             this.BookNameLabel.Name = "BookNameLabel";
-            this.BookNameLabel.Size = new System.Drawing.Size(114, 24);
+            this.BookNameLabel.Size = new System.Drawing.Size(124, 25);
             this.BookNameLabel.TabIndex = 0;
             this.BookNameLabel.Text = "BookName";
             this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
@@ -79,10 +81,10 @@
             // 
             this.ChapterLabel.AutoSize = true;
             this.ChapterLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ChapterLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ChapterLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ChapterLabel.Location = new System.Drawing.Point(43, 303);
             this.ChapterLabel.Name = "ChapterLabel";
-            this.ChapterLabel.Size = new System.Drawing.Size(70, 15);
+            this.ChapterLabel.Size = new System.Drawing.Size(86, 20);
             this.ChapterLabel.TabIndex = 3;
             this.ChapterLabel.Text = "Chapter";
             // 
@@ -134,14 +136,14 @@
             this.CommentsBox.Location = new System.Drawing.Point(3, 422);
             this.CommentsBox.Name = "CommentsBox";
             this.CommentsBox.ReadOnly = true;
-            this.CommentsBox.Size = new System.Drawing.Size(792, 270);
+            this.CommentsBox.Size = new System.Drawing.Size(792, 298);
             this.CommentsBox.TabIndex = 7;
             this.CommentsBox.Text = "";
             // 
             // WriteCommentBox
             // 
             this.WriteCommentBox.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.WriteCommentBox.Location = new System.Drawing.Point(11, 779);
+            this.WriteCommentBox.Location = new System.Drawing.Point(11, 797);
             this.WriteCommentBox.Name = "WriteCommentBox";
             this.WriteCommentBox.Size = new System.Drawing.Size(784, 96);
             this.WriteCommentBox.TabIndex = 8;
@@ -151,7 +153,7 @@
             // 
             this.CommentButton.BackColor = System.Drawing.Color.LightSalmon;
             this.CommentButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CommentButton.Location = new System.Drawing.Point(347, 915);
+            this.CommentButton.Location = new System.Drawing.Point(347, 932);
             this.CommentButton.Name = "CommentButton";
             this.CommentButton.Size = new System.Drawing.Size(106, 36);
             this.CommentButton.TabIndex = 9;
@@ -159,13 +161,37 @@
             this.CommentButton.UseVisualStyleBackColor = false;
             this.CommentButton.Click += new System.EventHandler(this.CommentButton_Click);
             // 
+            // CommentLabel
+            // 
+            this.CommentLabel.AutoSize = true;
+            this.CommentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CommentLabel.Font = new System.Drawing.Font("微软雅黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CommentLabel.Location = new System.Drawing.Point(9, 385);
+            this.CommentLabel.Name = "CommentLabel";
+            this.CommentLabel.Size = new System.Drawing.Size(138, 31);
+            this.CommentLabel.TabIndex = 10;
+            this.CommentLabel.Text = "Comments";
+            // 
+            // LeaveCommentLabel
+            // 
+            this.LeaveCommentLabel.AutoSize = true;
+            this.LeaveCommentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LeaveCommentLabel.Font = new System.Drawing.Font("微软雅黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LeaveCommentLabel.Location = new System.Drawing.Point(9, 763);
+            this.LeaveCommentLabel.Name = "LeaveCommentLabel";
+            this.LeaveCommentLabel.Size = new System.Drawing.Size(325, 31);
+            this.LeaveCommentLabel.TabIndex = 11;
+            this.LeaveCommentLabel.Text = "Leave your comments here";
+            // 
             // Book_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
-            this.ClientSize = new System.Drawing.Size(798, 963);
+            this.ClientSize = new System.Drawing.Size(798, 980);
+            this.Controls.Add(this.LeaveCommentLabel);
+            this.Controls.Add(this.CommentLabel);
             this.Controls.Add(this.CommentButton);
             this.Controls.Add(this.WriteCommentBox);
             this.Controls.Add(this.CommentsBox);
@@ -176,6 +202,9 @@
             this.Controls.Add(this.ChapterBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BookNameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Book_Interface";
             this.Text = "书籍界面";
             this.Load += new System.EventHandler(this.Book_Interface_Load);
@@ -197,5 +226,7 @@
         private System.Windows.Forms.RichTextBox CommentsBox;
         private System.Windows.Forms.RichTextBox WriteCommentBox;
         private System.Windows.Forms.Button CommentButton;
+        private System.Windows.Forms.Label CommentLabel;
+        private System.Windows.Forms.Label LeaveCommentLabel;
     }
 }
