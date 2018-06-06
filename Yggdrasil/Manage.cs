@@ -30,6 +30,8 @@ namespace Yggdrasil
                                         "ON b.publisher_id = p.publisher_id ";
         private string[,] changedItem;
         private ArrayList bookList = new ArrayList();
+        private static int column;
+        private static int row;
 
         MySqlConnection conn;
         MySqlDataAdapter adapter;
@@ -54,32 +56,30 @@ namespace Yggdrasil
             booksView.Columns[7].ReadOnly = true;
             booksView.Columns[8].ReadOnly = true;
 
-            int column = booksView.ColumnCount;
-            int row = booksView.RowCount;
-            changedItem = new string[column -1,row -1];
+            column = booksView.ColumnCount;
+            row = booksView.RowCount;
+            changedItem = new string[column,row];
         }
 
         private void dbUpdate()
         {
             conn.Open();
             MySqlCommand cmd;
-            int column = booksView.ColumnCount;
-            int row = booksView.RowCount;
             int bookId;
             int otherId;
-            for(int i = 0; i < column; i++)
+            for(int i = 0; i < row; i++)
             {
-                for(int j = 0; j< row; j++)
+                for(int j = 0; j< column; j++)
                 {
-                    if(changedItem[i,j] != null)
+                    if(changedItem[j,i] != null)
                     {
                         switch (j)
                         {
                             case 1:
-                                bookId = Convert.ToInt32(booksView[i, j].Value.ToString());
+                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
                                 string sqlStr1 = string.Format("UPDATE book" +
                                                                "SET book_name = {0} " +
-                                                               "WHERE book_id = {1} ", changedItem[i, j], bookId);
+                                                               "WHERE book_id = {1} ", changedItem[j, i], bookId);
                                 cmd = new MySqlCommand(sqlStr1, conn);
                                 if (cmd.ExecuteNonQuery() == 0)
                                 {
@@ -87,8 +87,8 @@ namespace Yggdrasil
                                 }
                                 break;
                             case 2:
-                                bookId = Convert.ToInt32(booksView[i, j].Value.ToString());
-                                otherId = Convert.ToInt32(changedItem[i, j]);
+                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                otherId = Convert.ToInt32(changedItem[j, i]);
                                 string sqlStr2 = string.Format("UPDATE author" +
                                                                "SET user_id = {0} " +
                                                                "WHERE book_id = {1} ", otherId, bookId);
@@ -99,8 +99,8 @@ namespace Yggdrasil
                                 }
                                 break;
                             case 4:
-                                bookId = Convert.ToInt32(booksView[i, j].Value.ToString());
-                                otherId = Convert.ToInt32(changedItem[i, j]);
+                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                otherId = Convert.ToInt32(changedItem[j, i]);
                                 string sqlStr4 = string.Format("UPDATE publisher_id" +
                                                                "SET publisher_id = {0} " +
                                                                "WHERE book_id = {1} ", otherId, bookId);
@@ -111,8 +111,8 @@ namespace Yggdrasil
                                 }
                                 break;
                             case 6:
-                                bookId = Convert.ToInt32(booksView[i, j].Value.ToString());
-                                int status = Convert.ToInt32(changedItem[i, j]);
+                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                int status = Convert.ToInt32(changedItem[j, i]);
                                     string sqlStr6 = string.Format("UPDATE book_status" +
                                                                    "SET bookStatus = {0} " +
                                                                    "WHERE book_id = {1} ", status, bookId);
@@ -131,18 +131,19 @@ namespace Yggdrasil
 
         private void booksView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            int column = e.ColumnIndex;
-            int row = e.RowIndex;
-            byte[] utf8 = Encoding.UTF8.GetBytes(booksView[column, row].Value.ToString());
+            int ecolumn = e.ColumnIndex;
+            int erow = e.RowIndex;
+            byte[] utf8 = Encoding.UTF8.GetBytes(booksView[ecolumn, erow].Value.ToString());
             string value = Encoding.UTF8.GetString(utf8);
-            switch (column)
+            switch (ecolumn)
             {
                 case 3:
                     conn.Open();
 
                     string tempSql1 = "SELECT user_name FROM user ";
 
-                    DataTable tempDt = getTable(tempSql1);
+                    DataTable tempDt = new DataTable();
+                    getTable(ref tempDt,tempSql1);
 
                     string tempSql2 = string.Format("INSERT INTO user(user_name) values({0}) ", value);
 
@@ -150,23 +151,22 @@ namespace Yggdrasil
                     {
                         MessageBox.Show("There is no such value!");
                         MySqlCommand tempCmd = new MySqlCommand(tempSql2, conn);
-                        if (tempCmd.ExecuteNonQuery() == 0)
-                        {
-                            MessageBox.Show("The insert is successful!");
-                            string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
-                            DataTable tempDt3 = getTable(tempSql3);
-                            string newUserId = tempDt3.Rows[1].ToString();
-                            booksView[column - 1, row].Value = newUserId;
-                            changedItem[column - 1, row] = newUserId; 
-                        }
+                        string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
+                        DataTable tempDt3 = new DataTable();
+                        getTable(ref tempDt3,tempSql3);
+                        string newUserId = tempDt3.Rows[1].ToString();
+                        booksView[ecolumn - 1, erow].Value = newUserId;
+                        changedItem[ecolumn - 1, erow] = newUserId;
+
                     }
                     else
                     {
                         string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
-                        DataTable tempDt3 = getTable(tempSql3);
+                        DataTable tempDt3 = new DataTable();
+                        getTable(ref tempDt3,tempSql3);
                         string newUserId = tempDt3.Rows[1].ToString();
-                        booksView[column - 1, row].Value = newUserId;
-                        changedItem[column - 1, row] = newUserId;
+                        booksView[ecolumn - 1, erow].Value = newUserId;
+                        changedItem[ecolumn - 1, erow] = newUserId;
                     }
                     conn.Close();
                     break;
@@ -175,7 +175,8 @@ namespace Yggdrasil
 
                     string tempSql4 = "SELECT publisher_name FROM publisher ";
 
-                    DataTable tempDt4 = getTable(tempSql4);
+                    DataTable tempDt4 = new DataTable();
+                    getTable(ref tempDt4,tempSql4);
 
                     string tempSql5 = string.Format("INSERT INTO publisher(publisher_name) values({0}) ", value);
 
@@ -183,23 +184,22 @@ namespace Yggdrasil
                     {
                         MessageBox.Show("There is no such value!");
                         MySqlCommand tempCmd = new MySqlCommand(tempSql5, conn);
-                        if (tempCmd.ExecuteNonQuery() == 0)
-                        {
-                            MessageBox.Show("The insert is successful!");
-                            string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = {0} ", value);
-                            DataTable tempDt6 = getTable(tempSql6);
-                            string newPublisherId = tempDt6.Rows[1].ToString();
-                            booksView[column - 1, row].Value = newPublisherId;
-                            changedItem[column - 1, row] = newPublisherId;
-                        }
+                        string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = {0} ", value);
+                        DataTable tempDt6 = new DataTable();
+                        getTable(ref tempDt6,tempSql6);
+                        string newPublisherId = tempDt6.Rows[1].ToString();
+                        booksView[ecolumn - 1, erow].Value = newPublisherId;
+                        changedItem[ecolumn - 1, erow] = newPublisherId;
+
                     }
                     else
                     {
                         string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = {0} ", value);
-                        DataTable tempDt6 = getTable(tempSql6);
+                        DataTable tempDt6 = new DataTable();
+                        getTable(ref tempDt6,tempSql6);
                         string newPublisherId = tempDt6.Rows[1].ToString();
-                        booksView[column - 1, row].Value = newPublisherId;
-                        changedItem[column - 1, row] = newPublisherId;
+                        booksView[ecolumn - 1, erow].Value = newPublisherId;
+                        changedItem[ecolumn - 1, erow] = newPublisherId;
                     }
                     conn.Close();
                     break;
@@ -207,20 +207,21 @@ namespace Yggdrasil
                     int status = Convert.ToInt32(value);
                     if(status == 0 || status == 1)
                     {
-                        changedItem[column, row] = value;
+                        changedItem[ecolumn, erow] = value;
                     }
                     else
                     {
                         MessageBox.Show("This cell is only can be 0 or 1!");
-                        int bookId = Convert.ToInt32(booksView[0, row].Value.ToString());
+                        int bookId = Convert.ToInt32(booksView[0, erow].Value.ToString());
                         string tempSql7 = string.Format("SELECT book_status FROM publisher WHERE publisher_name = {0} ", bookId);
-                        DataTable tempDt7 = getTable(tempSql7);
+                        DataTable tempDt7 = new DataTable();
+                        getTable(ref tempDt7,tempSql7);
                         string oldStatus = tempDt7.Rows[1].ToString();
-                        booksView[column, row].Value = oldStatus;
+                        booksView[ecolumn, erow].Value = oldStatus;
                     }
                     break;
                 default:
-                    changedItem[column, row] = value;
+                    changedItem[ecolumn, erow] = value;
                     break;
             }
         }
@@ -239,22 +240,29 @@ namespace Yggdrasil
             return count;
         }
 
-        private DataTable getTable(string sqlStr)
+        private void getTable(ref DataTable tempDt, string sqlStr)
         {
             MySqlDataAdapter tempSda = new MySqlDataAdapter(sqlStr, conn);
             DataSet tempDs = new DataSet();
             tempSda.Fill(tempDs);
-            DataTable tempDt = new DataTable();
             tempDt = tempDs.Tables[0];
-            return tempDt;
         }
 
         private void commitButton_Click(object sender, EventArgs e)
         {
             dbUpdate();
+            MessageBox.Show("The modify is successful!");
+            for(int i = 0; i < column; i++)
+            {
+                for(int j = 0; j < row; j++)
+                {
+                    changedItem[i,j] = null;
+                }
+            }
+
         }
 
-        private void addChapterButton_Click(object sender, EventArgs e)
+        private void modifyChapterButton_Click(object sender, EventArgs e)
         {
             if (bookList[0] == null)
             {
@@ -264,6 +272,7 @@ namespace Yggdrasil
             {
                 int bookId = (int)bookList[0];
                 Modify_Chapter chapter = new Modify_Chapter(bookId);
+                chapter.Show();
             }
         }
 

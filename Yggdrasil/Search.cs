@@ -284,6 +284,9 @@ namespace Yggdrasil
 
         private void Search_FormClosing(object sender, FormClosingEventArgs e)
         {
+            clear();
+            labelList.Clear();
+            imageList.Clear();
             mainForm.Enabled = true;
         }
     }
