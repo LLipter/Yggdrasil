@@ -38,6 +38,8 @@
             this.newChapterLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.newChapterNo = new System.Windows.Forms.TextBox();
+            this.authorBox = new System.Windows.Forms.ComboBox();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chapterBox
@@ -45,14 +47,14 @@
             this.chapterBox.FormattingEnabled = true;
             this.chapterBox.Location = new System.Drawing.Point(194, 36);
             this.chapterBox.Name = "chapterBox";
-            this.chapterBox.Size = new System.Drawing.Size(121, 23);
+            this.chapterBox.Size = new System.Drawing.Size(59, 23);
             this.chapterBox.TabIndex = 0;
             this.chapterBox.SelectedIndexChanged += new System.EventHandler(this.chapterBox_SelectedIndexChanged);
             // 
             // chapterLabel
             // 
             this.chapterLabel.AutoSize = true;
-            this.chapterLabel.Location = new System.Drawing.Point(111, 36);
+            this.chapterLabel.Location = new System.Drawing.Point(111, 40);
             this.chapterLabel.Name = "chapterLabel";
             this.chapterLabel.Size = new System.Drawing.Size(63, 15);
             this.chapterLabel.TabIndex = 1;
@@ -72,13 +74,14 @@
             this.chapterContent.Location = new System.Drawing.Point(114, 65);
             this.chapterContent.Multiline = true;
             this.chapterContent.Name = "chapterContent";
-            this.chapterContent.Size = new System.Drawing.Size(480, 146);
+            this.chapterContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.chapterContent.Size = new System.Drawing.Size(551, 146);
             this.chapterContent.TabIndex = 3;
             this.chapterContent.Text = "Please modify the chapter here!";
             // 
             // modifyButton
             // 
-            this.modifyButton.Location = new System.Drawing.Point(575, 36);
+            this.modifyButton.Location = new System.Drawing.Point(685, 36);
             this.modifyButton.Name = "modifyButton";
             this.modifyButton.Size = new System.Drawing.Size(75, 23);
             this.modifyButton.TabIndex = 4;
@@ -88,7 +91,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(383, 36);
+            this.showButton.Location = new System.Drawing.Point(542, 35);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(123, 23);
             this.showButton.TabIndex = 5;
@@ -101,7 +104,8 @@
             this.newBookContent.Location = new System.Drawing.Point(114, 261);
             this.newBookContent.Multiline = true;
             this.newBookContent.Name = "newBookContent";
-            this.newBookContent.Size = new System.Drawing.Size(480, 146);
+            this.newBookContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.newBookContent.Size = new System.Drawing.Size(551, 146);
             this.newBookContent.TabIndex = 6;
             this.newBookContent.Text = "Please write the new chapter here!";
             // 
@@ -116,7 +120,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(575, 226);
+            this.addButton.Location = new System.Drawing.Point(622, 222);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 8;
@@ -133,11 +137,30 @@
             this.newChapterNo.Text = "New Chapter";
             this.newChapterNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newChapterNo_KeyPress);
             // 
+            // authorBox
+            // 
+            this.authorBox.FormattingEnabled = true;
+            this.authorBox.Location = new System.Drawing.Point(383, 37);
+            this.authorBox.Name = "authorBox";
+            this.authorBox.Size = new System.Drawing.Size(121, 23);
+            this.authorBox.TabIndex = 10;
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Location = new System.Drawing.Point(310, 40);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(55, 15);
+            this.authorLabel.TabIndex = 11;
+            this.authorLabel.Text = "Author";
+            // 
             // Modify_Chapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.authorLabel);
+            this.Controls.Add(this.authorBox);
             this.Controls.Add(this.newChapterNo);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.newChapterLabel);
@@ -168,5 +191,7 @@
         private System.Windows.Forms.Label newChapterLabel;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox newChapterNo;
+        private System.Windows.Forms.ComboBox authorBox;
+        private System.Windows.Forms.Label authorLabel;
     }
 }

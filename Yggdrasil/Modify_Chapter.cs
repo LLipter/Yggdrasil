@@ -17,9 +17,13 @@ namespace Yggdrasil
     public partial class Modify_Chapter : Form
     {
         private Book book = new Book();
+        private User user = new User();
         private string bookUrl;
         private static int chapterNo = 1;
         private int bookId = 0;
+        private string initCon;
+        private string initAuthor;
+        private ArrayList authorList = new ArrayList();
 
         public Modify_Chapter()
         {
@@ -30,7 +34,32 @@ namespace Yggdrasil
         {
             InitializeComponent();
             bookId = theBookId;
-            DatabaseUtility.getBookByID(ref book,bookId);
+            if (DatabaseUtility.getBookByIDInAdmin(ref book, bookId) == -1)
+            {
+                MessageBox.Show("There is no Internet!");
+            }
+            else
+            {
+                for (int i = 1; i <= book.Chapter_no; i++)
+                {
+                    chapterBox.Items.Add(i);
+                }
+            }
+
+            if(DatabaseUtility.getAuthors(ref authorList) == -1)
+            {
+                MessageBox.Show("There is no Internet!");
+            }
+            else
+            {
+                for (int i = 0; i < authorList.Count; i++)
+                {
+                    user = (User)authorList[i];
+                    authorBox.Items.Add(user.User_name);
+                }
+            }
+            User temp = (User)authorList[0];
+            initAuthor = temp.User_name;
         }
 
         private void Chapter_Load(object sender, EventArgs e)
@@ -48,10 +77,23 @@ namespace Yggdrasil
         private void modifyButton_Click(object sender, EventArgs e)
         {
             string content = chapterContent.Text.ToString();
-            if (DatabaseUtility.modifyBookContent(book, chapterNo, content) == -1)
+            string author = authorBox.Text.ToString();
+
+            if (initCon == content && author == initAuthor)
             {
-                MessageBox.Show("There is something wrong with the content!");
-            } 
+                MessageBox.Show("Please change the content and the click the button!");
+            }
+            else if(initCon != content && author == initAuthor)
+            {
+                if (DatabaseUtility.modifyBookContent(book, chapterNo, content) == -1)
+                {
+                    MessageBox.Show("There is something wrong with the content!");
+                }
+            }else if(initCon == content && author != initAuthor)
+            {
+                DatabaseUtility.modifyAuthorByName(author, bookId);
+            }
+            chapterContent.Text = "";
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -62,6 +104,7 @@ namespace Yggdrasil
             String content = sr.ReadToEnd();
             content = content.Replace("\n", "\r\n");
             chapterContent.Text = content.Substring(0, 500);
+            initCon = chapterContent.Text.ToString();
 
             FirstPage.Close();
             sr.Close();
@@ -77,7 +120,7 @@ namespace Yggdrasil
                 MessageBox.Show("There is something wrong with the content!");
             }
             else
-                DatabaseUtility.getBookByID(ref book, bookId);
+                DatabaseUtility.getBookByIDInAdmin(ref book, bookId);
         }
 
         private void newChapterNo_KeyPress(object sender, KeyPressEventArgs e)
