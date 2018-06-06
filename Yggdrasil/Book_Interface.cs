@@ -20,6 +20,7 @@ namespace Yggdrasil
         private string bookURL;
         private Book currentBook;
         public static int chapNo = 1;
+        private int TotalChapNo;
         private ArrayList bookComments;
         private Comment UserComment;
         //private User user1;
@@ -29,6 +30,7 @@ namespace Yggdrasil
        
             ContinueReadButton.Visible = false;
             currentBook = cbook;
+            TotalChapNo = currentBook.Chapter_no;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
 
             Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/cover.jpg").GetResponse().GetResponseStream());
@@ -73,14 +75,20 @@ namespace Yggdrasil
 
         private void BeginReadButton_Click(object sender, EventArgs e)
         {
+            if (TotalChapNo > 0)
+            {
+                ContinueReadButton.Visible = true;
+                this.Hide();
+                Read_Interface.pageNumber = 1;
+                Read_Interface readInter = new Read_Interface(bookURL);
+                readInter.ShowDialog();
 
-            ContinueReadButton.Visible = true;
-            this.Hide();
-            Read_Interface.pageNumber = 1;
-            Read_Interface readInter = new Read_Interface(bookURL);
-            readInter.ShowDialog();
-           
-            this.Show();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry,The contents haven't been put on now");
+            }
             
         }
         private void BeginReadButton_OnMouseEnter(object sender, EventArgs e)
