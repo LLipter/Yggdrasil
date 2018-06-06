@@ -434,6 +434,111 @@ namespace Yggdrasil.Model
             }
             return 1;
         }
+        public static int getBookByIDInAdmin(ref Book book, int bookId)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * from book WHERE book_id = '{0}'", bookId);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                book.Book_id = read.GetInt32("book_id");
+                book.Book_name = read.GetString("book_name");
+                if (!read.IsDBNull(2))
+                    book.Location = read.GetString("location");
+                else
+                    book.Location = null;
+                book.Book_status = read.GetInt32("book_status");
+                if (!read.IsDBNull(4))
+                {
+                    int publisher_id = read.GetInt32("publisher_id");
+                }
+                else
+                    book.Publisher = null;
+                book.Chapter_no = read.GetInt32("chapter_no");
+                book.Create_date = read.GetDateTime("create_date");
+                book.Modify_date = read.GetDateTime("modify_date");
+            }
+            read.Close();
+            conn.Close();
+            return 1;
+        }
+
+        public static int getAuthors(ref ArrayList list)
+        {
+            MySqlConnection conn = openConn();
+            User user = new User();
+            if (conn == null)
+                return -1;
+            string sqlStr = string.Format("SELECT * FROM user");
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                user.User_id = read.GetInt32("user_id");
+                user.User_name = read.GetString("user_name");
+                user.Passwd = read.GetString("passwd");
+                if (!read.IsDBNull(3))
+                    user.Nick_name = read.GetString("nick_name");
+                else
+                    user.Nick_name = null;
+                user.Privilege = read.GetInt32("privilege");
+                user.Register_date = read.GetDateTime("register_date");
+                list.Add(user);
+            }
+            read.Close();
+            conn.Close();
+            return 1;   // 1 means everything is right
+        }
+
+        public static int modifyAuthorByName(string name, int bookId)
+        {
+            MySqlConnection conn = openConn();
+            User user = new User();
+            int userId = 0;
+            if (conn == null)
+                return -1;
+
+            string sqlStr1 = "SELECT a.book_id,a.user_id " +
+                             "FROM author a " +
+                             "JOIN user u " +
+                             "ON a.user_id = u.user_id ";
+            MySqlCommand cmd1 = conn.CreateCommand();
+            cmd1.CommandText = sqlStr1;
+            MySqlDataReader reader1 = cmd1.ExecuteReader();
+            string sqlStr2 = "SELECT user_id " +
+                             "FROM user " +
+                             "WHERE user_name = name ";
+            MySqlCommand cmd2 = conn.CreateCommand();
+            cmd2.CommandText = sqlStr2;
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            if (reader2.Read())
+            {
+                userId = reader2.GetInt32(reader1.GetOrdinal("user_id"));
+            }
+            reader2.Close();
+            while (reader1.Read())
+            {
+                int bId = reader1.GetInt32(reader1.GetOrdinal("book_id"));
+                int uId = reader1.GetInt32(reader1.GetOrdinal("user_id"));
+                if (bId == bookId && uId == userId)
+                {
+                    return 0;
+                }
+            }
+            reader1.Close();
+            string sqlStr3 = string.Format("INSERT INTO author(book_id,user_id) values('{0}','{1}') ", bookId, userId);
+            MySqlCommand cmd3 = conn.CreateCommand();
+            cmd3.CommandText = sqlStr3;
+            MySqlDataReader reader3 = cmd3.ExecuteReader();
+            reader3.Close();
+            conn.Close();
+
+            return 1;
+
+        }
     }
 
 
