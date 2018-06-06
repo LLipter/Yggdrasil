@@ -76,51 +76,59 @@ namespace Yggdrasil
                         switch (j)
                         {
                             case 1:
-                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
-                                string sqlStr1 = string.Format("UPDATE book" +
-                                                               "SET book_name = {0} " +
-                                                               "WHERE book_id = {1} ", changedItem[j, i], bookId);
+                                bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
+                                string sqlStr1 = string.Format("UPDATE book " +
+                                                               "SET book_name = '{0}' " +
+                                                               "WHERE book_id = '{1}' ",changedItem[j,i],bookId);
                                 cmd = new MySqlCommand(sqlStr1, conn);
-                                if (cmd.ExecuteNonQuery() == 0)
+                                if(cmd.ExecuteNonQuery() == 0)
                                 {
-                                    MessageBox.Show("Update success!");
+                                    MessageBox.Show("There is something wrong with updating!");
+                                    break;
                                 }
+                                MessageBox.Show("Update success!");
                                 break;
                             case 2:
-                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
                                 otherId = Convert.ToInt32(changedItem[j, i]);
-                                string sqlStr2 = string.Format("UPDATE author" +
-                                                               "SET user_id = {0} " +
-                                                               "WHERE book_id = {1} ", otherId, bookId);
+                                string sqlStr2 = string.Format("UPDATE author " +
+                                                               "SET user_id = '{0}' " +
+                                                               "WHERE book_id = '{1}' ", otherId, bookId);
                                 cmd = new MySqlCommand(sqlStr2, conn);
                                 if (cmd.ExecuteNonQuery() == 0)
                                 {
-                                    MessageBox.Show("Update success!");
+                                    MessageBox.Show("There is something wrong with updating!");
+                                    break;
                                 }
+                                MessageBox.Show("Update success!");
                                 break;
                             case 4:
-                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
                                 otherId = Convert.ToInt32(changedItem[j, i]);
-                                string sqlStr4 = string.Format("UPDATE publisher_id" +
-                                                               "SET publisher_id = {0} " +
-                                                               "WHERE book_id = {1} ", otherId, bookId);
+                                string sqlStr4 = string.Format("UPDATE publisher_id " +
+                                                               "SET publisher_id = '{0}' " +
+                                                               "WHERE book_id = '{1}' ", otherId, bookId);
                                 cmd = new MySqlCommand(sqlStr4, conn);
                                 if (cmd.ExecuteNonQuery() == 0)
                                 {
-                                    MessageBox.Show("Update success!");
+                                    MessageBox.Show("There is something wrong with updating!");
+                                    break;
                                 }
+                                MessageBox.Show("Update success!");
                                 break;
                             case 6:
-                                bookId = Convert.ToInt32(booksView[j, i].Value.ToString());
+                                bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
                                 int status = Convert.ToInt32(changedItem[j, i]);
-                                    string sqlStr6 = string.Format("UPDATE book_status" +
-                                                                   "SET bookStatus = {0} " +
-                                                                   "WHERE book_id = {1} ", status, bookId);
-                                    cmd = new MySqlCommand(sqlStr6, conn);
+                                string sqlStr6 = string.Format("UPDATE book_status " +
+                                                               "SET bookStatus = '{0}' " +
+                                                               "WHERE book_id = '{1}' ", status, bookId);
+                                cmd = new MySqlCommand(sqlStr6, conn);
                                 if (cmd.ExecuteNonQuery() == 0)
                                 {
-                                    MessageBox.Show("Update success!");
+                                    MessageBox.Show("There is something wrong with updating!");
+                                    break;
                                 }
+                                MessageBox.Show("Update success!");
                                 break;
                         }
                     }
@@ -129,100 +137,114 @@ namespace Yggdrasil
             conn.Close();
         }
 
+
         private void booksView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int ecolumn = e.ColumnIndex;
             int erow = e.RowIndex;
             byte[] utf8 = Encoding.UTF8.GetBytes(booksView[ecolumn, erow].Value.ToString());
             string value = Encoding.UTF8.GetString(utf8);
-            switch (ecolumn)
+            if (value != "")
             {
-                case 3:
-                    conn.Open();
+                switch (ecolumn)
+                {
+                    case 3:
+                        conn.Open();
 
-                    string tempSql1 = "SELECT user_name FROM user ";
+                        string tempSql1 = "SELECT user_name FROM user ";
 
-                    DataTable tempDt = new DataTable();
-                    getTable(ref tempDt,tempSql1);
+                        DataTable tempDt = new DataTable();
+                        getTable(ref tempDt, tempSql1);
 
-                    string tempSql2 = string.Format("INSERT INTO user(user_name) values({0}) ", value);
+                        string tempSql2 = string.Format("INSERT INTO user(user_name) values('{0}') ", value);
 
-                    if (compareInDb(tempDt, value) == 0)
-                    {
-                        MessageBox.Show("There is no such value!");
-                        MySqlCommand tempCmd = new MySqlCommand(tempSql2, conn);
-                        string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
-                        DataTable tempDt3 = new DataTable();
-                        getTable(ref tempDt3,tempSql3);
-                        string newUserId = tempDt3.Rows[1].ToString();
-                        booksView[ecolumn - 1, erow].Value = newUserId;
-                        changedItem[ecolumn - 1, erow] = newUserId;
+                        if (compareInDb(tempDt, value) == 0)
+                        {
+                            MessageBox.Show("There is no such value!");
+                            MySqlCommand tempCmd = new MySqlCommand(tempSql2, conn);
+                            if (tempCmd.ExecuteNonQuery() == 0)
+                            {
+                                MessageBox.Show("There is something wrong with inserting!");
+                            }
+                            string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = '{0}' ", value);
+                            DataTable tempDt3 = new DataTable();
+                            getTable(ref tempDt3, tempSql3);
+                            string newUserId = tempDt3.Rows[1].ToString();
+                            booksView[ecolumn - 1, erow].Value = newUserId.ToString();
+                            changedItem[ecolumn - 1, erow] = newUserId;
 
-                    }
-                    else
-                    {
-                        string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = {0} ", value);
-                        DataTable tempDt3 = new DataTable();
-                        getTable(ref tempDt3,tempSql3);
-                        string newUserId = tempDt3.Rows[1].ToString();
-                        booksView[ecolumn - 1, erow].Value = newUserId;
-                        changedItem[ecolumn - 1, erow] = newUserId;
-                    }
-                    conn.Close();
-                    break;
-                case 5:
-                    conn.Open();
+                        }
+                        else
+                        {
+                            string tempSql3 = string.Format("SELECT user_id FROM user WHERE user_name = '{0}' ", value);
+                            DataTable tempDt3 = new DataTable();
+                            getTable(ref tempDt3, tempSql3);
+                            string newUserId = tempDt3.Rows[1].ToString();
+                            booksView[ecolumn - 1, erow].Value = newUserId.ToString();
+                            changedItem[ecolumn - 1, erow] = newUserId;
+                        }
+                        conn.Close();
+                        break;
+                    case 5:
+                        conn.Open();
 
-                    string tempSql4 = "SELECT publisher_name FROM publisher ";
+                        string tempSql4 = "SELECT publisher_name FROM publisher ";
 
-                    DataTable tempDt4 = new DataTable();
-                    getTable(ref tempDt4,tempSql4);
+                        DataTable tempDt4 = new DataTable();
+                        getTable(ref tempDt4, tempSql4);
 
-                    string tempSql5 = string.Format("INSERT INTO publisher(publisher_name) values({0}) ", value);
+                        string tempSql5 = string.Format("INSERT INTO publisher(publisher_name) values('{0}') ", value);
 
-                    if (compareInDb(tempDt4, value) == 0)
-                    {
-                        MessageBox.Show("There is no such value!");
-                        MySqlCommand tempCmd = new MySqlCommand(tempSql5, conn);
-                        string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = {0} ", value);
-                        DataTable tempDt6 = new DataTable();
-                        getTable(ref tempDt6,tempSql6);
-                        string newPublisherId = tempDt6.Rows[1].ToString();
-                        booksView[ecolumn - 1, erow].Value = newPublisherId;
-                        changedItem[ecolumn - 1, erow] = newPublisherId;
+                        if (compareInDb(tempDt4, value) == 0)
+                        {
+                            MessageBox.Show("There is no such value!");
+                            MySqlCommand tempCmd = new MySqlCommand(tempSql5, conn);
+                            if (tempCmd.ExecuteNonQuery() == 0)
+                            {
+                                MessageBox.Show("There is something wrong with inserting!");
+                            }
+                            conn.Close();
+                            conn.Open();
+                            string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = '{0}' ", value);
+                            DataTable tempDt6 = new DataTable();
+                            getTable(ref tempDt6, tempSql6);
+                            string newPublisherId = tempDt6.Rows[0].ToString();
+                            booksView[ecolumn - 1, erow].Value = Convert.ToInt32(newPublisherId);
+                            changedItem[ecolumn - 1, erow] = newPublisherId;
 
-                    }
-                    else
-                    {
-                        string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = {0} ", value);
-                        DataTable tempDt6 = new DataTable();
-                        getTable(ref tempDt6,tempSql6);
-                        string newPublisherId = tempDt6.Rows[1].ToString();
-                        booksView[ecolumn - 1, erow].Value = newPublisherId;
-                        changedItem[ecolumn - 1, erow] = newPublisherId;
-                    }
-                    conn.Close();
-                    break;
-                case 6:
-                    int status = Convert.ToInt32(value);
-                    if(status == 0 || status == 1)
-                    {
+                        }
+                        else
+                        {
+                            string tempSql6 = string.Format("SELECT publisher_id FROM publisher WHERE publisher_name = '{0}' ", value);
+                            DataTable tempDt6 = new DataTable();
+                            getTable(ref tempDt6, tempSql6);
+                            string newPublisherId = tempDt6.Rows[1].ToString();
+                            booksView[ecolumn - 1, erow].Value = newPublisherId.ToString();
+                            changedItem[ecolumn - 1, erow] = newPublisherId;
+                        }
+                        conn.Close();
+                        break;
+                    case 6:
+                        int status = Convert.ToInt32(value);
+                        if (status == 0 || status == 1)
+                        {
+                            changedItem[ecolumn, erow] = value;
+                        }
+                        else
+                        {
+                            MessageBox.Show("This cell is only can be 0 or 1!");
+                            int bookId = Convert.ToInt32(booksView[0, erow].Value.ToString());
+                            string tempSql7 = string.Format("SELECT book_status FROM publisher WHERE publisher_name = '{0}' ", bookId);
+                            DataTable tempDt7 = new DataTable();
+                            getTable(ref tempDt7, tempSql7);
+                            string oldStatus = tempDt7.Rows[1].ToString();
+                            booksView[ecolumn, erow].Value = oldStatus;
+                        }
+                        break;
+                    default:
                         changedItem[ecolumn, erow] = value;
-                    }
-                    else
-                    {
-                        MessageBox.Show("This cell is only can be 0 or 1!");
-                        int bookId = Convert.ToInt32(booksView[0, erow].Value.ToString());
-                        string tempSql7 = string.Format("SELECT book_status FROM publisher WHERE publisher_name = {0} ", bookId);
-                        DataTable tempDt7 = new DataTable();
-                        getTable(ref tempDt7,tempSql7);
-                        string oldStatus = tempDt7.Rows[1].ToString();
-                        booksView[ecolumn, erow].Value = oldStatus;
-                    }
-                    break;
-                default:
-                    changedItem[ecolumn, erow] = value;
-                    break;
+                        break;
+                }
             }
         }
 
@@ -231,7 +253,8 @@ namespace Yggdrasil
             int count = 0;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string dtValue = dt.Rows[i].ToString();
+                byte[] utf8 = Encoding.UTF8.GetBytes(dt.Rows[i].ToString());
+                string dtValue = Encoding.UTF8.GetString(utf8);
                 if (value == dtValue)
                 {
                     count++;
