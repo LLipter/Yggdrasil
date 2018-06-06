@@ -69,6 +69,12 @@
       <DependentUpon>BookReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Modify_Chapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modify_Chapter.Designer.cs">
+      <DependentUpon>Modify_Chapter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBookReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_Collection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Collection.Designer.cs">
+      <DependentUpon>User_Collection.cs</DependentUpon>
+    </Compile>
     <Compile Include="YggdrasilDataSet.cs">
       <DependentUpon>YggdrasilDataSet.xsd</DependentUpon>
     </Compile>
@@ -137,6 +149,9 @@
     <EmbeddedResource Include="BookReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BookReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify_Chapter.resx">
+      <DependentUpon>Modify_Chapter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBookReport.resx">
       <DependentUpon>frmBookReport.cs</DependentUpon>
@@ -172,6 +187,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User_Collection.resx">
+      <DependentUpon>User_Collection.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

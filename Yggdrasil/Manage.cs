@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Yggdrasil.Model;
 
 namespace Yggdrasil
 {
@@ -27,6 +29,7 @@ namespace Yggdrasil
                                         "LEFT JOIN publisher p " +
                                         "ON b.publisher_id = p.publisher_id ";
         private string[,] changedItem;
+        private ArrayList bookList = new ArrayList();
 
         MySqlConnection conn;
         MySqlDataAdapter adapter;
@@ -253,12 +256,21 @@ namespace Yggdrasil
 
         private void addChapterButton_Click(object sender, EventArgs e)
         {
-
+            if (bookList[0] == null)
+            {
+                MessageBox.Show("Please click the cell!");
+            }
+            else
+            {
+                int bookId = (int)bookList[0];
+                Modify_Chapter chapter = new Modify_Chapter(bookId);
+            }
         }
 
-        private void modifyChapterButton_Click(object sender, EventArgs e)
+        private void booksView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            bookList.Clear();
+            bookList.Add(Convert.ToInt32(booksView[0,e.RowIndex].Value));
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

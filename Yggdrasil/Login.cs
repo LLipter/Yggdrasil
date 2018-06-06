@@ -78,7 +78,7 @@ namespace Yggdrasil
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.skinEngine1.SkinFile = "RealOne.ssk";//***为皮肤名称
+            //this.skinEngine1.SkinFile = "RealOne.ssk";//***为皮肤名称
         }
     }
 }

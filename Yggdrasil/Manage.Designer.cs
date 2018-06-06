@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addBookButton = new System.Windows.Forms.Button();
             this.addChapterButton = new System.Windows.Forms.Button();
             this.modifyChapterButton = new System.Windows.Forms.Button();
             this.booksView = new System.Windows.Forms.DataGridView();
@@ -37,18 +36,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.booksView)).BeginInit();
             this.SuspendLayout();
             // 
-            // addBookButton
-            // 
-            this.addBookButton.Location = new System.Drawing.Point(633, 311);
-            this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(171, 23);
-            this.addBookButton.TabIndex = 1;
-            this.addBookButton.Text = "Add Book To Stock";
-            this.addBookButton.UseVisualStyleBackColor = true;
-            // 
             // addChapterButton
             // 
-            this.addChapterButton.Location = new System.Drawing.Point(413, 243);
+            this.addChapterButton.Location = new System.Drawing.Point(528, 299);
             this.addChapterButton.Name = "addChapterButton";
             this.addChapterButton.Size = new System.Drawing.Size(128, 23);
             this.addChapterButton.TabIndex = 4;
@@ -58,13 +48,10 @@
             // 
             // modifyChapterButton
             // 
-            this.modifyChapterButton.Location = new System.Drawing.Point(572, 243);
+            this.modifyChapterButton.Location = new System.Drawing.Point(0, 0);
             this.modifyChapterButton.Name = "modifyChapterButton";
-            this.modifyChapterButton.Size = new System.Drawing.Size(128, 23);
-            this.modifyChapterButton.TabIndex = 6;
-            this.modifyChapterButton.Text = "Modify Chapter";
-            this.modifyChapterButton.UseVisualStyleBackColor = true;
-            this.modifyChapterButton.Click += new System.EventHandler(this.modifyChapterButton_Click);
+            this.modifyChapterButton.Size = new System.Drawing.Size(75, 23);
+            this.modifyChapterButton.TabIndex = 12;
             // 
             // booksView
             // 
@@ -74,6 +61,7 @@
             this.booksView.RowTemplate.Height = 27;
             this.booksView.Size = new System.Drawing.Size(636, 181);
             this.booksView.TabIndex = 7;
+            this.booksView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellClick);
             this.booksView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.booksView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellValueChanged);
             // 
@@ -88,7 +76,7 @@
             // 
             // commitButton
             // 
-            this.commitButton.Location = new System.Drawing.Point(152, 243);
+            this.commitButton.Location = new System.Drawing.Point(152, 299);
             this.commitButton.Name = "commitButton";
             this.commitButton.Size = new System.Drawing.Size(178, 23);
             this.commitButton.TabIndex = 11;
@@ -106,7 +94,6 @@
             this.Controls.Add(this.booksView);
             this.Controls.Add(this.modifyChapterButton);
             this.Controls.Add(this.addChapterButton);
-            this.Controls.Add(this.addBookButton);
             this.Name = "Manage";
             this.Text = "管理界面";
             this.Load += new System.EventHandler(this.Manage_Load);
@@ -117,7 +104,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button addBookButton;
         private System.Windows.Forms.Button addChapterButton;
         private System.Windows.Forms.Button modifyChapterButton;
         private System.Windows.Forms.DataGridView booksView;
