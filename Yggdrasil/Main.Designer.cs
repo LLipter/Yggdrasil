@@ -53,6 +53,7 @@
             this.timShow = new System.Windows.Forms.Timer(this.components);
             this.piBShow = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CollectionButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
@@ -65,18 +66,20 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSearch.Location = new System.Drawing.Point(225, 19);
+            this.txtSearch.Location = new System.Drawing.Point(300, 24);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(125, 29);
+            this.txtSearch.Size = new System.Drawing.Size(165, 34);
             this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(365, 18);
+            this.btnSearch.Location = new System.Drawing.Point(487, 22);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(80, 30);
+            this.btnSearch.Size = new System.Drawing.Size(107, 38);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -84,9 +87,10 @@
             // lblDividingline
             // 
             this.lblDividingline.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.lblDividingline.Location = new System.Drawing.Point(12, 65);
+            this.lblDividingline.Location = new System.Drawing.Point(16, 81);
+            this.lblDividingline.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDividingline.Name = "lblDividingline";
-            this.lblDividingline.Size = new System.Drawing.Size(644, 5);
+            this.lblDividingline.Size = new System.Drawing.Size(859, 6);
             this.lblDividingline.TabIndex = 3;
             // 
             // groupBox1
@@ -99,17 +103,20 @@
             this.groupBox1.Controls.Add(this.lblBook2);
             this.groupBox1.Controls.Add(this.lblBook1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(66, 327);
+            this.groupBox1.Location = new System.Drawing.Point(88, 409);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 241);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(729, 301);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
             // picBox3
             // 
-            this.picBox3.Location = new System.Drawing.Point(370, 42);
+            this.picBox3.Location = new System.Drawing.Point(493, 52);
+            this.picBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBox3.Name = "picBox3";
-            this.picBox3.Size = new System.Drawing.Size(150, 150);
+            this.picBox3.Size = new System.Drawing.Size(200, 188);
             this.picBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox3.TabIndex = 15;
             this.picBox3.TabStop = false;
@@ -117,9 +124,10 @@
             // 
             // picBox2
             // 
-            this.picBox2.Location = new System.Drawing.Point(200, 42);
+            this.picBox2.Location = new System.Drawing.Point(267, 52);
+            this.picBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(150, 150);
+            this.picBox2.Size = new System.Drawing.Size(200, 188);
             this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox2.TabIndex = 14;
             this.picBox2.TabStop = false;
@@ -127,9 +135,10 @@
             // 
             // picBox1
             // 
-            this.picBox1.Location = new System.Drawing.Point(30, 42);
+            this.picBox1.Location = new System.Drawing.Point(40, 52);
+            this.picBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(150, 150);
+            this.picBox1.Size = new System.Drawing.Size(200, 188);
             this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox1.TabIndex = 13;
             this.picBox1.TabStop = false;
@@ -138,9 +147,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(30, -7);
+            this.pictureBox2.Location = new System.Drawing.Point(40, -9);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(163, 36);
+            this.pictureBox2.Size = new System.Drawing.Size(217, 45);
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
@@ -149,9 +159,10 @@
             this.lblBook3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBook3.Location = new System.Drawing.Point(370, 195);
+            this.lblBook3.Location = new System.Drawing.Point(493, 244);
+            this.lblBook3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBook3.Name = "lblBook3";
-            this.lblBook3.Size = new System.Drawing.Size(150, 25);
+            this.lblBook3.Size = new System.Drawing.Size(200, 31);
             this.lblBook3.TabIndex = 11;
             this.lblBook3.Text = "Book3";
             this.lblBook3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,18 +173,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBook2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBook2.Location = new System.Drawing.Point(200, 195);
+            this.lblBook2.Location = new System.Drawing.Point(267, 244);
+            this.lblBook2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBook2.Name = "lblBook2";
-            this.lblBook2.Size = new System.Drawing.Size(150, 25);
+            this.lblBook2.Size = new System.Drawing.Size(200, 31);
             this.lblBook2.TabIndex = 10;
             this.lblBook2.Text = "Book2";
             this.lblBook2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBook1
             // 
-            this.lblBook1.Location = new System.Drawing.Point(30, 195);
+            this.lblBook1.Location = new System.Drawing.Point(40, 244);
+            this.lblBook1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBook1.Name = "lblBook1";
-            this.lblBook1.Size = new System.Drawing.Size(150, 25);
+            this.lblBook1.Size = new System.Drawing.Size(200, 31);
             this.lblBook1.TabIndex = 9;
             this.lblBook1.Text = "Book1";
             this.lblBook1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,9 +195,10 @@
             // 
             this.btnBookManagement.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnBookManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnBookManagement.Image")));
-            this.btnBookManagement.Location = new System.Drawing.Point(477, 12);
+            this.btnBookManagement.Location = new System.Drawing.Point(636, 15);
+            this.btnBookManagement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBookManagement.Name = "btnBookManagement";
-            this.btnBookManagement.Size = new System.Drawing.Size(188, 36);
+            this.btnBookManagement.Size = new System.Drawing.Size(251, 45);
             this.btnBookManagement.TabIndex = 10;
             this.btnBookManagement.UseVisualStyleBackColor = true;
             this.btnBookManagement.Click += new System.EventHandler(this.btnBookManagement_Click);
@@ -201,9 +215,10 @@
             this.btnShow1.FlatAppearance.BorderSize = 0;
             this.btnShow1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow1.Location = new System.Drawing.Point(96, 280);
+            this.btnShow1.Location = new System.Drawing.Point(128, 350);
+            this.btnShow1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShow1.Name = "btnShow1";
-            this.btnShow1.Size = new System.Drawing.Size(130, 30);
+            this.btnShow1.Size = new System.Drawing.Size(173, 38);
             this.btnShow1.TabIndex = 11;
             this.btnShow1.Text = "example1";
             this.btnShow1.UseVisualStyleBackColor = false;
@@ -215,9 +230,10 @@
             this.btnShow2.FlatAppearance.BorderSize = 0;
             this.btnShow2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow2.Location = new System.Drawing.Point(225, 280);
+            this.btnShow2.Location = new System.Drawing.Point(300, 350);
+            this.btnShow2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShow2.Name = "btnShow2";
-            this.btnShow2.Size = new System.Drawing.Size(130, 30);
+            this.btnShow2.Size = new System.Drawing.Size(173, 38);
             this.btnShow2.TabIndex = 12;
             this.btnShow2.Text = "example2";
             this.btnShow2.UseVisualStyleBackColor = false;
@@ -229,9 +245,10 @@
             this.btnShow3.FlatAppearance.BorderSize = 0;
             this.btnShow3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow3.Location = new System.Drawing.Point(356, 280);
+            this.btnShow3.Location = new System.Drawing.Point(475, 350);
+            this.btnShow3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShow3.Name = "btnShow3";
-            this.btnShow3.Size = new System.Drawing.Size(130, 30);
+            this.btnShow3.Size = new System.Drawing.Size(173, 38);
             this.btnShow3.TabIndex = 13;
             this.btnShow3.Text = "example3";
             this.btnShow3.UseVisualStyleBackColor = false;
@@ -243,9 +260,10 @@
             this.btnShow4.FlatAppearance.BorderSize = 0;
             this.btnShow4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShow4.Location = new System.Drawing.Point(486, 280);
+            this.btnShow4.Location = new System.Drawing.Point(648, 350);
+            this.btnShow4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShow4.Name = "btnShow4";
-            this.btnShow4.Size = new System.Drawing.Size(130, 30);
+            this.btnShow4.Size = new System.Drawing.Size(173, 38);
             this.btnShow4.TabIndex = 14;
             this.btnShow4.Text = "example4";
             this.btnShow4.UseVisualStyleBackColor = false;
@@ -254,25 +272,28 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.label2.Location = new System.Drawing.Point(223, 283);
+            this.label2.Location = new System.Drawing.Point(297, 354);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(3, 26);
+            this.label2.Size = new System.Drawing.Size(4, 32);
             this.label2.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.label4.Location = new System.Drawing.Point(354, 283);
+            this.label4.Location = new System.Drawing.Point(472, 354);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(3, 26);
+            this.label4.Size = new System.Drawing.Size(4, 32);
             this.label4.TabIndex = 17;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.label5.Location = new System.Drawing.Point(486, 283);
+            this.label5.Location = new System.Drawing.Point(648, 354);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(3, 26);
+            this.label5.Size = new System.Drawing.Size(4, 32);
             this.label5.TabIndex = 18;
             // 
             // timShow
@@ -285,9 +306,10 @@
             // 
             this.piBShow.ImageLocation = "";
             this.piBShow.InitialImage = ((System.Drawing.Image)(resources.GetObject("piBShow.InitialImage")));
-            this.piBShow.Location = new System.Drawing.Point(225, 77);
+            this.piBShow.Location = new System.Drawing.Point(300, 96);
+            this.piBShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.piBShow.Name = "piBShow";
-            this.piBShow.Size = new System.Drawing.Size(256, 200);
+            this.piBShow.Size = new System.Drawing.Size(341, 250);
             this.piBShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piBShow.TabIndex = 19;
             this.piBShow.TabStop = false;
@@ -296,18 +318,30 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(43, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(160, 62);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // CollectionButton
+            // 
+            this.CollectionButton.Location = new System.Drawing.Point(57, 96);
+            this.CollectionButton.Name = "CollectionButton";
+            this.CollectionButton.Size = new System.Drawing.Size(160, 47);
+            this.CollectionButton.TabIndex = 21;
+            this.CollectionButton.Text = "My Collection";
+            this.CollectionButton.UseVisualStyleBackColor = true;
+            this.CollectionButton.Click += new System.EventHandler(this.CollectionButton_Click);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(668, 580);
+            this.ClientSize = new System.Drawing.Size(891, 725);
+            this.Controls.Add(this.CollectionButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -323,7 +357,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.piBShow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -366,5 +400,6 @@
         private System.Windows.Forms.PictureBox picBox3;
         private System.Windows.Forms.PictureBox picBox2;
         private System.Windows.Forms.PictureBox picBox1;
+        private System.Windows.Forms.Button CollectionButton;
     }
 }

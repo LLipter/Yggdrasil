@@ -203,6 +203,7 @@ namespace Yggdrasil.Model
             string sqlStr = string.Format("SELECT * FROM publisher WHERE publisher_id = '{0}'", publisher_id);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
             MySqlDataReader read = cmd.ExecuteReader();
+            publisher = new Publisher();
 
             if (!read.Read())
                 publisher = Publisher.noSuchPublisher;    // no such publisher
