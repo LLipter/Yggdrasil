@@ -22,7 +22,7 @@ namespace Yggdrasil
         private ArrayList bookList = new ArrayList();
         private ArrayList labelList = new ArrayList();
         private ArrayList imageList = new ArrayList();
-
+        private string bookName;
         
 
         public Search()
@@ -39,10 +39,12 @@ namespace Yggdrasil
             this.mainForm = mainForm;
             byte[] utf8 = Encoding.UTF8.GetBytes(name);
             string wantBook = Encoding.UTF8.GetString(utf8);
+            bookName = wantBook;
             if (getData(wantBook) == 1)
             {
                 showBook();
             }
+            PageLabel.Text = string.Format("{0}/{1}", pageNum + 1, totalPage);
         }
 
         private void initList()
@@ -83,6 +85,7 @@ namespace Yggdrasil
                     {
                         showBook();
                     }
+                    PageLabel.Text = string.Format("{0}/{1}", pageNum + 1, totalPage);
                 }
             }
             else
@@ -91,41 +94,26 @@ namespace Yggdrasil
             }
         }
 
-        private void changePageButton_Click(object sender, EventArgs e)
-        {
-            if (pageChangeText.Text == "")
-            {
-                MessageBox.Show("Please enter the page number!");
-            }
-            else
-            {
-                string pageText = pageChangeText.ToString();
-                if (pageText.Contains("/"))
-                {
-                    MessageBox.Show("Please enter number like this--5!");
-                }
-                else
-                {
-                    pageNum = Convert.ToInt32(pageText);
-                    showBook();
-                }
-            }
-
-        }
+       
 
         private void lastPageButton_Click(object sender, EventArgs e)
         {
+            int CurrentPage = pageNum;
+            clear();
+            getData(bookName);
+            pageNum = CurrentPage;
             if (IsInternetAvailable())
             {
-                if (pageNum == 1)
+                if (pageNum == 0)
                 {
-                    MessageBox.Show("This is the first page!");
+                    showBook();
                 }
                 else
                 {
                     pageNum--;
                     showBook();
                 }
+                PageLabel.Text = string.Format("{0}/{1}", pageNum + 1, totalPage);
             }
             else
             {
@@ -135,17 +123,22 @@ namespace Yggdrasil
 
         private void nextPageButton_Click(object sender, EventArgs e)
         {
+            int CurrentPage = pageNum;
+            clear();
+            getData(bookName);
+            pageNum = CurrentPage;
             if (IsInternetAvailable())
             {
-                if (pageNum == totalPage)
+                if (pageNum == totalPage-1)
                 {
-                    MessageBox.Show("This is the Last page!");
+                    showBook();
                 }
                 else
                 {
                     pageNum++;
                     showBook();
                 }
+                PageLabel.Text = string.Format("{0}/{1}", pageNum + 1, totalPage);
             }
             else
             {
@@ -185,28 +178,47 @@ namespace Yggdrasil
             Book book = new Book();
             Label labelShow = new Label();
             PictureBox imageShow = new PictureBox();
-            for (int i = 6 * pageNum + 1; i <= size; i++)
+
+            if (6 * pageNum + 5 > size - 1)
             {
-                string location;
-                string targetSite;
-                int temp = i % 6;
-                if(temp == 7)
+                for (int i = 6 * pageNum; i <= size - 1; i++)
                 {
-                    return;
+                    string location;
+                    string targetSite;
+                    int temp = i % 6;
+                    if (temp == 7)
+                    {
+                        return;
+                    }
+                    labelShow = (Label)labelList[temp];
+                    imageShow = (PictureBox)imageList[temp];
+                    book = (Book)bookList[i];
+                    labelShow.Text = book.Book_name;
+                    location = book.Location;
+                    targetSite = "http://www.irran.top:8080/Yggdrasil/book/" + location + "/cover.jpg";
+                    imageShow.Load(targetSite);
                 }
-                labelShow = (Label)labelList[temp - 1];
-                imageShow = (PictureBox)imageList[temp - 1];
-                book = (Book)bookList[temp - 1];
-                labelShow.Text = book.Book_name;
-                location = book.Location;
-                targetSite = "http://www.irran.top:8080/Yggdrasil/book/" + location + "/cover.jpg";
-                imageShow.Load(targetSite);
             }
-            if (pageNum == 0)
+            else
             {
-                pageNum++;
+                for (int i = 6 * pageNum; i <= 6 * pageNum + 5; i++)
+                {
+                    string location;
+                    string targetSite;
+                    int temp = i % 6;
+                    if (temp == 7)
+                    {
+                        return;
+                    }
+                    labelShow = (Label)labelList[temp];
+                    imageShow = (PictureBox)imageList[temp];
+                    book = (Book)bookList[i];
+                    labelShow.Text = book.Book_name;
+                    location = book.Location;
+                    targetSite = "http://www.irran.top:8080/Yggdrasil/book/" + location + "/cover.jpg";
+                    imageShow.Load(targetSite);
+                }
             }
-            pageChangeText.Text = String.Format("{0}/{1}",pageNum,totalPage);
         }
 
         private void clear()
@@ -242,7 +254,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6;
+                int localBook = pageNum  * 6;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);
@@ -260,7 +272,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6 + 1;
+                int localBook = pageNum  * 6 + 1;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);
@@ -278,7 +290,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6 + 2;
+                int localBook = pageNum  * 6 + 2;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);
@@ -296,7 +308,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6 + 3;
+                int localBook = pageNum  * 6 + 3;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);
@@ -314,7 +326,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6 + 4;
+                int localBook = pageNum  * 6 + 4;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);
@@ -332,7 +344,7 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                int localBook = (pageNum - 1) * 6 + 5;
+                int localBook =  pageNum * 6 + 5;
                 if (localBook < size)
                 {
                     Book_Interface book = new Book_Interface((Book)bookList[localBook]);

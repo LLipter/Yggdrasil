@@ -91,7 +91,6 @@
             this.Controls.Add(this.BookContents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Read_Interface";
             this.Text = "阅读界面";
             this.Load += new System.EventHandler(this.Read_Interface_Load);
