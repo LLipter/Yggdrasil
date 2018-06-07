@@ -128,7 +128,8 @@ namespace Yggdrasil
         private void addButton_Click(object sender, EventArgs e)
         {
             string newContent = newBookContent.Text.ToString();
-            int newChapNo = Convert.ToInt32(newChapterNo.Text.ToString());
+            int newChapNo = book.Chapter_no + 1;
+            newChapterNoLabel.Text = newChapNo.ToString();
             if(newChapNo > book.Chapter_no) {
                 DatabaseUtility.updateChapterNoByBookId(newChapNo,bookId);
                 DatabaseUtility.modifyBookContent(book, newChapNo, newContent);
@@ -138,7 +139,7 @@ namespace Yggdrasil
                 MessageBox.Show("Please enter the book content!");
             }
             refresh();
-            newChapterNo.Text = "";
+            newChapterNoLabel.Text = "New Chapter";
             newBookContent.Text = "";
         }
 
@@ -151,14 +152,6 @@ namespace Yggdrasil
                 chapterBox.Items.Add(i);
             }
             initNewCon = "";
-        }
-
-        private void newChapterNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
         }
 
         private void chapterContent_TextChanged(object sender, EventArgs e)
