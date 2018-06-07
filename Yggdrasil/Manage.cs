@@ -34,12 +34,19 @@ namespace Yggdrasil
         private ArrayList bookList = new ArrayList();
         private static int column;
         private static int row;
+        private Form mainForm;
 
         MySqlConnection conn;
 
         public Manage()
         {
             InitializeComponent();
+        }
+
+        public Manage(Form theForm)
+        {
+            InitializeComponent();
+            mainForm = theForm;
         }
 
         private void Manage_Load(object sender, EventArgs e)
@@ -298,8 +305,9 @@ namespace Yggdrasil
             else
             {
                 int bookId = (int)bookList[0];
-                Modify_Chapter chapter = new Modify_Chapter(bookId);
+                Modify_Chapter chapter = new Modify_Chapter(bookId,this);
                 chapter.Show();
+                this.Enabled = false;
             }
         }
 
@@ -325,6 +333,18 @@ namespace Yggdrasil
             {
                 e.Handled = true;
             }
+        }
+
+        private void getReportButton_Click(object sender, EventArgs e)
+        {
+            frmBookReport tempForm = new frmBookReport(this);
+            tempForm.Show();
+            this.Enabled = false;
+        }
+
+        private void Manage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Enabled = true;
         }
     }
 }

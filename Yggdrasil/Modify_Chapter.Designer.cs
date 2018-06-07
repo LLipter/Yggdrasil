@@ -187,6 +187,7 @@
             this.Controls.Add(this.chapterBox);
             this.Name = "Modify_Chapter";
             this.Text = "修改章节";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Modify_Chapter_FormClosing);
             this.Load += new System.EventHandler(this.Chapter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -207,9 +207,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    //this.Close();
+                    this.Enabled = false;
                 }
             }
             else
@@ -225,9 +225,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6 + 1;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    // this.Close();
+                    this.Enabled = false;
                 }
             }
             else
@@ -243,9 +243,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6 + 2;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    // this.Close();
+                    this.Enabled = false;
                 }
             }
             else
@@ -262,9 +262,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6 + 3;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    // this.Close();
+                    this.Enabled = false;
                 }
             }
             else
@@ -280,9 +280,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6 + 4;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    // this.Close();
+                    this.Enabled = false;
                 }
             }
             else
@@ -298,9 +298,9 @@ namespace Yggdrasil
                 int localBook = pageNum * 6 + 5;
                 if (localBook < size)
                 {
-                    Book_Interface book = new Book_Interface((Book)bookList[localBook]);
+                    Book_Interface book = new Book_Interface((Book)bookList[localBook],this);
                     book.Show();
-                    //   this.Close();
+                    this.Enabled = false;
                 }
             }
             else

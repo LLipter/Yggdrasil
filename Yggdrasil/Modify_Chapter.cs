@@ -24,13 +24,14 @@ namespace Yggdrasil
         private string initCon;
         private string initNewCon;
         private ArrayList authorList = new ArrayList();
+        private Form manageForm;
 
         public Modify_Chapter()
         {
             InitializeComponent();
         }
 
-        public Modify_Chapter(int theBookId)
+        public Modify_Chapter(int theBookId, Form theForm)
         {
             InitializeComponent();
             bookId = theBookId;
@@ -60,6 +61,7 @@ namespace Yggdrasil
             User temp = (User)authorList[0];
             initCon = chapterContent.Text.ToString();
             initNewCon = newBookContent.Text.ToString();
+            manageForm = theForm;
         }
 
         private void Chapter_Load(object sender, EventArgs e)
@@ -161,6 +163,11 @@ namespace Yggdrasil
 
         private void chapterContent_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void Modify_Chapter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            manageForm.Enabled = true;
         }
     }
 }

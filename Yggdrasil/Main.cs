@@ -43,29 +43,34 @@ namespace Yggdrasil
         private void btnShow1_Click(object sender, EventArgs e)
         {
             shiftBook(0);
+            
         }
 
         private void btnShow2_Click(object sender, EventArgs e)
         {
             shiftBook(1);
+            
         }
 
         private void btnShow3_Click(object sender, EventArgs e)
         {
             shiftBook(2);
+            
         }
 
         private void btnShow4_Click(object sender, EventArgs e)
         {
             shiftBook(3);
+            
         }
 
         private void btnBookManagement_Click(object sender, EventArgs e)
         {
             if (IsInternetAvailable())
             {
-                Manage managePage = new Manage();
+                Manage managePage = new Manage(this);
                 managePage.Show();
+                this.Enabled = false;
             }
             else
             {
@@ -95,8 +100,9 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                Book_Interface bkitfPage = new Book_Interface(currentBook);
+                Book_Interface bkitfPage = new Book_Interface(currentBook,this);
                 bkitfPage.Show();
+                this.Enabled = false;
             }
             else
             {
@@ -147,8 +153,9 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]));
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[4]),this);
                 bookInfo.Show();
+                this.Enabled = false;
             }
             else
             {
@@ -160,8 +167,9 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]));
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[5]),this);
                 bookInfo.Show();
+                this.Enabled = false;
             }
             else
             {
@@ -173,8 +181,9 @@ namespace Yggdrasil
         {
             if (IsInternetAvailable())
             {
-                Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]));
+                Book_Interface bookInfo = new Book_Interface(((Book)recommends[6]),this);
                 bookInfo.Show();
+                this.Enabled = false;
             }
             else
             {

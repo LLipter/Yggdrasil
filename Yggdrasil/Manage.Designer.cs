@@ -32,6 +32,7 @@
             this.booksView = new System.Windows.Forms.DataGridView();
             this.bookListLabel = new System.Windows.Forms.Label();
             this.commitButton = new System.Windows.Forms.Button();
+            this.getReportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.booksView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             this.modifyChapterButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.modifyChapterButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.modifyChapterButton.Location = new System.Drawing.Point(606, 293);
+            this.modifyChapterButton.Location = new System.Drawing.Point(387, 293);
             this.modifyChapterButton.Name = "modifyChapterButton";
             this.modifyChapterButton.Size = new System.Drawing.Size(181, 48);
             this.modifyChapterButton.TabIndex = 4;
@@ -76,13 +77,25 @@
             // 
             this.commitButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.commitButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.commitButton.Location = new System.Drawing.Point(160, 293);
+            this.commitButton.Location = new System.Drawing.Point(158, 293);
             this.commitButton.Name = "commitButton";
-            this.commitButton.Size = new System.Drawing.Size(178, 48);
+            this.commitButton.Size = new System.Drawing.Size(181, 48);
             this.commitButton.TabIndex = 11;
-            this.commitButton.Text = "Commit Modification";
+            this.commitButton.Text = "Commit";
             this.commitButton.UseVisualStyleBackColor = false;
             this.commitButton.Click += new System.EventHandler(this.commitButton_Click);
+            // 
+            // getReportButton
+            // 
+            this.getReportButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.getReportButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.getReportButton.Location = new System.Drawing.Point(653, 293);
+            this.getReportButton.Name = "getReportButton";
+            this.getReportButton.Size = new System.Drawing.Size(178, 48);
+            this.getReportButton.TabIndex = 12;
+            this.getReportButton.Text = "Get Report";
+            this.getReportButton.UseVisualStyleBackColor = false;
+            this.getReportButton.Click += new System.EventHandler(this.getReportButton_Click);
             // 
             // Manage
             // 
@@ -91,12 +104,14 @@
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._64605358_p0;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 399);
+            this.Controls.Add(this.getReportButton);
             this.Controls.Add(this.commitButton);
             this.Controls.Add(this.bookListLabel);
             this.Controls.Add(this.booksView);
             this.Controls.Add(this.modifyChapterButton);
             this.Name = "Manage";
             this.Text = "管理界面";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Manage_FormClosing);
             this.Load += new System.EventHandler(this.Manage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.booksView)).EndInit();
             this.ResumeLayout(false);
@@ -109,5 +124,6 @@
         private System.Windows.Forms.DataGridView booksView;
         private System.Windows.Forms.Label bookListLabel;
         private System.Windows.Forms.Button commitButton;
+        private System.Windows.Forms.Button getReportButton;
     }
 }

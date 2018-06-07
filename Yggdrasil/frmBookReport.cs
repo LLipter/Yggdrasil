@@ -14,10 +14,18 @@ namespace Yggdrasil
 {
     public partial class frmBookReport : Form
     {
+        private Form manageForm;
+
         public frmBookReport()
         {
             InitializeComponent();
 
+        }
+
+        public frmBookReport(Form theForm)
+        {
+            InitializeComponent();
+            manageForm = theForm;
         }
 
         private void frmBookReport_Load(object sender, EventArgs e)
@@ -51,6 +59,11 @@ namespace Yggdrasil
 
             cr.SetDataSource(ds);
             crystalReportViewer1.ReportSource = cr;
+        }
+
+        private void frmBookReport_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            manageForm.Enabled = true;
         }
     }
 }

@@ -24,11 +24,12 @@ namespace Yggdrasil
         private ArrayList bookComments;
         private Comment UserComment;
         private bool IsFavorite;
+        private Form lastWinform;
         //private User user1;
-        public Book_Interface(Book cbook)
+        public Book_Interface(Book cbook,Form LastForm)
         {
             InitializeComponent();
-       
+            lastWinform = LastForm;
             ContinueReadButton.Visible = false;
             currentBook = cbook;
             TotalChapNo = currentBook.Chapter_no;
@@ -241,6 +242,11 @@ namespace Yggdrasil
                     MessageBox.Show("Please check your network");
                 }
             }
+        }
+
+        private void Book_Interface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            lastWinform.Enabled = true;
         }
     }
 }
