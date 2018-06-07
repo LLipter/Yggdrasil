@@ -106,3 +106,5 @@ CREATE TABLE favorite(
 
 INSERT INTO favorite(book_id,user_id) VALUES(1,1);
 
+ALTER TABLE favorite ADD FOREIGN KEY user_FK(user_id) references user(user_id);
+ALTER TABLE favorite ADD FOREIGN KEY book_FK(book_id) references book(book_id);
