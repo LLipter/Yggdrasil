@@ -91,6 +91,7 @@
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(147, 29);
             this.txtAccount.TabIndex = 5;
+            this.txtAccount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccount_KeyDown);
             // 
             // txtPassword
             // 
@@ -100,6 +101,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(147, 29);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // skinEngine1
             // 

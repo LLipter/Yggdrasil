@@ -82,5 +82,21 @@ namespace Yggdrasil
         {
             //this.skinEngine1.SkinFile = "RealOne.ssk";//***为皮肤名称
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)//如果输入的是回车键  
+            {
+                this.btnLogIn_Click(sender, e);//触发button事件  
+            }
+        }
+
+        private void txtAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)//如果输入的是回车键  
+            {
+                this.btnLogIn_Click(sender, e);//触发button事件  
+            }
+        }
     }
 }
