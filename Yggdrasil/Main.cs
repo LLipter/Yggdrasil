@@ -19,11 +19,11 @@ namespace Yggdrasil
         int privilege;
         Book currentBook = new Book();
         ArrayList recommends = new ArrayList();//list for the recommend books
-        public Main(Form lastForm,int privilege)
+        public Main(Form lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
-            this.privilege = privilege;
+            this.privilege = Global.user.Privilege;
             if (privilege<10) btnBookManagement.Hide();//if the privilege is not high enough,then the user has no right to manage the books
         }
 
