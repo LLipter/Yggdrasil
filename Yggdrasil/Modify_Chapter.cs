@@ -22,6 +22,7 @@ namespace Yggdrasil
         private static int chapterNo = 1;
         private int bookId = 0;
         private string initCon;
+        private string initNewCon;
         private string initAuthor;
         private ArrayList authorList = new ArrayList();
 
@@ -45,8 +46,7 @@ namespace Yggdrasil
                     chapterBox.Items.Add(i);
                 }
             }
-
-            if(DatabaseUtility.getAuthors(ref authorList) == -1)
+            if (DatabaseUtility.getAuthors(ref authorList) == -1)
             {
                 MessageBox.Show("There is no Internet!");
             }
@@ -60,6 +60,8 @@ namespace Yggdrasil
             }
             User temp = (User)authorList[0];
             initAuthor = temp.User_name;
+            initCon = chapterContent.Text.ToString();
+            initNewCon = newBookContent.Text.ToString();
         }
 
         private void Chapter_Load(object sender, EventArgs e)
@@ -105,6 +107,7 @@ namespace Yggdrasil
                 if (DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
                 {
                     MessageBox.Show("There already exists the author!");
+
                 }
             }
             chapterContent.Text = "";
@@ -117,7 +120,10 @@ namespace Yggdrasil
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
             String content = sr.ReadToEnd();
             content = content.Replace("\n", "\r\n");
-            chapterContent.Text = content.Substring(0, 500);
+            if (content.Length > 500)
+                chapterContent.Text = content.Substring(0, 500);
+            else
+                chapterContent.Text = content;
             initCon = chapterContent.Text.ToString();
 
             FirstPage.Close();
@@ -127,14 +133,34 @@ namespace Yggdrasil
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string newContent = chapterContent.Text.ToString();
+            string newContent = newBookContent.Text.ToString();
             int newChapNo = Convert.ToInt32(newChapterNo.Text.ToString());
-            if (DatabaseUtility.modifyBookContent(book, newChapNo, newContent) == -1)
-            {
-                MessageBox.Show("There is something wrong with the content!");
+            if(newChapNo > book.Chapter_no) {
+                DatabaseUtility.updateChapterNoByBookId(newChapNo,bookId);
+                if (DatabaseUtility.modifyBookContent(book, newChapNo, newContent) == -1)
+                {
+                    MessageBox.Show("There is something wrong with the content!");
+                }
+                else
+                    refresh();
             }
             else
-                DatabaseUtility.getBookByIDInAdmin(ref book, bookId);
+            {
+                MessageBox.Show("Please enter the book content!");
+            }
+            newChapterNo.Text = "";
+            newBookContent.Text = "";
+        }
+
+        private void refresh()
+        {
+            DatabaseUtility.getBookByIDInAdmin(ref book, bookId);
+            chapterBox.Items.Clear();
+            for (int i = 1; i <= book.Chapter_no; i++)
+            {
+                chapterBox.Items.Add(i);
+            }
+            initNewCon = "";
         }
 
         private void newChapterNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -143,6 +169,10 @@ namespace Yggdrasil
             {
                 e.Handled = true;
             }
+        }
+
+        private void chapterContent_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
