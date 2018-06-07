@@ -67,21 +67,22 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtSearch.Location = new System.Drawing.Point(300, 24);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(165, 34);
             this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.Location = new System.Drawing.Point(487, 22);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(107, 38);
             this.btnSearch.TabIndex = 2;
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDividingline
@@ -95,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.picBox3);
             this.groupBox1.Controls.Add(this.picBox2);
             this.groupBox1.Controls.Add(this.picBox1);
@@ -104,9 +106,9 @@
             this.groupBox1.Controls.Add(this.lblBook1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(88, 409);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(729, 301);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -114,7 +116,7 @@
             // picBox3
             // 
             this.picBox3.Location = new System.Drawing.Point(493, 52);
-            this.picBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBox3.Margin = new System.Windows.Forms.Padding(4);
             this.picBox3.Name = "picBox3";
             this.picBox3.Size = new System.Drawing.Size(200, 188);
             this.picBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +127,7 @@
             // picBox2
             // 
             this.picBox2.Location = new System.Drawing.Point(267, 52);
-            this.picBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBox2.Margin = new System.Windows.Forms.Padding(4);
             this.picBox2.Name = "picBox2";
             this.picBox2.Size = new System.Drawing.Size(200, 188);
             this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +138,7 @@
             // picBox1
             // 
             this.picBox1.Location = new System.Drawing.Point(40, 52);
-            this.picBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBox1.Margin = new System.Windows.Forms.Padding(4);
             this.picBox1.Name = "picBox1";
             this.picBox1.Size = new System.Drawing.Size(200, 188);
             this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +150,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(40, -9);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(217, 45);
             this.pictureBox2.TabIndex = 12;
@@ -193,14 +195,15 @@
             // 
             // btnBookManagement
             // 
+            this.btnBookManagement.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnBookManagement.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnBookManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnBookManagement.Image")));
             this.btnBookManagement.Location = new System.Drawing.Point(636, 15);
-            this.btnBookManagement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBookManagement.Margin = new System.Windows.Forms.Padding(4);
             this.btnBookManagement.Name = "btnBookManagement";
             this.btnBookManagement.Size = new System.Drawing.Size(251, 45);
             this.btnBookManagement.TabIndex = 10;
-            this.btnBookManagement.UseVisualStyleBackColor = true;
+            this.btnBookManagement.UseVisualStyleBackColor = false;
             this.btnBookManagement.Click += new System.EventHandler(this.btnBookManagement_Click);
             // 
             // imlRecommend
@@ -216,7 +219,7 @@
             this.btnShow1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnShow1.Location = new System.Drawing.Point(128, 350);
-            this.btnShow1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow1.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow1.Name = "btnShow1";
             this.btnShow1.Size = new System.Drawing.Size(173, 38);
             this.btnShow1.TabIndex = 11;
@@ -231,7 +234,7 @@
             this.btnShow2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnShow2.Location = new System.Drawing.Point(300, 350);
-            this.btnShow2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow2.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow2.Name = "btnShow2";
             this.btnShow2.Size = new System.Drawing.Size(173, 38);
             this.btnShow2.TabIndex = 12;
@@ -246,7 +249,7 @@
             this.btnShow3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnShow3.Location = new System.Drawing.Point(475, 350);
-            this.btnShow3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow3.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow3.Name = "btnShow3";
             this.btnShow3.Size = new System.Drawing.Size(173, 38);
             this.btnShow3.TabIndex = 13;
@@ -261,7 +264,7 @@
             this.btnShow4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnShow4.Location = new System.Drawing.Point(648, 350);
-            this.btnShow4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow4.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow4.Name = "btnShow4";
             this.btnShow4.Size = new System.Drawing.Size(173, 38);
             this.btnShow4.TabIndex = 14;
@@ -307,7 +310,7 @@
             this.piBShow.ImageLocation = "";
             this.piBShow.InitialImage = ((System.Drawing.Image)(resources.GetObject("piBShow.InitialImage")));
             this.piBShow.Location = new System.Drawing.Point(300, 96);
-            this.piBShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.piBShow.Margin = new System.Windows.Forms.Padding(4);
             this.piBShow.Name = "piBShow";
             this.piBShow.Size = new System.Drawing.Size(341, 250);
             this.piBShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -319,7 +322,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(57, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(160, 62);
             this.pictureBox1.TabIndex = 20;
@@ -327,12 +330,14 @@
             // 
             // CollectionButton
             // 
+            this.CollectionButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.CollectionButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CollectionButton.Location = new System.Drawing.Point(57, 96);
             this.CollectionButton.Name = "CollectionButton";
             this.CollectionButton.Size = new System.Drawing.Size(160, 47);
             this.CollectionButton.TabIndex = 21;
             this.CollectionButton.Text = "My Collection";
-            this.CollectionButton.UseVisualStyleBackColor = true;
+            this.CollectionButton.UseVisualStyleBackColor = false;
             this.CollectionButton.Click += new System.EventHandler(this.CollectionButton_Click);
             // 
             // Main
@@ -340,6 +345,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(891, 725);
             this.Controls.Add(this.CollectionButton);
             this.Controls.Add(this.pictureBox1);

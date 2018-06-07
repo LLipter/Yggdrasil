@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.image1 = new System.Windows.Forms.PictureBox();
-            this.image2 = new System.Windows.Forms.PictureBox();
-            this.image3 = new System.Windows.Forms.PictureBox();
-            this.image4 = new System.Windows.Forms.PictureBox();
-            this.image6 = new System.Windows.Forms.PictureBox();
-            this.image5 = new System.Windows.Forms.PictureBox();
             this.book1 = new System.Windows.Forms.Label();
             this.book2 = new System.Windows.Forms.Label();
             this.book3 = new System.Windows.Forms.Label();
@@ -44,73 +38,19 @@
             this.NextPageButton = new System.Windows.Forms.Button();
             this.PagecomboBox = new System.Windows.Forms.ComboBox();
             this.EmptyMessageLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image6)).BeginInit();
+            this.image5 = new System.Windows.Forms.PictureBox();
+            this.image6 = new System.Windows.Forms.PictureBox();
+            this.image4 = new System.Windows.Forms.PictureBox();
+            this.image3 = new System.Windows.Forms.PictureBox();
+            this.image2 = new System.Windows.Forms.PictureBox();
+            this.image1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.image5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // image1
-            // 
-            this.image1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image1.Location = new System.Drawing.Point(103, 119);
-            this.image1.Name = "image1";
-            this.image1.Size = new System.Drawing.Size(143, 107);
-            this.image1.TabIndex = 0;
-            this.image1.TabStop = false;
-            this.image1.Click += new System.EventHandler(this.image1_Click);
-            // 
-            // image2
-            // 
-            this.image2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image2.Location = new System.Drawing.Point(341, 119);
-            this.image2.Name = "image2";
-            this.image2.Size = new System.Drawing.Size(143, 107);
-            this.image2.TabIndex = 1;
-            this.image2.TabStop = false;
-            this.image2.Click += new System.EventHandler(this.image2_Click);
-            // 
-            // image3
-            // 
-            this.image3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image3.Location = new System.Drawing.Point(581, 119);
-            this.image3.Name = "image3";
-            this.image3.Size = new System.Drawing.Size(143, 107);
-            this.image3.TabIndex = 2;
-            this.image3.TabStop = false;
-            this.image3.Click += new System.EventHandler(this.image3_Click);
-            // 
-            // image4
-            // 
-            this.image4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image4.Location = new System.Drawing.Point(103, 290);
-            this.image4.Name = "image4";
-            this.image4.Size = new System.Drawing.Size(143, 107);
-            this.image4.TabIndex = 3;
-            this.image4.TabStop = false;
-            this.image4.Click += new System.EventHandler(this.image4_Click);
-            // 
-            // image6
-            // 
-            this.image6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image6.Location = new System.Drawing.Point(581, 290);
-            this.image6.Name = "image6";
-            this.image6.Size = new System.Drawing.Size(143, 107);
-            this.image6.TabIndex = 4;
-            this.image6.TabStop = false;
-            this.image6.Click += new System.EventHandler(this.image6_Click);
-            // 
-            // image5
-            // 
-            this.image5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image5.Location = new System.Drawing.Point(341, 290);
-            this.image5.Name = "image5";
-            this.image5.Size = new System.Drawing.Size(143, 107);
-            this.image5.TabIndex = 5;
-            this.image5.TabStop = false;
-            this.image5.Click += new System.EventHandler(this.image5_Click);
             // 
             // book1
             // 
@@ -162,9 +102,9 @@
             // 
             // LastPageButton
             // 
-            this.LastPageButton.Location = new System.Drawing.Point(158, 453);
+            this.LastPageButton.Location = new System.Drawing.Point(137, 453);
             this.LastPageButton.Name = "LastPageButton";
-            this.LastPageButton.Size = new System.Drawing.Size(88, 41);
+            this.LastPageButton.Size = new System.Drawing.Size(109, 41);
             this.LastPageButton.TabIndex = 12;
             this.LastPageButton.Text = "Last page";
             this.LastPageButton.UseVisualStyleBackColor = true;
@@ -199,6 +139,66 @@
             this.EmptyMessageLabel.TabIndex = 15;
             this.EmptyMessageLabel.Text = "You haven\'t add any books to your favorite";
             // 
+            // image5
+            // 
+            this.image5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image5.Location = new System.Drawing.Point(341, 290);
+            this.image5.Name = "image5";
+            this.image5.Size = new System.Drawing.Size(143, 107);
+            this.image5.TabIndex = 5;
+            this.image5.TabStop = false;
+            this.image5.Click += new System.EventHandler(this.image5_Click);
+            // 
+            // image6
+            // 
+            this.image6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image6.Location = new System.Drawing.Point(581, 290);
+            this.image6.Name = "image6";
+            this.image6.Size = new System.Drawing.Size(143, 107);
+            this.image6.TabIndex = 4;
+            this.image6.TabStop = false;
+            this.image6.Click += new System.EventHandler(this.image6_Click);
+            // 
+            // image4
+            // 
+            this.image4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image4.Location = new System.Drawing.Point(103, 290);
+            this.image4.Name = "image4";
+            this.image4.Size = new System.Drawing.Size(143, 107);
+            this.image4.TabIndex = 3;
+            this.image4.TabStop = false;
+            this.image4.Click += new System.EventHandler(this.image4_Click);
+            // 
+            // image3
+            // 
+            this.image3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image3.Location = new System.Drawing.Point(581, 119);
+            this.image3.Name = "image3";
+            this.image3.Size = new System.Drawing.Size(143, 107);
+            this.image3.TabIndex = 2;
+            this.image3.TabStop = false;
+            this.image3.Click += new System.EventHandler(this.image3_Click);
+            // 
+            // image2
+            // 
+            this.image2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image2.Location = new System.Drawing.Point(341, 119);
+            this.image2.Name = "image2";
+            this.image2.Size = new System.Drawing.Size(143, 107);
+            this.image2.TabIndex = 1;
+            this.image2.TabStop = false;
+            this.image2.Click += new System.EventHandler(this.image2_Click);
+            // 
+            // image1
+            // 
+            this.image1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.image1.Location = new System.Drawing.Point(103, 119);
+            this.image1.Name = "image1";
+            this.image1.Size = new System.Drawing.Size(143, 107);
+            this.image1.TabIndex = 0;
+            this.image1.TabStop = false;
+            this.image1.Click += new System.EventHandler(this.image1_Click);
+            // 
             // User_Collection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -223,12 +223,12 @@
             this.Name = "User_Collection";
             this.Text = "User_Collection";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Collection_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.image1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
