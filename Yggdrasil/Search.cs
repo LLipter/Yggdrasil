@@ -73,6 +73,9 @@ namespace Yggdrasil
             if (IsInternetAvailable())
             {
                 clear();
+                pageNum = 0;
+                totalPage = 0;
+                bookList.Clear();
                 if (searchText.Text == "")
                 {
                     MessageBox.Show("Please enter the name of book");
@@ -178,6 +181,8 @@ namespace Yggdrasil
             Label labelShow = new Label();
             PictureBox imageShow = new PictureBox();
 
+            clear();
+
             if (6 * pageNum + 5 > size - 1)
             {
                 for (int i = 6 * pageNum; i <= size - 1; i++)
@@ -235,10 +240,6 @@ namespace Yggdrasil
                 image = (PictureBox)imageList[i];
                 image.Image = null;
             }
-
-            pageNum = 0;
-            totalPage = 0;
-            bookList.Clear();
         }
 
         private void pageChangeText_KeyPress(object sender, KeyPressEventArgs e)
@@ -360,6 +361,9 @@ namespace Yggdrasil
         private void Search_FormClosing(object sender, FormClosingEventArgs e)
         {
             clear();
+            pageNum = 0;
+            totalPage = 0;
+            bookList.Clear();
             labelList.Clear();
             imageList.Clear();
             mainForm.Enabled = true;
