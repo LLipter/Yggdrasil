@@ -23,6 +23,7 @@ namespace Yggdrasil
         private int TotalChapNo;
         private ArrayList bookComments;
         private Comment UserComment;
+        private bool IsFavorite;
         //private User user1;
         public Book_Interface(Book cbook)
         {
@@ -32,9 +33,21 @@ namespace Yggdrasil
             currentBook = cbook;
             TotalChapNo = currentBook.Chapter_no;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/1.txt");
+            
+
             //Judge whether the network is available
             if (IsInternetAvailable())
-            {
+            {   
+                DatabaseUtility.checkFavorite(ref IsFavorite, Global.user, currentBook);//Check whether the book is user's favorite
+                if (IsFavorite)
+                {
+                    CollectButton.Text = "Remove from Collection";
+                }
+                else
+                {
+                    CollectButton.Text = "Add to My Collection";
+                }
+
                 Image Cover = Image.FromStream(WebRequest.Create("http://www.irran.top:8080/Yggdrasil/book/" + currentBook.Location + "/cover.jpg").GetResponse().GetResponseStream());
                 pictureBox1.Image = Cover;
                 BookNameLabel.Text = currentBook.Book_name;
@@ -184,22 +197,49 @@ namespace Yggdrasil
 
         private void CollectButton_Click(object sender, EventArgs e)
         {
-            if (IsInternetAvailable())
+            if (!IsFavorite)
             {
-                int situation;
-                situation = DatabaseUtility.setFavorite(Global.user, currentBook);
-                if (situation == 1)
-                {
-                    MessageBox.Show("Add successfully");
+                IsFavorite = true;
+                CollectButton.Text = "Remove from Collection";
+                if (IsInternetAvailable())
+                {    
+                    int situation;
+                    situation = DatabaseUtility.setFavorite(Global.user, currentBook);
+                    if (situation == 1)
+                    {
+                        MessageBox.Show("Add successfully");
+                    }
+                    else if (situation == -2)
+                    {
+                        MessageBox.Show("This book has already been in your collection!");
+                    }
                 }
-                else if (situation == -2)
+                else
                 {
-                    MessageBox.Show("This book has already been in your collection!");
+                    MessageBox.Show("Please check your network");
                 }
             }
             else
             {
-                MessageBox.Show("Please check your network");
+                IsFavorite = false;
+                CollectButton.Text = "Add to My Collection";
+                if (IsInternetAvailable())
+                {
+                    int situation;
+                    situation = DatabaseUtility.removeFavorite(Global.user, currentBook);
+                    if (situation == 1)
+                    {
+                        MessageBox.Show("Remove successfully");
+                    }
+                    else if (situation == -2)
+                    {
+                        MessageBox.Show("This book has already been removed!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please check your network");
+                }
             }
         }
     }
