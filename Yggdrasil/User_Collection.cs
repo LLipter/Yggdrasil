@@ -98,6 +98,8 @@ namespace Yggdrasil
             Label labelShow = new Label();
             PictureBox imageShow = new PictureBox();
 
+            clear();
+
             if (6 * pageNum + 5 > size - 1)
             {
                 for (int i = 6 * pageNum; i <= size - 1; i++)
@@ -141,22 +143,16 @@ namespace Yggdrasil
             
            
        
-            /*if(pageNum == 0)
-            {
-                pageNum++;
-            }*/
-            //pageChangeText.Text = String.Format("{0}/{1}", pageNum, totalPage);
+         
         }
 
         private void NextPageButton_Click(object sender, EventArgs e)
         {
             int CurrentPage = pageNum;
-            clear();
-            getData();
             pageNum = CurrentPage;
             if (pageNum == totalPage-1)
             {
-                //MessageBox.Show("This is the Last page!");
+                
                 showBook();
             }
             else
@@ -169,12 +165,10 @@ namespace Yggdrasil
         private void LastPageButton_Click(object sender, EventArgs e)
         {
             int CurrentPage = pageNum;
-            clear();
-            getData();
             pageNum = CurrentPage;
             if (pageNum == 0)
             {
-                // MessageBox.Show("This is the first page!");
+                
                 showBook();
             }
             else
@@ -200,9 +194,9 @@ namespace Yggdrasil
                 image.Image = null;
             }
 
-            pageNum = 0;
-            totalPage = 0;
-            bookList.Clear();
+            //pageNum = 0;
+            //totalPage = 0;
+           // bookList.Clear();
 
         }
 
@@ -333,6 +327,9 @@ namespace Yggdrasil
         private void User_Collection_FormClosing(object sender, FormClosingEventArgs e)
         {
             clear();
+            pageNum = 0;
+            totalPage = 0;
+            bookList.Clear();
             labelList.Clear();
             imageList.Clear();
             mainForm.Enabled = true;
@@ -341,8 +338,6 @@ namespace Yggdrasil
         private void PagecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            clear();
-            getData();
             pageNum = Convert.ToInt32(PagecomboBox.Text)-1;
             showBook();
         }
