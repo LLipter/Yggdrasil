@@ -115,10 +115,7 @@ namespace Yggdrasil
             StreamReader sr = new StreamReader(FirstPage, Encoding.UTF8);
             String content = sr.ReadToEnd();
             content = content.Replace("\n", "\r\n");
-            if (content.Length > 500)
-                chapterContent.Text = content.Substring(0, 500);
-            else
-                chapterContent.Text = content;
+            chapterContent.Text = content;
             initCon = chapterContent.Text.ToString();
 
             FirstPage.Close();

@@ -37,7 +37,7 @@
             // 
             // modifyChapterButton
             // 
-            this.modifyChapterButton.Location = new System.Drawing.Point(522, 299);
+            this.modifyChapterButton.Location = new System.Drawing.Point(683, 299);
             this.modifyChapterButton.Name = "modifyChapterButton";
             this.modifyChapterButton.Size = new System.Drawing.Size(157, 23);
             this.modifyChapterButton.TabIndex = 4;
@@ -51,7 +51,7 @@
             this.booksView.Location = new System.Drawing.Point(88, 40);
             this.booksView.Name = "booksView";
             this.booksView.RowTemplate.Height = 27;
-            this.booksView.Size = new System.Drawing.Size(636, 181);
+            this.booksView.Size = new System.Drawing.Size(815, 233);
             this.booksView.TabIndex = 7;
             this.booksView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellClick);
             this.booksView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -69,7 +69,7 @@
             // 
             // commitButton
             // 
-            this.commitButton.Location = new System.Drawing.Point(152, 299);
+            this.commitButton.Location = new System.Drawing.Point(188, 299);
             this.commitButton.Name = "commitButton";
             this.commitButton.Size = new System.Drawing.Size(178, 23);
             this.commitButton.TabIndex = 11;
