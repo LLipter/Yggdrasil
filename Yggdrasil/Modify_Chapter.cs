@@ -59,7 +59,7 @@ namespace Yggdrasil
                 }
             }
             User temp = (User)authorList[0];
-            initAuthor = temp.User_name;
+            initAuthor = authorBox.Text.ToString();
             initCon = chapterContent.Text.ToString();
             initNewCon = newBookContent.Text.ToString();
         }
@@ -87,10 +87,7 @@ namespace Yggdrasil
             }
             else if(initCon != content && author == initAuthor)
             {
-                if (DatabaseUtility.modifyBookContent(book, chapterNo, content) == -1)
-                {
-                    MessageBox.Show("There is something wrong with the content!");
-                }
+            DatabaseUtility.modifyBookContent(book, chapterNo, content);
             }else if(initCon == content && author != initAuthor)
             {
                 if(DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
@@ -100,16 +97,15 @@ namespace Yggdrasil
             }
             else
             {
-                if (DatabaseUtility.modifyBookContent(book, chapterNo, content) == -1)
-                {
-                    MessageBox.Show("There is something wrong with the content!");
-                }
+                DatabaseUtility.modifyBookContent(book, chapterNo, content);
                 if (DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
                 {
                     MessageBox.Show("There already exists the author!");
 
                 }
             }
+            chapterBox.Text = "";
+            authorBox.Text = "";
             chapterContent.Text = "";
         }
 
@@ -137,17 +133,13 @@ namespace Yggdrasil
             int newChapNo = Convert.ToInt32(newChapterNo.Text.ToString());
             if(newChapNo > book.Chapter_no) {
                 DatabaseUtility.updateChapterNoByBookId(newChapNo,bookId);
-                if (DatabaseUtility.modifyBookContent(book, newChapNo, newContent) == -1)
-                {
-                    MessageBox.Show("There is something wrong with the content!");
-                }
-                else
-                    refresh();
+                DatabaseUtility.modifyBookContent(book, newChapNo, newContent);
             }
             else
             {
                 MessageBox.Show("Please enter the book content!");
             }
+            refresh();
             newChapterNo.Text = "";
             newBookContent.Text = "";
         }

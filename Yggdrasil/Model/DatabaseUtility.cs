@@ -352,11 +352,29 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO favorite(book_id,user_id) VALUES({0},{1});", book.Book_id, user.User_id);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            cmd.ExecuteNonQuery();
             if (cmd.ExecuteNonQuery() == 0)
             {
                 conn.Close();
                 return -2; // duplicate favorite
             }
+            conn.Close();
+            return 1;// 1 means everything is right
+
+        }
+
+        public static int checkFavorite(ref bool res, User user, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM favorite WHERE book_id={0} AND user_id={1};", book.Book_id, user.User_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            if (read.Read())
+                res = true;
+            else
+                res = false;
             conn.Close();
             return 1;// 1 means everything is right
 
