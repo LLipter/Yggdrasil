@@ -219,6 +219,8 @@
     <None Include="Resources\37698293_p0.png" />
     <None Include="Resources\5-120601095934.jpg" />
     <None Include="Resources\5-120601095952.jpg" />
+    <None Include="Resources\55709160_p0_master1200.jpg" />
+    <None Include="Resources\67673198_p0_master1200.jpg" />
     <Content Include="table.sql" />
   </ItemGroup>
   <ItemGroup>

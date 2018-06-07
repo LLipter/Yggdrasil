@@ -216,7 +216,6 @@
             this.Controls.Add(this.BookNameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Book_Interface";
             this.Text = "书籍界面";
             this.Load += new System.EventHandler(this.Book_Interface_Load);
