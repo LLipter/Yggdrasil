@@ -24,6 +24,8 @@ CREATE TABLE publisher(
 INSERT INTO publisher(publisher_name) VALUES('人民文学出版社');
 INSERT INTO publisher(publisher_name) VALUES('机械工业出版社');
 INSERT INTO publisher(publisher_name) VALUES('武汉大学出版社');
+INSERT INTO publisher(publisher_name) VALUES('LLipter网文出版社');
+
 
 CREATE TABLE book(
 	book_id INT auto_increment,
@@ -44,6 +46,7 @@ UPDATE book SET location = 'cpphtp' WHERE book_name = 'C++ How to Programming';
 INSERT INTO book(book_name,location,chapter_no) VALUES('永夜君王','yyjw12315s4fe87g98f4dw',5);
 INSERT INTO book(book_name,location,chapter_no) VALUES('斗罗大陆','dldl',5);
 INSERT INTO book(book_name,location,chapter_no) VALUES('斗罗大陆2','dldl2',5);
+UPDATE book SET publisher_id = 6 WHERE book_id > 5;
 
 
 CREATE TABLE author(
