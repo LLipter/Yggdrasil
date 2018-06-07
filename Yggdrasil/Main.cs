@@ -212,6 +212,12 @@ namespace Yggdrasil
             myCollection.Show();
             this.Enabled = false;
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lastForm.Show();
+        }
     }
 
 }
