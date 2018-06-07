@@ -64,5 +64,18 @@ namespace Yggdrasil
             lastForm.Show();
             this.Close();
         }
+
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')
+    || (e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar == 8))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
