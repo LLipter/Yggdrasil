@@ -23,7 +23,6 @@ namespace Yggdrasil
         private int bookId = 0;
         private string initCon;
         private string initNewCon;
-        private string initAuthor;
         private ArrayList authorList = new ArrayList();
 
         public Modify_Chapter()
@@ -59,7 +58,6 @@ namespace Yggdrasil
                 }
             }
             User temp = (User)authorList[0];
-            initAuthor = authorBox.Text.ToString();
             initCon = chapterContent.Text.ToString();
             initNewCon = newBookContent.Text.ToString();
         }
@@ -81,14 +79,14 @@ namespace Yggdrasil
             string content = chapterContent.Text.ToString();
             string author = authorBox.Text.ToString();
 
-            if (initCon == content && author == initAuthor)
+            if (content == initCon && author == "")
             {
                 MessageBox.Show("Please change the content and the click the button!");
             }
-            else if(initCon != content && author == initAuthor)
+            else if(content != initCon && author == "")
             {
             DatabaseUtility.modifyBookContent(book, chapterNo, content);
-            }else if(initCon == content && author != initAuthor)
+            }else if(content == initCon && author != "")
             {
                 if(DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
                 {
@@ -107,6 +105,7 @@ namespace Yggdrasil
             chapterBox.Text = "";
             authorBox.Text = "";
             chapterContent.Text = "";
+            initCon = chapterContent.Text.ToString();
         }
 
         private void showButton_Click(object sender, EventArgs e)
