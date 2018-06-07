@@ -58,7 +58,7 @@ namespace Yggdrasil
                     else
                     {
                         if(currentUser.Passwd == txtPassword.Text){
-                            Main mainPage = new Main(this, 30);
+                            Main mainPage = new Main(this);
                             mainPage.Show();
                             this.Hide();
                         }

@@ -71,7 +71,10 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO user(user_name,passwd,nick_name) VALUES('{0}','{1}','{2}');", user.User_name, user.Passwd, user.Nick_name);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
-            if (cmd.ExecuteNonQuery() == 0)
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }catch(Exception e)
             {
                 conn.Close();
                 return -2; // duplicate user name
@@ -352,12 +355,20 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO favorite(book_id,user_id) VALUES({0},{1});", book.Book_id, user.User_id);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+<<<<<<< HEAD
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }catch (Exception e)
+=======
             cmd.ExecuteNonQuery();
             if (cmd.ExecuteNonQuery() == 0)
+>>>>>>> 99610e46029227464d6156c8809fcf8a3a3dd4a7
             {
                 conn.Close();
                 return -2; // duplicate favorite
             }
+
             conn.Close();
             return 1;// 1 means everything is right
 
