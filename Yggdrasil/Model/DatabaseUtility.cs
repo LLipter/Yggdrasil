@@ -425,7 +425,7 @@ namespace Yggdrasil.Model
 
             // Get response  
             HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
-            if(myResponse.StatusCode == HttpStatusCode.OK)
+            if(myResponse.StatusCode != HttpStatusCode.OK)
             {
                 Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
                 return -1; // some error

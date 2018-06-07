@@ -99,8 +99,7 @@ namespace Yggdrasil
         private void lastPageButton_Click(object sender, EventArgs e)
         {
             int CurrentPage = pageNum;
-            clear();
-            getData(bookName);
+
             pageNum = CurrentPage;
             if (IsInternetAvailable())
             {
@@ -124,8 +123,8 @@ namespace Yggdrasil
         private void nextPageButton_Click(object sender, EventArgs e)
         {
             int CurrentPage = pageNum;
-            clear();
-            getData(bookName);
+            
+           
             pageNum = CurrentPage;
             if (IsInternetAvailable())
             {
