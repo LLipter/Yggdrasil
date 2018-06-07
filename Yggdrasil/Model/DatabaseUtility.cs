@@ -355,15 +355,37 @@ namespace Yggdrasil.Model
                 return -1;  // -1 means cannot connect to database
             string sqlStr = string.Format("INSERT INTO favorite(book_id,user_id) VALUES({0},{1});", book.Book_id, user.User_id);
             MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+<<<<<<< HEAD
             try
             {
                 cmd.ExecuteNonQuery();
             }catch (Exception e)
+=======
+            cmd.ExecuteNonQuery();
+            if (cmd.ExecuteNonQuery() == 0)
+>>>>>>> 99610e46029227464d6156c8809fcf8a3a3dd4a7
             {
                 conn.Close();
                 return -2; // duplicate favorite
             }
 
+            conn.Close();
+            return 1;// 1 means everything is right
+
+        }
+
+        public static int checkFavorite(ref bool res, User user, Book book)
+        {
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("SELECT * FROM favorite WHERE book_id={0} AND user_id={1};", book.Book_id, user.User_id);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader read = cmd.ExecuteReader();
+            if (read.Read())
+                res = true;
+            else
+                res = false;
             conn.Close();
             return 1;// 1 means everything is right
 
@@ -476,7 +498,7 @@ namespace Yggdrasil.Model
         public static int getAuthors(ref ArrayList list)
         {
             MySqlConnection conn = openConn();
-            User user = new User();
+          
             if (conn == null)
                 return -1;
             string sqlStr = string.Format("SELECT * FROM user");
@@ -484,6 +506,7 @@ namespace Yggdrasil.Model
             MySqlDataReader read = cmd.ExecuteReader();
             while (read.Read())
             {
+                User user = new User();
                 user.User_id = read.GetInt32("user_id");
                 user.User_name = read.GetString("user_name");
                 user.Passwd = read.GetString("passwd");
@@ -508,44 +531,60 @@ namespace Yggdrasil.Model
             if (conn == null)
                 return -1;
 
-            string sqlStr1 = "SELECT a.book_id,a.user_id " +
-                             "FROM author a " +
-                             "JOIN user u " +
-                             "ON a.user_id = u.user_id ";
+            string sqlStr1 = string.Format("SELECT user_id " +
+                                           "FROM user " +
+                                           "WHERE user_name = '{0}' ",name);
             MySqlCommand cmd1 = conn.CreateCommand();
             cmd1.CommandText = sqlStr1;
             MySqlDataReader reader1 = cmd1.ExecuteReader();
-            string sqlStr2 = "SELECT user_id " +
-                             "FROM user " +
-                             "WHERE user_name = name ";
+            if (reader1.Read())
+            {
+                userId = reader1.GetInt32(reader1.GetOrdinal("user_id"));
+            }
+            reader1.Close();
+            string sqlStr2 = "SELECT a.book_id,a.user_id " +
+                             "FROM author a " +
+                             "JOIN user u " +
+                             "ON a.user_id = u.user_id ";
             MySqlCommand cmd2 = conn.CreateCommand();
             cmd2.CommandText = sqlStr2;
             MySqlDataReader reader2 = cmd2.ExecuteReader();
-            if (reader2.Read())
+            while (reader2.Read())
             {
-                userId = reader2.GetInt32(reader1.GetOrdinal("user_id"));
-            }
-            reader2.Close();
-            while (reader1.Read())
-            {
-                int bId = reader1.GetInt32(reader1.GetOrdinal("book_id"));
-                int uId = reader1.GetInt32(reader1.GetOrdinal("user_id"));
+                int bId = reader2.GetInt32(reader2.GetOrdinal("book_id"));
+                int uId = reader2.GetInt32(reader2.GetOrdinal("user_id"));
                 if (bId == bookId && uId == userId)
                 {
                     return 0;
                 }
             }
-            reader1.Close();
+            reader2.Close();
             string sqlStr3 = string.Format("INSERT INTO author(book_id,user_id) values('{0}','{1}') ", bookId, userId);
-            MySqlCommand cmd3 = conn.CreateCommand();
-            cmd3.CommandText = sqlStr3;
-            MySqlDataReader reader3 = cmd3.ExecuteReader();
-            reader3.Close();
+            MySqlCommand cmd3 = new MySqlCommand(sqlStr3, conn);
+            if (cmd3.ExecuteNonQuery() == 0)
+            {
+                return 0; // error
+            }
             conn.Close();
 
             return 1;
 
         }
+        public static int updateChapterNoByBookId(int chapter, int bookId)
+        {
+            MySqlConnection conn = openConn();
+
+            if (conn == null)
+                return -1;
+            string sqlStr = string.Format("UPDATE book SET chapter_no = '{0}' WHERE book_id = '{1}' ", chapter, bookId);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return 0; // error
+            }
+            return 1;
+        }
+
     }
 
 

@@ -78,6 +78,7 @@
             this.chapterContent.Size = new System.Drawing.Size(551, 146);
             this.chapterContent.TabIndex = 3;
             this.chapterContent.Text = "Please modify the chapter here!";
+            this.chapterContent.TextChanged += new System.EventHandler(this.chapterContent_TextChanged);
             // 
             // modifyButton
             // 

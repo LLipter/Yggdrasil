@@ -316,7 +316,12 @@ namespace Yggdrasil
 
         private void booksView_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
+            if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')
+    || (e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar == 8))
+            {
+                e.Handled = false;
+            }
+            else
             {
                 e.Handled = true;
             }
