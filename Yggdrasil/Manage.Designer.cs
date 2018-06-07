@@ -37,18 +37,21 @@
             // 
             // modifyChapterButton
             // 
-            this.modifyChapterButton.Location = new System.Drawing.Point(683, 299);
+            this.modifyChapterButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.modifyChapterButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.modifyChapterButton.Location = new System.Drawing.Point(606, 293);
             this.modifyChapterButton.Name = "modifyChapterButton";
-            this.modifyChapterButton.Size = new System.Drawing.Size(157, 23);
+            this.modifyChapterButton.Size = new System.Drawing.Size(181, 48);
             this.modifyChapterButton.TabIndex = 4;
             this.modifyChapterButton.Text = "Modify Chapter";
-            this.modifyChapterButton.UseVisualStyleBackColor = true;
+            this.modifyChapterButton.UseVisualStyleBackColor = false;
             this.modifyChapterButton.Click += new System.EventHandler(this.modifyChapterButton_Click);
             // 
             // booksView
             // 
             this.booksView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksView.Location = new System.Drawing.Point(88, 40);
+            this.booksView.GridColor = System.Drawing.Color.NavajoWhite;
+            this.booksView.Location = new System.Drawing.Point(92, 40);
             this.booksView.Name = "booksView";
             this.booksView.RowTemplate.Height = 27;
             this.booksView.Size = new System.Drawing.Size(815, 233);
@@ -61,26 +64,32 @@
             // bookListLabel
             // 
             this.bookListLabel.AutoSize = true;
-            this.bookListLabel.Location = new System.Drawing.Point(115, 22);
+            this.bookListLabel.BackColor = System.Drawing.Color.Transparent;
+            this.bookListLabel.Font = new System.Drawing.Font("微软雅黑", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bookListLabel.Location = new System.Drawing.Point(327, 6);
             this.bookListLabel.Name = "bookListLabel";
-            this.bookListLabel.Size = new System.Drawing.Size(215, 15);
+            this.bookListLabel.Size = new System.Drawing.Size(341, 31);
             this.bookListLabel.TabIndex = 10;
             this.bookListLabel.Text = "The books in the inventory";
             // 
             // commitButton
             // 
-            this.commitButton.Location = new System.Drawing.Point(188, 299);
+            this.commitButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.commitButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.commitButton.Location = new System.Drawing.Point(160, 293);
             this.commitButton.Name = "commitButton";
-            this.commitButton.Size = new System.Drawing.Size(178, 23);
+            this.commitButton.Size = new System.Drawing.Size(178, 48);
             this.commitButton.TabIndex = 11;
             this.commitButton.Text = "Commit Modification";
-            this.commitButton.UseVisualStyleBackColor = true;
+            this.commitButton.UseVisualStyleBackColor = false;
             this.commitButton.Click += new System.EventHandler(this.commitButton_Click);
             // 
             // Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Yggdrasil.Properties.Resources._64605358_p0;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 399);
             this.Controls.Add(this.commitButton);
             this.Controls.Add(this.bookListLabel);

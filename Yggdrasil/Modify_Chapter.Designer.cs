@@ -54,15 +54,18 @@
             // chapterLabel
             // 
             this.chapterLabel.AutoSize = true;
+            this.chapterLabel.BackColor = System.Drawing.Color.Transparent;
+            this.chapterLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chapterLabel.Location = new System.Drawing.Point(111, 40);
             this.chapterLabel.Name = "chapterLabel";
-            this.chapterLabel.Size = new System.Drawing.Size(63, 15);
+            this.chapterLabel.Size = new System.Drawing.Size(70, 15);
             this.chapterLabel.TabIndex = 1;
             this.chapterLabel.Text = "Chapter";
             // 
             // bookLabel
             // 
             this.bookLabel.AutoSize = true;
+            this.bookLabel.BackColor = System.Drawing.Color.Transparent;
             this.bookLabel.Location = new System.Drawing.Point(111, 9);
             this.bookLabel.Name = "bookLabel";
             this.bookLabel.Size = new System.Drawing.Size(39, 15);
@@ -82,22 +85,26 @@
             // 
             // modifyButton
             // 
-            this.modifyButton.Location = new System.Drawing.Point(685, 36);
+            this.modifyButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.modifyButton.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.modifyButton.Location = new System.Drawing.Point(685, 35);
             this.modifyButton.Name = "modifyButton";
-            this.modifyButton.Size = new System.Drawing.Size(75, 23);
+            this.modifyButton.Size = new System.Drawing.Size(103, 24);
             this.modifyButton.TabIndex = 4;
             this.modifyButton.Text = "Modify";
-            this.modifyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.UseVisualStyleBackColor = false;
             this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // showButton
             // 
+            this.showButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.showButton.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.showButton.Location = new System.Drawing.Point(542, 35);
             this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(123, 23);
+            this.showButton.Size = new System.Drawing.Size(123, 25);
             this.showButton.TabIndex = 5;
             this.showButton.Text = "Show Content";
-            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.UseVisualStyleBackColor = false;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
             // newBookContent
@@ -113,20 +120,24 @@
             // newChapterLabel
             // 
             this.newChapterLabel.AutoSize = true;
+            this.newChapterLabel.BackColor = System.Drawing.Color.Transparent;
+            this.newChapterLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.newChapterLabel.Location = new System.Drawing.Point(111, 230);
             this.newChapterLabel.Name = "newChapterLabel";
-            this.newChapterLabel.Size = new System.Drawing.Size(63, 15);
+            this.newChapterLabel.Size = new System.Drawing.Size(70, 15);
             this.newChapterLabel.TabIndex = 7;
             this.newChapterLabel.Text = "Chapter";
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(622, 222);
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addButton.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.addButton.Location = new System.Drawing.Point(590, 232);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 8;
             this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // newChapterNo
@@ -149,6 +160,7 @@
             // authorLabel
             // 
             this.authorLabel.AutoSize = true;
+            this.authorLabel.BackColor = System.Drawing.Color.Transparent;
             this.authorLabel.Location = new System.Drawing.Point(310, 40);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(55, 15);
@@ -159,6 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.authorBox);
