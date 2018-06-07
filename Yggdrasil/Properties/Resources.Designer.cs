@@ -93,6 +93,16 @@ namespace Yggdrasil.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _5_120601095952 {
+            get {
+                object obj = ResourceManager.GetObject("5-120601095952", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap _51613650_p0 {
             get {
                 object obj = ResourceManager.GetObject("51613650_p0", resourceCulture);
