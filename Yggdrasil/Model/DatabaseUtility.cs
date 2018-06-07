@@ -359,11 +359,11 @@ namespace Yggdrasil.Model
             try
             {
                 cmd.ExecuteNonQuery();
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
                 conn.Close();
-                return -2; // duplicate favorite
-            
+                return -2;
             }
 
             conn.Close();
