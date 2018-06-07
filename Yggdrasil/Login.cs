@@ -60,6 +60,8 @@ namespace Yggdrasil
                         if(currentUser.Passwd == txtPassword.Text){
                             Main mainPage = new Main(this);
                             mainPage.Show();
+                            txtAccount.Text = "";
+                            txtPassword.Text = "";
                             this.Hide();
                         }
                         else MessageBox.Show("Password is not correct.");
