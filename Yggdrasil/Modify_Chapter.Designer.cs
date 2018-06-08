@@ -37,9 +37,9 @@
             this.newBookContent = new System.Windows.Forms.TextBox();
             this.newChapterLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.newChapterNo = new System.Windows.Forms.TextBox();
             this.authorBox = new System.Windows.Forms.ComboBox();
             this.authorLabel = new System.Windows.Forms.Label();
+            this.newChapterNoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chapterBox
@@ -140,15 +140,6 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // newChapterNo
-            // 
-            this.newChapterNo.Location = new System.Drawing.Point(194, 227);
-            this.newChapterNo.Name = "newChapterNo";
-            this.newChapterNo.Size = new System.Drawing.Size(100, 25);
-            this.newChapterNo.TabIndex = 9;
-            this.newChapterNo.Text = "New Chapter";
-            this.newChapterNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newChapterNo_KeyPress);
-            // 
             // authorBox
             // 
             this.authorBox.FormattingEnabled = true;
@@ -167,15 +158,24 @@
             this.authorLabel.TabIndex = 11;
             this.authorLabel.Text = "Author";
             // 
+            // newChapterNoLabel
+            // 
+            this.newChapterNoLabel.AutoSize = true;
+            this.newChapterNoLabel.Location = new System.Drawing.Point(187, 230);
+            this.newChapterNoLabel.Name = "newChapterNoLabel";
+            this.newChapterNoLabel.Size = new System.Drawing.Size(95, 15);
+            this.newChapterNoLabel.TabIndex = 12;
+            this.newChapterNoLabel.Text = "New Chapter";
+            // 
             // Modify_Chapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._5_120601095934;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newChapterNoLabel);
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.authorBox);
-            this.Controls.Add(this.newChapterNo);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.newChapterLabel);
             this.Controls.Add(this.newBookContent);
@@ -205,8 +205,8 @@
         private System.Windows.Forms.TextBox newBookContent;
         private System.Windows.Forms.Label newChapterLabel;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.TextBox newChapterNo;
         private System.Windows.Forms.ComboBox authorBox;
         private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Label newChapterNoLabel;
     }
 }
