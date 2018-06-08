@@ -500,7 +500,7 @@ namespace Yggdrasil.Model
 
             // Prepare web request...  
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
+            request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             request.ContentLength = data.Length;
             Stream newStream = request.GetRequestStream();
