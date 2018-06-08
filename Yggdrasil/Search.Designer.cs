@@ -236,7 +236,7 @@
             // 
             this.PageLabel.AutoSize = true;
             this.PageLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PageLabel.Location = new System.Drawing.Point(352, 432);
+            this.PageLabel.Location = new System.Drawing.Point(361, 434);
             this.PageLabel.Name = "PageLabel";
             this.PageLabel.Size = new System.Drawing.Size(69, 27);
             this.PageLabel.TabIndex = 17;
@@ -244,9 +244,10 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(666, 43);
+            this.btnReport.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReport.Location = new System.Drawing.Point(667, 36);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(108, 23);
+            this.btnReport.Size = new System.Drawing.Size(137, 32);
             this.btnReport.TabIndex = 18;
             this.btnReport.Text = "Book Report";
             this.btnReport.UseVisualStyleBackColor = true;

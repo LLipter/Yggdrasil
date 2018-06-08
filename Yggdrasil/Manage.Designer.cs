@@ -33,6 +33,7 @@
             this.bookListLabel = new System.Windows.Forms.Label();
             this.commitButton = new System.Windows.Forms.Button();
             this.getReportButton = new System.Windows.Forms.Button();
+            this.AddBookButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.booksView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +41,7 @@
             // 
             this.modifyChapterButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.modifyChapterButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.modifyChapterButton.Location = new System.Drawing.Point(388, 410);
+            this.modifyChapterButton.Location = new System.Drawing.Point(294, 410);
             this.modifyChapterButton.Name = "modifyChapterButton";
             this.modifyChapterButton.Size = new System.Drawing.Size(181, 48);
             this.modifyChapterButton.TabIndex = 4;
@@ -78,7 +79,7 @@
             // 
             this.commitButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.commitButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.commitButton.Location = new System.Drawing.Point(150, 410);
+            this.commitButton.Location = new System.Drawing.Point(92, 410);
             this.commitButton.Name = "commitButton";
             this.commitButton.Size = new System.Drawing.Size(181, 48);
             this.commitButton.TabIndex = 11;
@@ -90,13 +91,25 @@
             // 
             this.getReportButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.getReportButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.getReportButton.Location = new System.Drawing.Point(649, 410);
+            this.getReportButton.Location = new System.Drawing.Point(740, 410);
             this.getReportButton.Name = "getReportButton";
             this.getReportButton.Size = new System.Drawing.Size(178, 48);
             this.getReportButton.TabIndex = 12;
             this.getReportButton.Text = "Get Report";
             this.getReportButton.UseVisualStyleBackColor = false;
             this.getReportButton.Click += new System.EventHandler(this.getReportButton_Click);
+            // 
+            // AddBookButton
+            // 
+            this.AddBookButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.AddBookButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AddBookButton.Location = new System.Drawing.Point(529, 410);
+            this.AddBookButton.Name = "AddBookButton";
+            this.AddBookButton.Size = new System.Drawing.Size(166, 48);
+            this.AddBookButton.TabIndex = 13;
+            this.AddBookButton.Text = "Add Book";
+            this.AddBookButton.UseVisualStyleBackColor = false;
+            this.AddBookButton.Click += new System.EventHandler(this.AddBookButton_Click);
             // 
             // Manage
             // 
@@ -105,6 +118,7 @@
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._64605358_p0;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 508);
+            this.Controls.Add(this.AddBookButton);
             this.Controls.Add(this.getReportButton);
             this.Controls.Add(this.commitButton);
             this.Controls.Add(this.bookListLabel);
@@ -126,5 +140,6 @@
         private System.Windows.Forms.Label bookListLabel;
         private System.Windows.Forms.Button commitButton;
         private System.Windows.Forms.Button getReportButton;
+        private System.Windows.Forms.Button AddBookButton;
     }
 }

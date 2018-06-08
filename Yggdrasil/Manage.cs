@@ -416,18 +416,17 @@ namespace Yggdrasil
 
         private void TextBoxDec_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void booksView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (this.booksView.CurrentCell.ColumnIndex == 6)
-            {
-                e.Control.KeyPress += new KeyPressEventHandler(TextBoxDec_KeyPress);
-            }
+        }
+
+        private void AddBookButton_Click(object sender, EventArgs e)
+        {
+            Add_Book addbookInterface = new Add_Book();
+            addbookInterface.ShowDialog();        
         }
     }
 }

@@ -454,7 +454,7 @@ namespace Yggdrasil.Model
 
             // Get response  
             HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
-            if (myResponse.StatusCode == HttpStatusCode.OK)
+            if (myResponse.StatusCode != HttpStatusCode.OK)
             {
                 Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
                 return -1; // some error
@@ -473,6 +473,7 @@ namespace Yggdrasil.Model
             ms.Read(arr, 0, (int)ms.Length);
             ms.Close();
             string cover = Convert.ToBase64String(arr);
+            cover = System.Web.HttpUtility.UrlEncode(cover);
 
 
             Random rd = new Random();
@@ -493,6 +494,13 @@ namespace Yggdrasil.Model
             conn.Close();
 
 
+            Console.WriteLine(info);
+            Console.WriteLine(bookname);
+            Console.WriteLine(imagepath);
+            Console.WriteLine(cover);
+            Console.WriteLine(location);
+
+
             // Prepare data
             string url = "http://www.irran.top:8080/Yggdrasil/addbook";
             string postData = string.Format("location={0}&info={1}&cover={2}", location, info,cover);
@@ -511,11 +519,18 @@ namespace Yggdrasil.Model
 
             // Get response  
             HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
-            if (myResponse.StatusCode == HttpStatusCode.OK)
+            Console.WriteLine(myResponse.StatusCode);
+            if (myResponse.StatusCode != HttpStatusCode.OK)
             {
                 Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
                 return -2; // some error
             }
+            Stream resstr = myResponse.GetResponseStream();
+            StreamReader readStream = new StreamReader(resstr);
+
+            Console.WriteLine(readStream.ReadToEnd());
+
+
             return 1;
         }
 

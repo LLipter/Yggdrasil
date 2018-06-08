@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Book.Designer.cs">
+      <DependentUpon>Add_Book.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +152,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>YggdrasilDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_Book.resx">
+      <DependentUpon>Add_Book.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BookReport.cs</LastGenOutput>
