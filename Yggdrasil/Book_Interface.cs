@@ -60,8 +60,9 @@ namespace Yggdrasil
                 DatabaseUtility.getComments(ref bookComments, currentBook);
 
                 for (int j = 0; j < bookComments.Count; j++)
-                {
+                {   
                     Comment newCommentItem = (Comment)bookComments[j];
+                  
                     CommentsBox.AppendText(newCommentItem.User_name + "-------" + newCommentItem.Create_date.ToString() + "\r\n" + newCommentItem.Content.ToString() + "\r\n" + "\r\n");
 
                 }
@@ -139,6 +140,7 @@ namespace Yggdrasil
                 UserComment.User_id = Global.user.User_id;
                 UserComment.Book_id = currentBook.Book_id;
                 UserComment.Content = WriteCommentBox.Text.ToString();
+                UserComment.Content = UserComment.Content.Replace("'", "\\'");
                 int commitSuccess = DatabaseUtility.setComment(ref UserComment);
                 CommentsBox.Clear();
                 DatabaseUtility.getComments(ref bookComments, currentBook);
