@@ -140,6 +140,7 @@ namespace Yggdrasil
                 UserComment.User_id = Global.user.User_id;
                 UserComment.Book_id = currentBook.Book_id;
                 UserComment.Content = WriteCommentBox.Text.ToString();
+                UserComment.Content = UserComment.Content.Replace("\\", "\\\\");
                 UserComment.Content = UserComment.Content.Replace("'", "\\'");
                 int commitSuccess = DatabaseUtility.setComment(ref UserComment);
                 CommentsBox.Clear();

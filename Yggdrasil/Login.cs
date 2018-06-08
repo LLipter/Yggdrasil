@@ -45,11 +45,15 @@ namespace Yggdrasil
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            
             if (txtAccount.Text == "") { MessageBox.Show("Please input username!"); }
             else if (txtPassword.Text == "") { MessageBox.Show("Please input password!"); }
             else { 
-            User currentUser = new User();
-            int situation = DatabaseUtility.getUser(ref currentUser, txtAccount.Text);
+                User currentUser = new User();
+                string Acount;
+                Acount = txtAccount.Text.Replace("\\", "\\\\");
+                Acount = txtAccount.Text.Replace("'", "\\'");
+                int situation = DatabaseUtility.getUser(ref currentUser, Acount);
             if (situation == -1) { MessageBox.Show("You have some problems about the Internet!"); }
             else
             {
