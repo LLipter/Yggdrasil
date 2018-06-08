@@ -25,13 +25,15 @@ namespace Yggdrasil
         private string initNewCon;
         private ArrayList authorList = new ArrayList();
         private Form manageForm;
+        private int row;
+        private DataGridView theView;
 
         public Modify_Chapter()
         {
             InitializeComponent();
         }
 
-        public Modify_Chapter(int theBookId, Form theForm)
+        public Modify_Chapter(int theBookId,int theRow ,Form theForm)
         {
             InitializeComponent();
             bookId = theBookId;
@@ -62,6 +64,11 @@ namespace Yggdrasil
             initCon = chapterContent.Text.ToString();
             initNewCon = newBookContent.Text.ToString();
             manageForm = theForm;
+            row = theRow;
+            theView = Manage.getView();
+
+            int tempNo = (book.Chapter_no + 1);
+            newChapterNoLabel.Text = string.Format("New Chapter : {0}", tempNo.ToString());
         }
 
         private void Chapter_Load(object sender, EventArgs e)
@@ -87,8 +94,9 @@ namespace Yggdrasil
             }
             else if(content != initCon && author == "")
             {
-            DatabaseUtility.modifyBookContent(book, chapterNo, content);
-            DatabaseUtility.updateModifyDateByBookId(bookId);
+                DatabaseUtility.modifyBookContent(book, chapterNo, content);
+                DatabaseUtility.updateModifyDateByBookId(bookId);
+                theView[8, row].Value = System.DateTime.Now;
             }
             else if(content == initCon && author != "")
             {
@@ -99,6 +107,7 @@ namespace Yggdrasil
                 else
                 {
                     DatabaseUtility.updateModifyDateByBookId(bookId);
+                    theView[8, row].Value = System.DateTime.Now;
                 }
             }
             else
@@ -109,6 +118,7 @@ namespace Yggdrasil
                     MessageBox.Show("There already exists the author!");
                 }
                 DatabaseUtility.updateModifyDateByBookId(bookId);
+                theView[8, row].Value = System.DateTime.Now;
             }
             chapterBox.Text = "";
             authorBox.Text = "";
@@ -135,11 +145,12 @@ namespace Yggdrasil
         {
             string newContent = newBookContent.Text.ToString();
             int newChapNo = book.Chapter_no + 1;
-            newChapterNoLabel.Text = string.Format("New Chapter : {0}", newChapNo);
+            int temp = newChapNo + 1;
             if (newChapNo > book.Chapter_no) {
                 DatabaseUtility.updateChapterNoByBookId(newChapNo,bookId);
                 DatabaseUtility.modifyBookContent(book, newChapNo, newContent);
                 DatabaseUtility.updateModifyDateByBookId(bookId);
+                theView[8, row].Value = System.DateTime.Now;
             }
             else
             {
@@ -147,6 +158,7 @@ namespace Yggdrasil
             }
             refresh();
             newBookContent.Text = "";
+            newChapterNoLabel.Text = string.Format("New Chapter : {0}", temp.ToString());
         }
 
         private void refresh()

@@ -35,6 +35,7 @@ namespace Yggdrasil
         private static int column;
         private static int row;
         private Form mainForm;
+        private static DataGridView theView;
 
         MySqlConnection conn;
 
@@ -67,6 +68,7 @@ namespace Yggdrasil
             column = booksView.ColumnCount;
             row = booksView.RowCount;
             changedItem = new string[column,row];
+            theView = booksView;
         }
 
         private void dbUpdate()
@@ -308,7 +310,8 @@ namespace Yggdrasil
             else
             {
                 int bookId = (int)bookList[0];
-                Modify_Chapter chapter = new Modify_Chapter(bookId,this);
+                int rowIndex = (int)bookList[1];
+                Modify_Chapter chapter = new Modify_Chapter(bookId,rowIndex,this);
                 chapter.Show();
                 this.Enabled = false;
             }
@@ -318,6 +321,7 @@ namespace Yggdrasil
         {
             bookList.Clear();
             bookList.Add(Convert.ToInt32(booksView[0,e.RowIndex].Value));
+            bookList.Add(Convert.ToInt32(e.RowIndex));
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -348,6 +352,11 @@ namespace Yggdrasil
         private void Manage_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Enabled = true;
+        }
+        
+        public static DataGridView getView()
+        {
+            return theView;
         }
     }
 }
