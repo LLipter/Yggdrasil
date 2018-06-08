@@ -383,6 +383,12 @@ namespace Yggdrasil
             }
 
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmBookReport frmReport = new frmBookReport(bookList);
+            frmReport.ShowDialog();
+        }
     }
 }
 
