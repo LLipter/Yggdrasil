@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Collections;
 using System.Net;
 using System.IO;
+using System.Drawing;
 
 namespace Yggdrasil.Model
 {
@@ -460,6 +461,81 @@ namespace Yggdrasil.Model
             }
             return 1;
         }
+
+
+        public static int addBook(string bookname, string info, string imagepath)
+        {
+            Bitmap bmp = new Bitmap(imagepath);
+            MemoryStream ms = new MemoryStream();
+            bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arr = new byte[ms.Length];
+            ms.Position = 0;
+            ms.Read(arr, 0, (int)ms.Length);
+            ms.Close();
+            string cover = Convert.ToBase64String(arr);
+
+
+            Random rd = new Random();
+            char[] randchar = new char[10];
+            for(int i = 0; i < 10; i++)
+            {
+                int randNumber = rd.Next(26);
+                randchar[i] = (char)(randNumber + 'a');
+            }
+            string location = new String(randchar);
+
+            MySqlConnection conn = openConn();
+            if (conn == null)
+                return -1;  // -1 means cannot connect to database
+            string sqlStr = string.Format("INSERT INTO book(book_name,location) VALUES('{0}','{1}');", bookname,location);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+            // Prepare data
+            string url = "http://www.irran.top:8080/Yggdrasil/addbook";
+            string postData = string.Format("location={0}&info={1}&cover={2}", location, info,cover);
+            byte[] data = Encoding.UTF8.GetBytes(postData);
+
+            // Prepare web request...  
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            request.ContentLength = data.Length;
+            Stream newStream = request.GetRequestStream();
+
+            // Send the data.  
+            newStream.Write(data, 0, data.Length);
+            newStream.Close();
+
+            // Get response  
+            HttpWebResponse myResponse = (HttpWebResponse)request.GetResponse();
+            if (myResponse.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine(((HttpWebResponse)myResponse).StatusDescription);
+                return -2; // some error
+            }
+            return 1;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public static int getBookByIDInAdmin(ref Book book, int bookId)
         {
             MySqlConnection conn = openConn();
