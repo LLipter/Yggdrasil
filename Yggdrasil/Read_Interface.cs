@@ -35,8 +35,14 @@ namespace Yggdrasil
                 content = content.Replace("\n", "\r\n");
                 totalPage = Convert.ToInt32(content.Length / 500) + 1;
                 head = (pageNumber - 1) * 500;
-                BookContents.Text = content.Substring(head, 500);
-
+                if (content.Length >= 500)
+                {
+                    BookContents.Text = content.Substring(head, 500);
+                }
+                else
+                {
+                    BookContents.Text = content.Substring(head, content.Length - head - 1);
+                }
                 FirstPage.Close();
                 sr.Close();
                 wc.Dispose();

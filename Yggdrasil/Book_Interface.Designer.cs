@@ -55,7 +55,7 @@
             this.BookNameLabel.Size = new System.Drawing.Size(124, 25);
             this.BookNameLabel.TabIndex = 0;
             this.BookNameLabel.Text = "BookName";
-            this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
+            
             // 
             // pictureBox1
             // 
@@ -66,7 +66,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            
             // 
             // ChapterBox
             // 
@@ -100,11 +100,11 @@
             this.Summary.ReadOnly = true;
             this.Summary.Size = new System.Drawing.Size(425, 227);
             this.Summary.TabIndex = 4;
-            this.Summary.TextChanged += new System.EventHandler(this.SummaryBox_TextChanged);
+            
             // 
             // BeginReadButton
             // 
-            this.BeginReadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BeginReadButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.BeginReadButton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BeginReadButton.Location = new System.Drawing.Point(347, 353);
             this.BeginReadButton.Name = "BeginReadButton";
@@ -113,8 +113,6 @@
             this.BeginReadButton.Text = "Begin to Read";
             this.BeginReadButton.UseVisualStyleBackColor = false;
             this.BeginReadButton.Click += new System.EventHandler(this.BeginReadButton_Click);
-            this.BeginReadButton.MouseEnter += new System.EventHandler(this.BeginReadButton_OnMouseEnter);
-            this.BeginReadButton.MouseLeave += new System.EventHandler(this.BeginReadButton_OnMouseLeave);
             // 
             // ContinueReadButton
             // 

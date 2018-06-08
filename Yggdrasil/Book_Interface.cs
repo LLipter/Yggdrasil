@@ -73,20 +73,7 @@ namespace Yggdrasil
 
         }
         //This imcomplete function may be useful if you want to improve the performance
-        private void BookNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SummaryBox_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
+        
 
         private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -117,18 +104,6 @@ namespace Yggdrasil
             {
                 MessageBox.Show("Please check your network");
             }
-        }
-        private void BeginReadButton_OnMouseEnter(object sender, EventArgs e)
-        {
-            string path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
-            path += @"\pic\button2.png";
-            BeginReadButton.BackgroundImage = Image.FromFile(path);
-        }
-        private void BeginReadButton_OnMouseLeave(object sender, EventArgs e)
-        {
-            string path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
-            path += @"\pic\button1.png";
-            BeginReadButton.BackgroundImage = Image.FromFile(path);
         }
 
         public string getBookURL()
