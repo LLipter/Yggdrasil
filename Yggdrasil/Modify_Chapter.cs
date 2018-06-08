@@ -88,11 +88,17 @@ namespace Yggdrasil
             else if(content != initCon && author == "")
             {
             DatabaseUtility.modifyBookContent(book, chapterNo, content);
-            }else if(content == initCon && author != "")
+            DatabaseUtility.updateModifyDateByBookId(bookId);
+            }
+            else if(content == initCon && author != "")
             {
                 if(DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
                 {
                     MessageBox.Show("There already exists the author!");
+                }
+                else
+                {
+                    DatabaseUtility.updateModifyDateByBookId(bookId);
                 }
             }
             else
@@ -101,8 +107,8 @@ namespace Yggdrasil
                 if (DatabaseUtility.modifyAuthorByName(author, bookId) == 0)
                 {
                     MessageBox.Show("There already exists the author!");
-
                 }
+                DatabaseUtility.updateModifyDateByBookId(bookId);
             }
             chapterBox.Text = "";
             authorBox.Text = "";
@@ -129,17 +135,17 @@ namespace Yggdrasil
         {
             string newContent = newBookContent.Text.ToString();
             int newChapNo = book.Chapter_no + 1;
-            newChapterNoLabel.Text = newChapNo.ToString();
-            if(newChapNo > book.Chapter_no) {
+            newChapterNoLabel.Text = string.Format("New Chapter : {0}", newChapNo);
+            if (newChapNo > book.Chapter_no) {
                 DatabaseUtility.updateChapterNoByBookId(newChapNo,bookId);
                 DatabaseUtility.modifyBookContent(book, newChapNo, newContent);
+                DatabaseUtility.updateModifyDateByBookId(bookId);
             }
             else
             {
                 MessageBox.Show("Please enter the book content!");
             }
             refresh();
-            newChapterNoLabel.Text = "New Chapter";
             newBookContent.Text = "";
         }
 

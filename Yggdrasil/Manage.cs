@@ -135,6 +135,9 @@ namespace Yggdrasil
                                 }
                                 break;
                         }
+                        int theBookId = Convert.ToInt32(booksView[0, i].Value.ToString());
+                        booksView[8, i].Value = System.DateTime.Now;
+                        DatabaseUtility.updateModifyDateByBookId(theBookId);
                     }
                 }
             }

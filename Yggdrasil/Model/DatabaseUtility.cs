@@ -582,6 +582,22 @@ namespace Yggdrasil.Model
             return 1;
         }
 
+        public static int updateModifyDateByBookId(int bookId)
+        {
+            MySqlConnection conn = openConn();
+
+            if (conn == null)
+                return -1;
+            DateTime currentTime = System.DateTime.Now;
+            string sqlStr = string.Format("UPDATE book SET modify_date = '{0}' WHERE book_id = '{1}' ", currentTime, bookId);
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return 0; // error
+            }
+            return 1;
+        }
+
     }
 
 
