@@ -60,6 +60,7 @@
             this.booksView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellClick);
             this.booksView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.booksView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksView_CellValueChanged);
+            this.booksView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.booksView_EditingControlShowing);
             this.booksView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.booksView_KeyPress);
             // 
             // bookListLabel

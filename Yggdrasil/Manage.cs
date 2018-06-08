@@ -97,19 +97,6 @@ namespace Yggdrasil
                                     break;
                                 }
                                 break;
-                            case 2:
-                                bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
-                                otherId = Convert.ToInt32(changedItem[j, i]);
-                                string sqlStr2 = string.Format("UPDATE book_type " +
-                                                               "SET type_id = '{0}' " +
-                                                               "WHERE book_id = '{1}' ", otherId, bookId);
-                                cmd = new MySqlCommand(sqlStr2, conn);
-                                if (cmd.ExecuteNonQuery() == 0)
-                                {
-                                    MessageBox.Show("There is something wrong with updating!");
-                                    break;
-                                }
-                                break;
                             case 4:
                                 bookId = Convert.ToInt32(booksView[0, i].Value.ToString());
                                 otherId = Convert.ToInt32(changedItem[j, i]);
@@ -153,16 +140,39 @@ namespace Yggdrasil
             int erow = e.RowIndex;
             byte[] utf8 = Encoding.UTF8.GetBytes(booksView[ecolumn, erow].Value.ToString());
             string value = Encoding.UTF8.GetString(utf8);
-            if (value != "")
+            switch (ecolumn)
             {
-                switch (ecolumn)
-                {
-                    case 3:
+                case 1:
+                    if (value == "")
+                    {
+                        conn.Open();
+                        MessageBox.Show("The cell can't be empty!");
+                        int bookId11 = Convert.ToInt32(booksView[0, erow].Value.ToString());
+                        string sql11 = string.Format("SELECT book_name FROM book WHERE book_id = '{0}' ", bookId11);
+                        MySqlCommand cmd11 = conn.CreateCommand();
+                        cmd11.CommandText = sql11;
+                        MySqlDataReader reader11 = cmd11.ExecuteReader();
+                        string oldBook = "";
+                        while (reader11.Read())
+                            oldBook = reader11.GetString("book_name");
+                        reader11.Close();
+                        conn.Close();
+                        booksView[ecolumn, erow].Value = oldBook;
+                        break;
+                    }
+                    else
+                    {
+                        changedItem[ecolumn, erow] = value;
+                        break;
+                    }
+                case 3:
+                    if (value != "")
+                    {
                         conn.Open();
 
                         string tempSql1 = "SELECT type_name FROM type ";
                         string tempSql2 = string.Format("INSERT INTO type(type_name) values('{0}') ", value);
-                     
+
                         if (compareInDb(tempSql1, value, "type_name") == 0)
                         {
                             MySqlCommand tempCmd = new MySqlCommand(tempSql2, conn);
@@ -183,9 +193,16 @@ namespace Yggdrasil
 
 
                         int theBookId = Convert.ToInt32(booksView[0, erow].Value.ToString());
-                        string tempSql0 = "SELECT book_id FROM book_type ";
-                        if (compareInBT(tempSql0,theBookId) == 0)
+                        string tempSql0 = "SELECT book_id,type_id FROM book_type ";
+                        if (compareInBT(tempSql0, theBookId, newTypeId) == 0)
                         {
+                            string sqlStr = string.Format("DELETE FROM book_type WHERE book_id = '{0}' ", theBookId);
+                            MySqlCommand cmd0 = new MySqlCommand(sqlStr, conn);
+                            if (cmd0.ExecuteNonQuery() == 0)
+                            {
+                                MessageBox.Show("There is something wrong with inserting!");
+                            }
+
                             string tempSql = string.Format("INSERT INTO book_type(book_id,type_id) values('{0}','{1}') ", theBookId, newTypeId);
                             MySqlCommand tempCmd = new MySqlCommand(tempSql, conn);
                             if (tempCmd.ExecuteNonQuery() == 0)
@@ -199,7 +216,27 @@ namespace Yggdrasil
                         }
                         conn.Close();
                         break;
-                    case 5:
+                    }
+                    else
+                    {
+                        conn.Open();
+                        MessageBox.Show("The cell can't be empty!");
+                        int typeId = Convert.ToInt32(booksView[ecolumn - 1, erow].Value.ToString());
+                        string sql12 = string.Format("SELECT type_name FROM type WHERE type_id = '{0}' ",typeId);
+                        MySqlCommand cmd12 = conn.CreateCommand();
+                        cmd12.CommandText = sql12;
+                        MySqlDataReader reader12 = cmd12.ExecuteReader();
+                        string oldType = "";
+                        while (reader12.Read())
+                            oldType = reader12.GetString("type_name");
+                        reader12.Close();
+                        conn.Close();
+                        booksView[ecolumn, erow].Value = oldType;
+                        break;
+                    }
+                case 5:
+                    if (value != "")
+                    {
                         conn.Open();
 
                         string tempSql4 = "SELECT publisher_name FROM publisher ";
@@ -225,34 +262,49 @@ namespace Yggdrasil
                         reader6.Close();
                         conn.Close();
                         break;
-                    case 6:
-                        int status = Convert.ToInt32(value);
-                        if (status == 0 || status == 1)
-                        {
-                            changedItem[ecolumn, erow] = value;
-                        }
-                        else
-                        {
-                            conn.Open();
-                            MessageBox.Show("The status must be 0 or 1");
-                            int bookId = Convert.ToInt32(booksView[0, erow].Value.ToString());
-                            string tempSql7 = string.Format("SELECT book_status FROM book WHERE book_id = '{0}' ", bookId);
-                            MySqlCommand cmd7 = conn.CreateCommand();
-                            cmd7.CommandText = tempSql7;
-                            MySqlDataReader reader7 = cmd7.ExecuteReader();
-                            int oldStatus = 0;
-                            while (reader7.Read())
-                                oldStatus = reader7.GetInt32(reader7.GetOrdinal("book_status"));
-                            booksView[ecolumn, erow].Value = oldStatus;
-                            reader7.Close();
-                            conn.Close();
-                        }
+                    }
+                    else
+                    {
+                        conn.Open();
+                        MessageBox.Show("The cell can't be empty!");
+                        int publisherId = Convert.ToInt32(booksView[ecolumn - 1, erow].Value.ToString());
+                        string sql13 = string.Format("SELECT publisher_name FROM publisher WHERE publisher_id = '{0}' ", publisherId);
+                        MySqlCommand cmd13 = conn.CreateCommand();
+                        cmd13.CommandText = sql13;
+                        MySqlDataReader reader13 = cmd13.ExecuteReader();
+                        string oldPublisher = "";
+                        while (reader13.Read())
+                            oldPublisher = reader13.GetString("publisher_name");
+                        reader13.Close();
+                        conn.Close();
+                        booksView[ecolumn, erow].Value = oldPublisher;
                         break;
-                    default:
+                    }
+                case 6:
+                    int status = Convert.ToInt32(value);
+                    if (status == 0 || status == 1)
+                    {
                         changedItem[ecolumn, erow] = value;
-                        break;
-                }
+                    }
+                    else
+                    {
+                        conn.Open();
+                        MessageBox.Show("The status must be 0 or 1");
+                        int bookId14 = Convert.ToInt32(booksView[0, erow].Value.ToString());
+                        string tempSql7 = string.Format("SELECT book_status FROM book WHERE book_id = '{0}' ", bookId14);
+                        MySqlCommand cmd7 = conn.CreateCommand();
+                        cmd7.CommandText = tempSql7;
+                        MySqlDataReader reader7 = cmd7.ExecuteReader();
+                        int oldStatus = 0;
+                        while (reader7.Read())
+                            oldStatus = reader7.GetInt32(reader7.GetOrdinal("book_status"));
+                        booksView[ecolumn, erow].Value = oldStatus;
+                        reader7.Close();
+                        conn.Close();
+                    }
+                    break;
             }
+            
         }
 
         private int compareInDb(string sqlStr, string value,string goal)
@@ -271,7 +323,7 @@ namespace Yggdrasil
             return count;
         }
 
-        private int compareInBT(string sqlStr, int value)
+        private int compareInBT(string sqlStr, int value, int theTypeId)
         {
             int count = 0;
             MySqlCommand cmd = conn.CreateCommand();
@@ -279,8 +331,9 @@ namespace Yggdrasil
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                int result = reader.GetInt32(reader.GetOrdinal("book_id"));
-                if (result == value)
+                int resultBI = reader.GetInt32(reader.GetOrdinal("book_id"));
+                int resultTI = reader.GetInt32(reader.GetOrdinal("type_id"));
+                if (resultBI == value && resultTI == theTypeId)
                     count++;
             }
             reader.Close();
@@ -320,6 +373,8 @@ namespace Yggdrasil
         private void booksView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             bookList.Clear();
+            if (e.RowIndex == -1)
+                return;
             bookList.Add(Convert.ToInt32(booksView[0,e.RowIndex].Value));
             bookList.Add(Convert.ToInt32(e.RowIndex));
         }
@@ -357,6 +412,22 @@ namespace Yggdrasil
         public static DataGridView getView()
         {
             return theView;
+        }
+
+        private void TextBoxDec_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void booksView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (this.booksView.CurrentCell.ColumnIndex == 6)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(TextBoxDec_KeyPress);
+            }
         }
     }
 }
