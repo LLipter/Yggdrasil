@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 public class AddBook extends HttpServlet{
 
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
 			String location = req.getParameter("location");
