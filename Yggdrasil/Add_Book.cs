@@ -31,6 +31,11 @@ namespace Yggdrasil
         private void CommitButton_Click(object sender, EventArgs e)
         {
             int situation;
+            string bookName,bookInfo;
+            bookName = BookNameBox.Text.Replace("\\", "\\\\");
+            bookName = BookNameBox.Text.Replace("'", "\\'");
+            bookInfo = InfoBox.Text.Replace("\\", "\\\\");
+            bookInfo = InfoBox.Text.Replace("'", "\\'");
             if (IsInternetAvailable())
             {
                 if (BookNameBox.Text == "")
@@ -43,7 +48,7 @@ namespace Yggdrasil
                 {
                     MessageBox.Show("Please select one cover Img");
                 }
-                situation = DatabaseUtility.addBook(BookNameBox.Text, InfoBox.Text, openImgDialog.FileName);
+                situation = DatabaseUtility.addBook(bookName, bookInfo, openImgDialog.FileName);
                 if(situation == 1)
                 {
                     MessageBox.Show("Add successful!");

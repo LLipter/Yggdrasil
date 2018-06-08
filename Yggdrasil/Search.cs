@@ -32,9 +32,10 @@ namespace Yggdrasil
         }
 
         public Search(string name,Form mainForm)
-        {
+        {   
             InitializeComponent();
             initList();
+
             searchText.Text = name;
             this.mainForm = mainForm;
             byte[] utf8 = Encoding.UTF8.GetBytes(name);
@@ -150,7 +151,10 @@ namespace Yggdrasil
 
         private int getData(String name)
         {
-            if (DatabaseUtility.getBookByName(ref bookList, name) == -1)
+            string SearchItem;
+            SearchItem = name.Replace("\\", "\\\\");
+            SearchItem = name.Replace("'", "\\'");
+            if (DatabaseUtility.getBookByName(ref bookList, SearchItem) == -1)
             {
                 MessageBox.Show("Error, the network doesn't connect!");
                 return -1;

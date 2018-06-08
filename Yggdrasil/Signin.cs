@@ -23,6 +23,13 @@ namespace Yggdrasil
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
+            string Acount, NickName,password;
+            Acount = txtAccount.Text.Replace("\\", "\\\\");
+            Acount = txtAccount.Text.Replace("'", "\\'");
+            NickName  = txtAccount.Text.Replace("\\", "\\\\");
+            NickName  = txtAccount.Text.Replace("'", "\\'");
+            password  = txtAccount.Text.Replace("\\", "\\\\");
+            password  = txtAccount.Text.Replace("'", "\\'");
 
             if (txtAccount.Text == "") { MessageBox.Show("Please input username!"); }
             else if (txtPassword.Text == "") { MessageBox.Show("Please input password!"); }
@@ -36,11 +43,15 @@ namespace Yggdrasil
                 else
                 {
                     User currentUser = new User();
-                    currentUser.User_name = txtAccount.Text;
-                    currentUser.Passwd = txtPassword.Text;
-                    currentUser.Nick_name = txtNickname.Text;
+                    currentUser.User_name = Acount ;
+                    currentUser.Passwd = password;
+                    currentUser.Nick_name = NickName;
                     int situation = DatabaseUtility.register(ref currentUser);
                     if (situation == -1) { MessageBox.Show("You have some problems about the Internet!"); }
+                    else if(situation == -2)
+                    {
+                        MessageBox.Show("Duplicate user name!");
+                    }
                     else
                     {
                         MessageBox.Show("You have signed in successfully!", "Success!",MessageBoxButtons.OK);

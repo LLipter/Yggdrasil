@@ -79,7 +79,7 @@ namespace Yggdrasil
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
+        {  
             if (IsInternetAvailable())
             {
                 if (txtSearch.Text != "")
