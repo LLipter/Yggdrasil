@@ -57,9 +57,10 @@
             this.book1.AutoSize = true;
             this.book1.BackColor = System.Drawing.Color.White;
             this.book1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book1.Location = new System.Drawing.Point(107, 246);
+            this.book1.Location = new System.Drawing.Point(80, 197);
+            this.book1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book1.Name = "book1";
-            this.book1.Size = new System.Drawing.Size(0, 26);
+            this.book1.Size = new System.Drawing.Size(0, 19);
             this.book1.TabIndex = 6;
             // 
             // book2
@@ -67,9 +68,10 @@
             this.book2.AutoSize = true;
             this.book2.BackColor = System.Drawing.Color.White;
             this.book2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book2.Location = new System.Drawing.Point(322, 246);
+            this.book2.Location = new System.Drawing.Point(242, 197);
+            this.book2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book2.Name = "book2";
-            this.book2.Size = new System.Drawing.Size(0, 26);
+            this.book2.Size = new System.Drawing.Size(0, 19);
             this.book2.TabIndex = 7;
             // 
             // book3
@@ -77,9 +79,10 @@
             this.book3.AutoSize = true;
             this.book3.BackColor = System.Drawing.Color.White;
             this.book3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book3.Location = new System.Drawing.Point(613, 246);
+            this.book3.Location = new System.Drawing.Point(460, 197);
+            this.book3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book3.Name = "book3";
-            this.book3.Size = new System.Drawing.Size(0, 26);
+            this.book3.Size = new System.Drawing.Size(0, 19);
             this.book3.TabIndex = 8;
             // 
             // book4
@@ -87,9 +90,10 @@
             this.book4.AutoSize = true;
             this.book4.BackColor = System.Drawing.Color.White;
             this.book4.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book4.Location = new System.Drawing.Point(107, 417);
+            this.book4.Location = new System.Drawing.Point(80, 334);
+            this.book4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book4.Name = "book4";
-            this.book4.Size = new System.Drawing.Size(0, 26);
+            this.book4.Size = new System.Drawing.Size(0, 19);
             this.book4.TabIndex = 9;
             // 
             // book5
@@ -97,9 +101,10 @@
             this.book5.AutoSize = true;
             this.book5.BackColor = System.Drawing.Color.White;
             this.book5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book5.Location = new System.Drawing.Point(346, 417);
+            this.book5.Location = new System.Drawing.Point(260, 334);
+            this.book5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book5.Name = "book5";
-            this.book5.Size = new System.Drawing.Size(0, 26);
+            this.book5.Size = new System.Drawing.Size(0, 19);
             this.book5.TabIndex = 10;
             // 
             // book6
@@ -107,16 +112,19 @@
             this.book6.AutoSize = true;
             this.book6.BackColor = System.Drawing.Color.White;
             this.book6.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.book6.Location = new System.Drawing.Point(613, 417);
+            this.book6.Location = new System.Drawing.Point(460, 334);
+            this.book6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.book6.Name = "book6";
-            this.book6.Size = new System.Drawing.Size(0, 26);
+            this.book6.Size = new System.Drawing.Size(0, 19);
             this.book6.TabIndex = 11;
             // 
             // LastPageButton
             // 
-            this.LastPageButton.Location = new System.Drawing.Point(137, 453);
+            this.LastPageButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LastPageButton.Location = new System.Drawing.Point(103, 362);
+            this.LastPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LastPageButton.Name = "LastPageButton";
-            this.LastPageButton.Size = new System.Drawing.Size(109, 41);
+            this.LastPageButton.Size = new System.Drawing.Size(100, 33);
             this.LastPageButton.TabIndex = 12;
             this.LastPageButton.Text = "Last page";
             this.LastPageButton.UseVisualStyleBackColor = true;
@@ -124,9 +132,11 @@
             // 
             // NextPageButton
             // 
-            this.NextPageButton.Location = new System.Drawing.Point(581, 453);
+            this.NextPageButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NextPageButton.Location = new System.Drawing.Point(436, 362);
+            this.NextPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NextPageButton.Name = "NextPageButton";
-            this.NextPageButton.Size = new System.Drawing.Size(92, 41);
+            this.NextPageButton.Size = new System.Drawing.Size(104, 33);
             this.NextPageButton.TabIndex = 13;
             this.NextPageButton.Text = "Next page";
             this.NextPageButton.UseVisualStyleBackColor = true;
@@ -134,10 +144,12 @@
             // 
             // PagecomboBox
             // 
+            this.PagecomboBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PagecomboBox.FormattingEnabled = true;
-            this.PagecomboBox.Location = new System.Drawing.Point(351, 463);
+            this.PagecomboBox.Location = new System.Drawing.Point(264, 366);
+            this.PagecomboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PagecomboBox.Name = "PagecomboBox";
-            this.PagecomboBox.Size = new System.Drawing.Size(121, 23);
+            this.PagecomboBox.Size = new System.Drawing.Size(122, 29);
             this.PagecomboBox.TabIndex = 14;
             this.PagecomboBox.SelectedIndexChanged += new System.EventHandler(this.PagecomboBox_SelectedIndexChanged);
             // 
@@ -146,9 +158,10 @@
             this.EmptyMessageLabel.AutoSize = true;
             this.EmptyMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.EmptyMessageLabel.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EmptyMessageLabel.Location = new System.Drawing.Point(84, 52);
+            this.EmptyMessageLabel.Location = new System.Drawing.Point(63, 42);
+            this.EmptyMessageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmptyMessageLabel.Name = "EmptyMessageLabel";
-            this.EmptyMessageLabel.Size = new System.Drawing.Size(669, 40);
+            this.EmptyMessageLabel.Size = new System.Drawing.Size(543, 31);
             this.EmptyMessageLabel.TabIndex = 15;
             this.EmptyMessageLabel.Text = "You haven\'t add any books to your favorite";
             // 
@@ -156,9 +169,10 @@
             // 
             this.image5.BackColor = System.Drawing.Color.Transparent;
             this.image5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image5.Location = new System.Drawing.Point(341, 290);
+            this.image5.Location = new System.Drawing.Point(256, 232);
+            this.image5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image5.Name = "image5";
-            this.image5.Size = new System.Drawing.Size(143, 107);
+            this.image5.Size = new System.Drawing.Size(107, 86);
             this.image5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image5.TabIndex = 5;
             this.image5.TabStop = false;
@@ -168,9 +182,10 @@
             // 
             this.image6.BackColor = System.Drawing.Color.Transparent;
             this.image6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image6.Location = new System.Drawing.Point(601, 290);
+            this.image6.Location = new System.Drawing.Point(451, 232);
+            this.image6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image6.Name = "image6";
-            this.image6.Size = new System.Drawing.Size(143, 107);
+            this.image6.Size = new System.Drawing.Size(107, 86);
             this.image6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image6.TabIndex = 4;
             this.image6.TabStop = false;
@@ -180,9 +195,10 @@
             // 
             this.image4.BackColor = System.Drawing.Color.Transparent;
             this.image4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image4.Location = new System.Drawing.Point(103, 290);
+            this.image4.Location = new System.Drawing.Point(77, 232);
+            this.image4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image4.Name = "image4";
-            this.image4.Size = new System.Drawing.Size(143, 107);
+            this.image4.Size = new System.Drawing.Size(107, 86);
             this.image4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image4.TabIndex = 3;
             this.image4.TabStop = false;
@@ -192,9 +208,10 @@
             // 
             this.image3.BackColor = System.Drawing.Color.Transparent;
             this.image3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image3.Location = new System.Drawing.Point(601, 119);
+            this.image3.Location = new System.Drawing.Point(451, 95);
+            this.image3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image3.Name = "image3";
-            this.image3.Size = new System.Drawing.Size(143, 107);
+            this.image3.Size = new System.Drawing.Size(107, 86);
             this.image3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image3.TabIndex = 2;
             this.image3.TabStop = false;
@@ -204,9 +221,10 @@
             // 
             this.image2.BackColor = System.Drawing.Color.Transparent;
             this.image2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image2.Location = new System.Drawing.Point(341, 119);
+            this.image2.Location = new System.Drawing.Point(256, 95);
+            this.image2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image2.Name = "image2";
-            this.image2.Size = new System.Drawing.Size(143, 107);
+            this.image2.Size = new System.Drawing.Size(107, 86);
             this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image2.TabIndex = 1;
             this.image2.TabStop = false;
@@ -216,9 +234,10 @@
             // 
             this.image1.BackColor = System.Drawing.Color.Transparent;
             this.image1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.image1.Location = new System.Drawing.Point(103, 119);
+            this.image1.Location = new System.Drawing.Point(77, 95);
+            this.image1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.image1.Name = "image1";
-            this.image1.Size = new System.Drawing.Size(143, 107);
+            this.image1.Size = new System.Drawing.Size(107, 86);
             this.image1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image1.TabIndex = 0;
             this.image1.TabStop = false;
@@ -226,11 +245,11 @@
             // 
             // User_Collection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Yggdrasil.Properties.Resources._67673198_p0_master1200;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(847, 506);
+            this.ClientSize = new System.Drawing.Size(635, 405);
             this.Controls.Add(this.EmptyMessageLabel);
             this.Controls.Add(this.PagecomboBox);
             this.Controls.Add(this.NextPageButton);
@@ -247,6 +266,7 @@
             this.Controls.Add(this.image3);
             this.Controls.Add(this.image2);
             this.Controls.Add(this.image1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "User_Collection";
             this.Text = "User_Collection";
