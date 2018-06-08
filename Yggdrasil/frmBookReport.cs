@@ -15,6 +15,7 @@ namespace Yggdrasil
     public partial class frmBookReport : Form
     {
         private Form manageForm;
+        private ArrayList books = null;
 
         public frmBookReport()
         {
@@ -28,10 +29,20 @@ namespace Yggdrasil
             manageForm = theForm;
         }
 
+        public frmBookReport(ArrayList books)
+        {
+            InitializeComponent();
+            this.books = books;
+
+        }
+
         private void frmBookReport_Load(object sender, EventArgs e)
         {
             ArrayList books = null;
-            int res = DatabaseUtility.getBookByName(ref books, "_");
+            if (this.books != null)
+                books = this.books;
+            else
+                DatabaseUtility.getBookByName(ref books, "_");
 
             YggdrasilDataSet ds = new YggdrasilDataSet();
             BookReport cr = new BookReport();
@@ -63,7 +74,8 @@ namespace Yggdrasil
 
         private void frmBookReport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            manageForm.Enabled = true;
+            if(manageForm != null)
+                manageForm.Enabled = true;
         }
     }
 }
