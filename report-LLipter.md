@@ -1,3 +1,11 @@
+#Where's our project
+---
+We use `git` to control the version of our project, which make teamwork eaiser. Also, we create a repository on `github`.
+
+Here's the link to our project.
+
+[https://github.com/Irran/Yggdrasil](https://github.com/Irran/Yggdrasil)
+
 #How to collect data
 ---
 To get enough book data, I write a crawler by python to collect those data.
