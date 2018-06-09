@@ -22,14 +22,14 @@ namespace Yggdrasil
 
 
         private void btnCommit_Click(object sender, EventArgs e)
-        {
+        {   
             string Acount, NickName,password;
             Acount = txtAccount.Text.Replace("\\", "\\\\");
             Acount = txtAccount.Text.Replace("'", "\\'");
-            NickName  = txtAccount.Text.Replace("\\", "\\\\");
-            NickName  = txtAccount.Text.Replace("'", "\\'");
-            password  = txtAccount.Text.Replace("\\", "\\\\");
-            password  = txtAccount.Text.Replace("'", "\\'");
+            NickName  = txtNickname.Text.Replace("\\", "\\\\");
+            NickName  = txtNickname.Text.Replace("'", "\\'");
+            password  = txtPassword.Text.Replace("\\", "\\\\");
+            password  = txtPassword.Text.Replace("'", "\\'");
 
             if (txtAccount.Text == "") { MessageBox.Show("Please input username!"); }
             else if (txtPassword.Text == "") { MessageBox.Show("Please input password!"); }
