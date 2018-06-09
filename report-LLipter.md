@@ -9,7 +9,9 @@ Here's the link to our project.
 #How to collect data
 ---
 To get enough book data, I write a crawler by python to collect those data.
+
 [https://www.booktxt.net/xiaoshuodaquan/](https://www.booktxt.net/xiaoshuodaquan/)
+
 In this website, there're around 3k books. By the benefits of multi-threading, the crawler can retrieve hundreds of books in just a few minutes.
 
 Here's the main part of my crawler
