@@ -63,7 +63,7 @@ mysql -h www.irran.top -u yggdrasil -p
 ---
 Client application will issue right formatted post request. I design a few servlet written in JAVA to process those request and modify data accordingly. 
 
-Here's one of my servlets
+These servlet will be deployed in Tomcat8.0 on my server. Here's one of my servlets.
 
 ~~~java
 	@Override
