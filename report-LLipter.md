@@ -93,3 +93,7 @@ These servlet will be deployed in Tomcat8.0 on my server. Here's one of my servl
 		}
 	}
 ~~~
+
+#Book Report
+---
+We use `Crystal Report` to generate a report about all detail information of our books. In management form, we can generate a full report containing all books information. In searching form, we can generate report based on what we have searched, a part of books.
