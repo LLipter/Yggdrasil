@@ -1,4 +1,4 @@
-﻿
+
 #Online Reading Application——Yggdrasil
 
 #Developing Tools:
@@ -31,6 +31,7 @@ To solve multi to multi problem, we add book_type table between book and type
 
 The ER diagram is like the following:
 ![](https://i.imgur.com/UG4tgIt.png)
+
 #3.1 Where's our database
 We use a server to deploy our database, which is at www.irran.top. We can login to this database through commend like this
 ```
@@ -42,6 +43,7 @@ To get enough book data, I write a crawler by python to collect those data.
 https://www.booktxt.net/xiaoshuodaquan/
 In this website, there're around 3k books. By the benefits of multi-threading, the crawler can retrieve hundreds of books in just a few minutes.
 Here's the main part of my crawler
+
 ```python
 def main(): 
     start_time = time.time()
@@ -73,17 +75,20 @@ We didn't store the content of books in database, instead, we store the content 
 All book contents will be stored under a directory named book. For specific book, there'e filed called chapter_no in our book table, which represents the total chapter number of a book. Books will be stored in a directory with name of its location. And each chapter will be stored in a txt file with chapter number as file name.
 Also, every book will have some introduction message stored in a file named info.txt and a cover image stored in a file named cover.jpg within the same directory.
 For instance, suppose there a book with following data
+
 ```
 {
 	"location":"qwerty",
 	"chapter_no:10
 }
 ```
+
 In this example, the first chapter will be stored in book/qwerty/1.txt. The second chapter will be stored in book/qwerty/2.txt. Book introduction will be stored in book/qwerty/info.txt. Cover image will be stored in book/qwerty/cover.jpg.
 
 #3.4 How to modify book content stored in our server
 Client application will issue right formatted post request. I design a few servlet written in JAVA to process those request and modify data accordingly.
 These servlet will be deployed in Tomcat8.0 on my server. Here's one of my servlets.
+
 ```
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -102,9 +107,10 @@ These servlet will be deployed in Tomcat8.0 on my server. Here's one of my servl
 		}
 	}
 ```
+
 #4 System: Interface and Form
 
-# #Create the Interface to show our book info
+#Create the Interface to show our book info
 First up, we need to figure out what functions we can provide with our users in this interface. Certainly the book title, summary, and the chapter information should be included in this interface. What's more, we hope users can read our books by selecting the chapter number. To make our application more powerful and user-friendly, we may as well add the **comment** function in this form, and users should also be able to add the current book to their **personal collection**. In this way, we build our form like this 
 
 ![](https://i.imgur.com/VVjoLP4.png)
@@ -131,7 +137,9 @@ First up, we need to figure out what functions we can provide with our users in 
         }
 ```
 So now we can avoid some network problem in our application and complete the function of **Submit** button and **Add to my favorite** button. Both the two button click-function have employed the function we define in our DatabaseUtility file. That is `setFavorite()` and `setComment()` and if the user have add the book to his favorite, the button should be changed to "Remove from favorite" so we also define `removeFavorite()`.
+
 ###So our code should be like
+
 ```C#
 private void CollectButton_Click(object sender, EventArgs e)
         {
@@ -183,7 +191,8 @@ private void CollectButton_Click(object sender, EventArgs e)
 ```
 ###And the code for comment submit button is very similar to it
 
-# #Create the Interface to read our book
+
+#Create the Interface to read our book
 So in the last form we have show our book info and allow user to select a chapter to read it. Then when user click the button `Begin to Read`, they will come to the interface where the chapter contents are shown here. Of course, we need to get the contents from our Database on the remote server by using mysql connection in C#. Since our books are stored in `txt file`, we can just get them by `StreamReader` in C# and show them in the textBox. And this interface should not be too complex, just give a clear look to user, which will make book contents stand out!
 
 ###Here is the view of this reading interface
@@ -197,7 +206,7 @@ Also we need to separate the whole chapter into many pages, and user can click n
 content = content.Replace("\n", "\r\n");
 ```
 
-# #Create the Interface show user's collection
+#Create the Interface show user's collection
 To make it convenient for users to find the books they are interested in. We add a function to collect the books as users' collection. And the collection is just a record between users and books, which is also stored in our Database. Everytime a user log in our application and check his collection books, it will send a request to the remote server and the `Java servlet` we create will handle this request and return the collection books of current user from the our Database. Then our form will show those books for users, and user can just click them to read. On the other hand, if the user haven't chosen any books, we should show them a text info to remind them.
 
 ###So the Form can be like:
