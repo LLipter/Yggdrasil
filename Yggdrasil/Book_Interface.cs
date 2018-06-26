@@ -78,6 +78,7 @@ namespace Yggdrasil
 
         private void ChapterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ContinueReadButton.Visible = false;
             bookURL = string.Format(@"http://www.irran.top:8080/Yggdrasil/book/"+currentBook.Location+"/"+ChapterBox.Text+".txt");
             chapNo = Convert.ToInt32(ChapterBox.Text);
         }
